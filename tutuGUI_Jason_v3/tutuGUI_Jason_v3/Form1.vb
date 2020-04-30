@@ -6,6 +6,8 @@ Public Class Form1
     Public dB_array(15) As Integer
     Public dB_array_compare(15) As Integer
     Public EQ_decimal_max_match_index As Integer
+    Public git_hub_test As Integer
+    Public git_hub_test2 As Integer
 
 
     Public Sub debug_into_form1()
