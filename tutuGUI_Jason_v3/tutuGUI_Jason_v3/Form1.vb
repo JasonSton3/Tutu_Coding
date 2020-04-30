@@ -6,8 +6,6 @@ Public Class Form1
     Public dB_array(15) As Integer
     Public dB_array_compare(15) As Integer
     Public EQ_decimal_max_match_index As Integer
-    Public git_hub_test As Integer
-    Public git_hub_test2 As Integer
 
 
     Public Sub debug_into_form1()
@@ -291,8 +289,8 @@ Public Class Form1
         'here b varies: 2, 6, 12
         Dim n As Integer = 5  'number of points
         Dim a As Integer
-        Dim EQ_chart(33) As Integer
-        Dim dB_chart(33) As Integer
+        Dim EQ_chart(35) As Integer
+        Dim dB_chart(35) As Integer
         Dim EQ_step As Integer = 1  'EQ_chart(0)不能動，所以此Step疊加參數要從1開始
         Dim dB_step As Integer = 1  'dB_chart(0)不能動，所以此Step疊加參數要從1開始
         Dim no_EQ_band_i As Integer
@@ -320,23 +318,115 @@ Public Class Form1
 
 
 
+        '-------------------------以下是確認頻寬後，在開始將EQ_end_freq_in_decimal的參數填到EQ Chart中; 因為會依據不同的頻寬, 在 遇到EQ chart中需要補滿最大頻帶的情況時可以正確填上最大的對應頻帶
 
-        For a = 1 To 16                 ' 將即將要被拿來畫圖的EQ_chart和 dB_Chart在之後沒用到的頻段(意即沒有值的頻段)全部補滿，follow最後一個有值的頻段, ex: 4000 or 8000...etc
-            If EQ_end_freq_in_Decimal(a - 1) <> 0 Then
-                'EQ_chart(a) = EQ_end_freq_in_Decimal(a - 1) ' EQ_chart(1) follow EQ_end_freq_in_Decimal(0); 因為EQ_Chart(0)已經強制設定為1，因為Log-X axis的需求
-                EQ_chart(EQ_step) = EQ_chart(EQ_step - 1) + 1
-                EQ_step += 1                        ' EQ_step is stepping by +1
-                EQ_chart(EQ_step) = EQ_end_freq_in_Decimal(a - 1)
-                EQ_step += 1                        ' EQ_step is stepping by +1
 
-                'dB_chart(a) = dB_array(a - 1)
-                dB_chart(dB_step) = dB_array(a - 1)
+        If UserControl12.CheckBox8.Checked = True Then   'NB checked
+            For a = 1 To 16                 ' 將即將要被拿來畫圖的EQ_chart和 dB_Chart在之後沒用到的頻段(意即沒有值的頻段)全部補滿，follow最後一個有值的頻段, ex: 4000 or 8000...etc
+                If EQ_end_freq_in_Decimal(a - 1) <> 0 Then
+                    'EQ_chart(a) = EQ_end_freq_in_Decimal(a - 1) ' EQ_chart(1) follow EQ_end_freq_in_Decimal(0); 因為EQ_Chart(0)已經強制設定為1，因為Log-X axis的需求
+                    EQ_chart(EQ_step) = EQ_chart(EQ_step - 1) + 1
+                    EQ_step += 1                        ' EQ_step is stepping by +1
+                    EQ_chart(EQ_step) = EQ_end_freq_in_Decimal(a - 1)
+                    EQ_step += 1                        ' EQ_step is stepping by +1
+                    'dB_chart(a) = dB_array(a - 1)
+                    dB_chart(dB_step) = dB_array(a - 1)
+                    dB_step += 1
+                    dB_chart(dB_step) = dB_chart(dB_step - 1)
+                    dB_step += 1
+                Else                        ' 把之後沒用到的頻段補上前一個頻段的end frequency hz; 把之後沒用到的頻段補上前一個頻段的dB 
+                    If EQ_chart(EQ_step - 1) < 4000 Then        ''若在EQ band 0~14中沒有填上NB的最大頻帶 4000的話，自動補上4000hz
+                        EQ_chart(EQ_step) = EQ_chart(EQ_step - 1) + 1   ' 
+                        EQ_step += 1                                ' EQ_step is stepping by +1
+                        EQ_chart(EQ_step) = 4000   ' 
+                        EQ_step += 1                                ' EQ_step is stepping by +1
+                        dB_chart(dB_step) = 0   ' 
+                        dB_step += 1                                ' dB_step is stepping by +1
+                        dB_chart(dB_step) = 0   ' 
+                        dB_step += 1                                ' dB_step is stepping by +1
+                    Else
+                        EQ_chart(EQ_step) = EQ_chart(EQ_step - 1)   ' Meaning next-cell value of EQ_Chart is equal to last-cell value of EQ_chart
+                        EQ_step += 1                                ' EQ_step is stepping by +1
+                        EQ_chart(EQ_step) = EQ_chart(EQ_step - 1)   ' Meaning next-cell value of EQ_Chart is equal to last-cell value of EQ_chart
+                        EQ_step += 1                                ' EQ_step is stepping by +1
+                        dB_chart(dB_step) = dB_chart(dB_step - 1)   ' Meaning next-cell value of dB_Chart is equal to last-cell value of dB_chart
+                        dB_step += 1                                ' dB_step is stepping by +1
+                        dB_chart(dB_step) = dB_chart(dB_step - 1)   ' Meaning next-cell value of dB_Chart is equal to last-cell value of dB_chart
+                        dB_step += 1                                ' dB_step is stepping by +1
+                    End If
+                End If
+            Next
+            '--------------------以下情況是當遇到EQ band(15)最後一個band 沒有填到當下頻寬的最大頻帶時，會自動在EQ chart補上最大頻帶 ex: under NB, EQ band(15) is 3000, this fuction will add a new band 3001hz to 4000 hz into EQ chart automatically
+            If EQ_chart(32) < 4000 Then
+                EQ_chart(EQ_step) = EQ_chart(EQ_step - 1) + 1   ' 
+                EQ_step += 1                                ' EQ_step is stepping by +1
+                EQ_chart(EQ_step) = 4000   ' 
+                EQ_step += 1                                ' EQ_step is stepping by +1
+                dB_chart(dB_step) = 0   ' 
+                dB_step += 1                                ' dB_step is stepping by +1
+                dB_chart(dB_step) = 0   ' 
+                dB_step += 1                                ' dB_step is stepping by +1
+            Else
+                EQ_chart(EQ_step) = EQ_chart(EQ_step - 1)   ' Meaning next-cell value of EQ_Chart is equal to last-cell value of EQ_chart
+                EQ_step += 1                                ' EQ_step is stepping by +1
+                EQ_chart(EQ_step) = EQ_chart(EQ_step - 1)   ' Meaning next-cell value of EQ_Chart is equal to last-cell value of EQ_chart
+                EQ_step += 1                                ' EQ_step is stepping by +1
+                dB_chart(dB_step) = dB_chart(dB_step - 1)   ' Meaning next-cell value of dB_Chart is equal to last-cell value of dB_chart
+                dB_step += 1                                ' dB_step is stepping by +1
+                dB_chart(dB_step) = dB_chart(dB_step - 1)   ' Meaning next-cell value of dB_Chart is equal to last-cell value of dB_chart
                 dB_step += 1
-                dB_chart(dB_step) = dB_chart(dB_step - 1)
-                dB_step += 1
-            Else                        ' 把之後沒用到的頻段補上前一個頻段的end frequency hz; 把之後沒用到的頻段補上前一個頻段的dB 
-                'EQ_chart(a) = EQ_chart(a - 1)
-                'dB_chart(a) = dB_chart(a - 1)
+            End If
+
+
+        ElseIf UserControl12.CheckBox9.Checked = True Then      'WB checked
+            For a = 1 To 16                 ' 將即將要被拿來畫圖的EQ_chart和 dB_Chart在之後沒用到的頻段(意即沒有值的頻段)全部補滿，follow最後一個有值的頻段, ex: 4000 or 8000...etc
+                If EQ_end_freq_in_Decimal(a - 1) <> 0 Then
+                    'EQ_chart(a) = EQ_end_freq_in_Decimal(a - 1) ' EQ_chart(1) follow EQ_end_freq_in_Decimal(0); 因為EQ_Chart(0)已經強制設定為1，因為Log-X axis的需求
+                    EQ_chart(EQ_step) = EQ_chart(EQ_step - 1) + 1
+                    EQ_step += 1                        ' EQ_step is stepping by +1
+                    EQ_chart(EQ_step) = EQ_end_freq_in_Decimal(a - 1)
+                    EQ_step += 1                        ' EQ_step is stepping by +1
+                    'dB_chart(a) = dB_array(a - 1)
+                    dB_chart(dB_step) = dB_array(a - 1)
+                    dB_step += 1
+                    dB_chart(dB_step) = dB_chart(dB_step - 1)
+                    dB_step += 1
+                Else                        ' 把之後沒用到的頻段補上前一個頻段的end frequency hz; 把之後沒用到的頻段補上前一個頻段的dB 
+                    If EQ_chart(EQ_step - 1) < 8000 Then   '若在EQ band 0~14中沒有填上WB的最大頻帶 8000的話，自動補上8000hz
+                        EQ_chart(EQ_step) = EQ_chart(EQ_step - 1) + 1   ' 
+                        EQ_step += 1                                ' EQ_step is stepping by +1
+                        EQ_chart(EQ_step) = 8000   ' 
+                        EQ_step += 1                                ' EQ_step is stepping by +1
+
+                        dB_chart(dB_step) = 0   ' 
+                        dB_step += 1                                ' dB_step is stepping by +1
+                        dB_chart(dB_step) = 0   ' 
+                        dB_step += 1                                ' dB_step is stepping by +1
+                    Else
+                        EQ_chart(EQ_step) = EQ_chart(EQ_step - 1)   ' Meaning next-cell value of EQ_Chart is equal to last-cell value of EQ_chart
+                        EQ_step += 1                                ' EQ_step is stepping by +1
+                        EQ_chart(EQ_step) = EQ_chart(EQ_step - 1)   ' Meaning next-cell value of EQ_Chart is equal to last-cell value of EQ_chart
+                        EQ_step += 1                                ' EQ_step is stepping by +1
+
+                        dB_chart(dB_step) = dB_chart(dB_step - 1)   ' Meaning next-cell value of dB_Chart is equal to last-cell value of dB_chart
+                        dB_step += 1                                ' dB_step is stepping by +1
+                        dB_chart(dB_step) = dB_chart(dB_step - 1)   ' Meaning next-cell value of dB_Chart is equal to last-cell value of dB_chart
+                        dB_step += 1                                ' dB_step is stepping by +1
+                    End If
+                End If
+            Next
+            '--------------------以下情況是當遇到EQ band(15)最後一個band 沒有填到當下頻寬的最大頻帶時，會自動在EQ chart補上最大頻帶 ex: under NB, EQ band(15) is 3000, this fuction will add a new band 3001hz to 4000 hz into EQ chart automatically
+            If EQ_chart(32) < 8000 Then
+                EQ_chart(EQ_step) = EQ_chart(EQ_step - 1) + 1   ' 
+                EQ_step += 1                                ' EQ_step is stepping by +1
+                EQ_chart(EQ_step) = 8000   ' 
+                EQ_step += 1                                ' EQ_step is stepping by +1
+
+                dB_chart(dB_step) = 0   ' 
+                dB_step += 1                                ' dB_step is stepping by +1
+                dB_chart(dB_step) = 0   ' 
+                dB_step += 1                                ' dB_step is stepping by +1
+            Else
                 EQ_chart(EQ_step) = EQ_chart(EQ_step - 1)   ' Meaning next-cell value of EQ_Chart is equal to last-cell value of EQ_chart
                 EQ_step += 1                                ' EQ_step is stepping by +1
                 EQ_chart(EQ_step) = EQ_chart(EQ_step - 1)   ' Meaning next-cell value of EQ_Chart is equal to last-cell value of EQ_chart
@@ -345,20 +435,143 @@ Public Class Form1
                 dB_chart(dB_step) = dB_chart(dB_step - 1)   ' Meaning next-cell value of dB_Chart is equal to last-cell value of dB_chart
                 dB_step += 1                                ' dB_step is stepping by +1
                 dB_chart(dB_step) = dB_chart(dB_step - 1)   ' Meaning next-cell value of dB_Chart is equal to last-cell value of dB_chart
+                dB_step += 1
+            End If
+
+
+        ElseIf UserControl12.CheckBox10.Checked = True Then     'SWB
+            For a = 1 To 16                 ' 將即將要被拿來畫圖的EQ_chart和 dB_Chart在之後沒用到的頻段(意即沒有值的頻段)全部補滿，follow最後一個有值的頻段, ex: 4000 or 8000...etc
+                If EQ_end_freq_in_Decimal(a - 1) <> 0 Then
+                    'EQ_chart(a) = EQ_end_freq_in_Decimal(a - 1) ' EQ_chart(1) follow EQ_end_freq_in_Decimal(0); 因為EQ_Chart(0)已經強制設定為1，因為Log-X axis的需求
+                    EQ_chart(EQ_step) = EQ_chart(EQ_step - 1) + 1
+                    EQ_step += 1                        ' EQ_step is stepping by +1
+                    EQ_chart(EQ_step) = EQ_end_freq_in_Decimal(a - 1)
+                    EQ_step += 1                        ' EQ_step is stepping by +1
+
+                    'dB_chart(a) = dB_array(a - 1)
+                    dB_chart(dB_step) = dB_array(a - 1)
+                    dB_step += 1
+                    dB_chart(dB_step) = dB_chart(dB_step - 1)
+                    dB_step += 1
+                Else                        ' 把之後沒用到的頻段補上前一個頻段的end frequency hz; 把之後沒用到的頻段補上前一個頻段的dB 
+                    If EQ_chart(EQ_step - 1) < 16000 Then
+
+                        EQ_chart(EQ_step) = EQ_chart(EQ_step - 1) + 1   ' 
+                        EQ_step += 1                                ' EQ_step is stepping by +1
+                        EQ_chart(EQ_step) = 16000   ' 
+                        EQ_step += 1                                ' EQ_step is stepping by +1
+
+                        dB_chart(dB_step) = 0   ' 
+                        dB_step += 1                                ' dB_step is stepping by +1
+                        dB_chart(dB_step) = 0   ' 
+                        dB_step += 1                                ' dB_step is stepping by +1
+                    Else
+                        EQ_chart(EQ_step) = EQ_chart(EQ_step - 1)   ' Meaning next-cell value of EQ_Chart is equal to last-cell value of EQ_chart
+                        EQ_step += 1                                ' EQ_step is stepping by +1
+                        EQ_chart(EQ_step) = EQ_chart(EQ_step - 1)   ' Meaning next-cell value of EQ_Chart is equal to last-cell value of EQ_chart
+                        EQ_step += 1                                ' EQ_step is stepping by +1
+
+                        dB_chart(dB_step) = dB_chart(dB_step - 1)   ' Meaning next-cell value of dB_Chart is equal to last-cell value of dB_chart
+                        dB_step += 1                                ' dB_step is stepping by +1
+                        dB_chart(dB_step) = dB_chart(dB_step - 1)   ' Meaning next-cell value of dB_Chart is equal to last-cell value of dB_chart
+                        dB_step += 1                                ' dB_step is stepping by +1
+                    End If
+
+                End If
+
+            Next
+            '--------------------以下情況是當遇到EQ band(15)最後一個band 沒有填到當下頻寬的最大頻帶時，會自動在EQ chart補上最大頻帶 ex: under NB, EQ band(15) is 3000, this fuction will add a new band 3001hz to 4000 hz into EQ chart automatically
+            If EQ_chart(32) < 16000 Then
+                EQ_chart(EQ_step) = EQ_chart(EQ_step - 1) + 1   ' 
+                EQ_step += 1                                ' EQ_step is stepping by +1
+                EQ_chart(EQ_step) = 16000   ' 
+                EQ_step += 1                                ' EQ_step is stepping by +1
+
+                dB_chart(dB_step) = 0   ' 
                 dB_step += 1                                ' dB_step is stepping by +1
+                dB_chart(dB_step) = 0   ' 
+                dB_step += 1                                ' dB_step is stepping by +1
+            Else
+                EQ_chart(EQ_step) = EQ_chart(EQ_step - 1)   ' Meaning next-cell value of EQ_Chart is equal to last-cell value of EQ_chart
+                EQ_step += 1                                ' EQ_step is stepping by +1
+                EQ_chart(EQ_step) = EQ_chart(EQ_step - 1)   ' Meaning next-cell value of EQ_Chart is equal to last-cell value of EQ_chart
+                EQ_step += 1                                ' EQ_step is stepping by +1
+
+                dB_chart(dB_step) = dB_chart(dB_step - 1)   ' Meaning next-cell value of dB_Chart is equal to last-cell value of dB_chart
+                dB_step += 1                                ' dB_step is stepping by +1
+                dB_chart(dB_step) = dB_chart(dB_step - 1)   ' Meaning next-cell value of dB_Chart is equal to last-cell value of dB_chart
+                dB_step += 1
 
             End If
 
-        Next
+
+        ElseIf UserControl12.CheckBox11.Checked = True Then     'FB
+            For a = 1 To 16                 ' 將即將要被拿來畫圖的EQ_chart和 dB_Chart在之後沒用到的頻段(意即沒有值的頻段)全部補滿，follow最後一個有值的頻段, ex: 4000 or 8000...etc
+                If EQ_end_freq_in_Decimal(a - 1) <> 0 Then
+                    'EQ_chart(a) = EQ_end_freq_in_Decimal(a - 1) ' EQ_chart(1) follow EQ_end_freq_in_Decimal(0); 因為EQ_Chart(0)已經強制設定為1，因為Log-X axis的需求
+                    EQ_chart(EQ_step) = EQ_chart(EQ_step - 1) + 1
+                    EQ_step += 1                        ' EQ_step is stepping by +1
+                    EQ_chart(EQ_step) = EQ_end_freq_in_Decimal(a - 1)
+                    EQ_step += 1                        ' EQ_step is stepping by +1
+                    'dB_chart(a) = dB_array(a - 1)
+                    dB_chart(dB_step) = dB_array(a - 1)
+                    dB_step += 1
+                    dB_chart(dB_step) = dB_chart(dB_step - 1)
+                    dB_step += 1
+                Else                        ' 把之後沒用到的頻段補上前一個頻段的end frequency hz; 把之後沒用到的頻段補上前一個頻段的dB 
+                    If EQ_chart(EQ_step - 1) < 24000 Then
+                        EQ_chart(EQ_step) = EQ_chart(EQ_step - 1) + 1   ' 
+                        EQ_step += 1                                ' EQ_step is stepping by +1
+                        EQ_chart(EQ_step) = 24000   ' 
+                        EQ_step += 1                                ' EQ_step is stepping by +1
+                        dB_chart(dB_step) = 0   ' 
+                        dB_step += 1                                ' dB_step is stepping by +1
+                        dB_chart(dB_step) = 0   ' 
+                        dB_step += 1                                ' dB_step is stepping by +1
+                    Else
+                        EQ_chart(EQ_step) = EQ_chart(EQ_step - 1)   ' Meaning next-cell value of EQ_Chart is equal to last-cell value of EQ_chart
+                        EQ_step += 1                                ' EQ_step is stepping by +1
+                        EQ_chart(EQ_step) = EQ_chart(EQ_step - 1)   ' Meaning next-cell value of EQ_Chart is equal to last-cell value of EQ_chart
+                        EQ_step += 1                                ' EQ_step is stepping by +1
+                        dB_chart(dB_step) = dB_chart(dB_step - 1)   ' Meaning next-cell value of dB_Chart is equal to last-cell value of dB_chart
+                        dB_step += 1                                ' dB_step is stepping by +1
+                        dB_chart(dB_step) = dB_chart(dB_step - 1)   ' Meaning next-cell value of dB_Chart is equal to last-cell value of dB_chart
+                        dB_step += 1                                ' dB_step is stepping by +1
+                    End If
+                End If
+            Next
+            '--------------------以下情況是當遇到EQ band(15)最後一個band 沒有填到當下頻寬的最大頻帶時，會自動在EQ chart補上最大頻帶 ex: under NB, EQ band(15) is 3000, this fuction will add a new band 3001hz to 4000 hz into EQ chart automatically
+            If EQ_chart(32) < 24000 Then
+                EQ_chart(EQ_step) = EQ_chart(EQ_step - 1) + 1   ' 
+                EQ_step += 1                                ' EQ_step is stepping by +1
+                EQ_chart(EQ_step) = 24000   ' 
+                EQ_step += 1                                ' EQ_step is stepping by +1
+                dB_chart(dB_step) = 0   ' 
+                dB_step += 1                                ' dB_step is stepping by +1
+                dB_chart(dB_step) = 0   ' 
+                dB_step += 1                                ' dB_step is stepping by +1
+            Else
+                EQ_chart(EQ_step) = EQ_chart(EQ_step - 1)   ' Meaning next-cell value of EQ_Chart is equal to last-cell value of EQ_chart
+                EQ_step += 1                                ' EQ_step is stepping by +1
+                EQ_chart(EQ_step) = EQ_chart(EQ_step - 1)   ' Meaning next-cell value of EQ_Chart is equal to last-cell value of EQ_chart
+                EQ_step += 1                                ' EQ_step is stepping by +1
+                dB_chart(dB_step) = dB_chart(dB_step - 1)   ' Meaning next-cell value of dB_Chart is equal to last-cell value of dB_chart
+                dB_step += 1                                ' dB_step is stepping by +1
+                dB_chart(dB_step) = dB_chart(dB_step - 1)   ' Meaning next-cell value of dB_Chart is equal to last-cell value of dB_chart
+                dB_step += 1
+            End If
+
+        End If
+
 
 
         EQ_chart(0) = 1             ' 第一個EQ點 for Log-axis 的值最小值必須為1, 放在這才執行是因為前面的For裡面需要參考到EQ_chart(0)=0的值
-        EQ_chart(33) = EQ_chart(32) + 1             '最後一個bonus EQ點 for Log-axis 的值 = 最後一個 original EQ 點 + 1hz; ex: 最後一個Tutu EQ點若為4000，此EQ點則為4001
+        EQ_chart(35) = EQ_chart(34) + 1             '最後一個bonus EQ點 for Log-axis 的值 = 最後一個 original EQ 點 + 1hz; ex: 最後一個Tutu EQ點若為4000，此EQ點則為4001
 
 
 
 
-        dB_chart(33) = UserControl12.Chart1.ChartAreas(0).AxisY.Minimum       ' 最後一個dB值 = chart Y axis的最小值
+        dB_chart(35) = UserControl12.Chart1.ChartAreas(0).AxisY.Minimum       ' 最後一個dB值 = chart Y axis的最小值
 
 
 

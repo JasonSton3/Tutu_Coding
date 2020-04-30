@@ -119,6 +119,27 @@ Partial Class UserControl1
         Me.Button32 = New System.Windows.Forms.Button()
         Me.Button33 = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label91 = New System.Windows.Forms.Label()
+        Me.Label90 = New System.Windows.Forms.Label()
+        Me.Label89 = New System.Windows.Forms.Label()
+        Me.Label88 = New System.Windows.Forms.Label()
+        Me.Label87 = New System.Windows.Forms.Label()
+        Me.Label86 = New System.Windows.Forms.Label()
+        Me.Label85 = New System.Windows.Forms.Label()
+        Me.Label84 = New System.Windows.Forms.Label()
+        Me.Label83 = New System.Windows.Forms.Label()
+        Me.Label82 = New System.Windows.Forms.Label()
+        Me.Label81 = New System.Windows.Forms.Label()
+        Me.Label80 = New System.Windows.Forms.Label()
+        Me.Label79 = New System.Windows.Forms.Label()
+        Me.Label78 = New System.Windows.Forms.Label()
+        Me.Label77 = New System.Windows.Forms.Label()
+        Me.Label76 = New System.Windows.Forms.Label()
+        Me.Label75 = New System.Windows.Forms.Label()
+        Me.Label74 = New System.Windows.Forms.Label()
+        Me.Label73 = New System.Windows.Forms.Label()
+        Me.Label72 = New System.Windows.Forms.Label()
+        Me.Label71 = New System.Windows.Forms.Label()
         Me.Label70 = New System.Windows.Forms.Label()
         Me.Label69 = New System.Windows.Forms.Label()
         Me.Label68 = New System.Windows.Forms.Label()
@@ -158,28 +179,7 @@ Partial Class UserControl1
         Me.CheckBox10 = New System.Windows.Forms.CheckBox()
         Me.CheckBox11 = New System.Windows.Forms.CheckBox()
         Me.CheckBox12 = New System.Windows.Forms.CheckBox()
-        Me.Label71 = New System.Windows.Forms.Label()
-        Me.Label72 = New System.Windows.Forms.Label()
-        Me.Label73 = New System.Windows.Forms.Label()
-        Me.Label74 = New System.Windows.Forms.Label()
-        Me.Label75 = New System.Windows.Forms.Label()
-        Me.Label76 = New System.Windows.Forms.Label()
-        Me.Label77 = New System.Windows.Forms.Label()
-        Me.Label78 = New System.Windows.Forms.Label()
-        Me.Label79 = New System.Windows.Forms.Label()
-        Me.Label80 = New System.Windows.Forms.Label()
-        Me.Label81 = New System.Windows.Forms.Label()
-        Me.Label82 = New System.Windows.Forms.Label()
-        Me.Label83 = New System.Windows.Forms.Label()
-        Me.Label84 = New System.Windows.Forms.Label()
-        Me.Label85 = New System.Windows.Forms.Label()
-        Me.Label86 = New System.Windows.Forms.Label()
-        Me.Label87 = New System.Windows.Forms.Label()
-        Me.Label88 = New System.Windows.Forms.Label()
-        Me.Label89 = New System.Windows.Forms.Label()
-        Me.Label90 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Label91 = New System.Windows.Forms.Label()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
@@ -327,9 +327,10 @@ Partial Class UserControl1
         'Label4
         '
         Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(217, 120)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(28, 12)
+        Me.Label4.Size = New System.Drawing.Size(41, 19)
         Me.Label4.TabIndex = 11
         Me.Label4.Text = "none"
         '
@@ -471,9 +472,10 @@ Partial Class UserControl1
         'Label20
         '
         Me.Label20.AutoSize = True
+        Me.Label20.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label20.Location = New System.Drawing.Point(317, 120)
         Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(28, 12)
+        Me.Label20.Size = New System.Drawing.Size(41, 19)
         Me.Label20.TabIndex = 42
         Me.Label20.Text = "none"
         '
@@ -647,16 +649,17 @@ Partial Class UserControl1
         'Label37
         '
         Me.Label37.AutoSize = True
-        Me.Label37.Location = New System.Drawing.Point(399, 120)
+        Me.Label37.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label37.Location = New System.Drawing.Point(397, 120)
         Me.Label37.Name = "Label37"
-        Me.Label37.Size = New System.Drawing.Size(28, 12)
+        Me.Label37.Size = New System.Drawing.Size(41, 19)
         Me.Label37.TabIndex = 62
         Me.Label37.Text = "none"
         '
         'Label38
         '
         Me.Label38.AutoSize = True
-        Me.Label38.Location = New System.Drawing.Point(399, 150)
+        Me.Label38.Location = New System.Drawing.Point(397, 150)
         Me.Label38.Name = "Label38"
         Me.Label38.Size = New System.Drawing.Size(28, 12)
         Me.Label38.TabIndex = 61
@@ -665,7 +668,7 @@ Partial Class UserControl1
         'Label39
         '
         Me.Label39.AutoSize = True
-        Me.Label39.Location = New System.Drawing.Point(399, 180)
+        Me.Label39.Location = New System.Drawing.Point(397, 180)
         Me.Label39.Name = "Label39"
         Me.Label39.Size = New System.Drawing.Size(28, 12)
         Me.Label39.TabIndex = 60
@@ -674,7 +677,7 @@ Partial Class UserControl1
         'Label40
         '
         Me.Label40.AutoSize = True
-        Me.Label40.Location = New System.Drawing.Point(399, 210)
+        Me.Label40.Location = New System.Drawing.Point(397, 210)
         Me.Label40.Name = "Label40"
         Me.Label40.Size = New System.Drawing.Size(28, 12)
         Me.Label40.TabIndex = 59
@@ -683,7 +686,7 @@ Partial Class UserControl1
         'Label41
         '
         Me.Label41.AutoSize = True
-        Me.Label41.Location = New System.Drawing.Point(399, 240)
+        Me.Label41.Location = New System.Drawing.Point(397, 240)
         Me.Label41.Name = "Label41"
         Me.Label41.Size = New System.Drawing.Size(28, 12)
         Me.Label41.TabIndex = 58
@@ -692,7 +695,7 @@ Partial Class UserControl1
         'Label42
         '
         Me.Label42.AutoSize = True
-        Me.Label42.Location = New System.Drawing.Point(399, 270)
+        Me.Label42.Location = New System.Drawing.Point(397, 270)
         Me.Label42.Name = "Label42"
         Me.Label42.Size = New System.Drawing.Size(28, 12)
         Me.Label42.TabIndex = 57
@@ -701,7 +704,7 @@ Partial Class UserControl1
         'Label43
         '
         Me.Label43.AutoSize = True
-        Me.Label43.Location = New System.Drawing.Point(399, 300)
+        Me.Label43.Location = New System.Drawing.Point(397, 300)
         Me.Label43.Name = "Label43"
         Me.Label43.Size = New System.Drawing.Size(28, 12)
         Me.Label43.TabIndex = 56
@@ -710,7 +713,7 @@ Partial Class UserControl1
         'Label44
         '
         Me.Label44.AutoSize = True
-        Me.Label44.Location = New System.Drawing.Point(399, 330)
+        Me.Label44.Location = New System.Drawing.Point(397, 330)
         Me.Label44.Name = "Label44"
         Me.Label44.Size = New System.Drawing.Size(28, 12)
         Me.Label44.TabIndex = 55
@@ -719,7 +722,7 @@ Partial Class UserControl1
         'Label45
         '
         Me.Label45.AutoSize = True
-        Me.Label45.Location = New System.Drawing.Point(399, 360)
+        Me.Label45.Location = New System.Drawing.Point(397, 360)
         Me.Label45.Name = "Label45"
         Me.Label45.Size = New System.Drawing.Size(28, 12)
         Me.Label45.TabIndex = 54
@@ -728,7 +731,7 @@ Partial Class UserControl1
         'Label46
         '
         Me.Label46.AutoSize = True
-        Me.Label46.Location = New System.Drawing.Point(399, 390)
+        Me.Label46.Location = New System.Drawing.Point(397, 390)
         Me.Label46.Name = "Label46"
         Me.Label46.Size = New System.Drawing.Size(28, 12)
         Me.Label46.TabIndex = 53
@@ -737,7 +740,7 @@ Partial Class UserControl1
         'Label47
         '
         Me.Label47.AutoSize = True
-        Me.Label47.Location = New System.Drawing.Point(399, 420)
+        Me.Label47.Location = New System.Drawing.Point(397, 420)
         Me.Label47.Name = "Label47"
         Me.Label47.Size = New System.Drawing.Size(28, 12)
         Me.Label47.TabIndex = 52
@@ -746,7 +749,7 @@ Partial Class UserControl1
         'Label48
         '
         Me.Label48.AutoSize = True
-        Me.Label48.Location = New System.Drawing.Point(399, 450)
+        Me.Label48.Location = New System.Drawing.Point(397, 450)
         Me.Label48.Name = "Label48"
         Me.Label48.Size = New System.Drawing.Size(28, 12)
         Me.Label48.TabIndex = 51
@@ -755,7 +758,7 @@ Partial Class UserControl1
         'Label49
         '
         Me.Label49.AutoSize = True
-        Me.Label49.Location = New System.Drawing.Point(399, 480)
+        Me.Label49.Location = New System.Drawing.Point(397, 480)
         Me.Label49.Name = "Label49"
         Me.Label49.Size = New System.Drawing.Size(28, 12)
         Me.Label49.TabIndex = 50
@@ -764,7 +767,7 @@ Partial Class UserControl1
         'Label50
         '
         Me.Label50.AutoSize = True
-        Me.Label50.Location = New System.Drawing.Point(399, 510)
+        Me.Label50.Location = New System.Drawing.Point(397, 510)
         Me.Label50.Name = "Label50"
         Me.Label50.Size = New System.Drawing.Size(28, 12)
         Me.Label50.TabIndex = 49
@@ -773,7 +776,7 @@ Partial Class UserControl1
         'Label51
         '
         Me.Label51.AutoSize = True
-        Me.Label51.Location = New System.Drawing.Point(399, 540)
+        Me.Label51.Location = New System.Drawing.Point(397, 540)
         Me.Label51.Name = "Label51"
         Me.Label51.Size = New System.Drawing.Size(28, 12)
         Me.Label51.TabIndex = 48
@@ -782,7 +785,7 @@ Partial Class UserControl1
         'Label52
         '
         Me.Label52.AutoSize = True
-        Me.Label52.Location = New System.Drawing.Point(399, 570)
+        Me.Label52.Location = New System.Drawing.Point(397, 570)
         Me.Label52.Name = "Label52"
         Me.Label52.Size = New System.Drawing.Size(28, 12)
         Me.Label52.TabIndex = 47
@@ -1186,6 +1189,237 @@ Partial Class UserControl1
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1182, 609)
         Me.Panel1.TabIndex = 96
+        '
+        'Label91
+        '
+        Me.Label91.AutoSize = True
+        Me.Label91.BackColor = System.Drawing.Color.White
+        Me.Label91.Font = New System.Drawing.Font("Calibri", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label91.Location = New System.Drawing.Point(777, 558)
+        Me.Label91.Name = "Label91"
+        Me.Label91.Size = New System.Drawing.Size(29, 18)
+        Me.Label91.TabIndex = 156
+        Me.Label91.Text = "       "
+        '
+        'Label90
+        '
+        Me.Label90.AutoSize = True
+        Me.Label90.BackColor = System.Drawing.Color.White
+        Me.Label90.Font = New System.Drawing.Font("Calibri", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label90.Location = New System.Drawing.Point(1114, 557)
+        Me.Label90.Name = "Label90"
+        Me.Label90.Size = New System.Drawing.Size(43, 18)
+        Me.Label90.TabIndex = 155
+        Me.Label90.Text = "24000"
+        '
+        'Label89
+        '
+        Me.Label89.AutoSize = True
+        Me.Label89.BackColor = System.Drawing.Color.White
+        Me.Label89.Font = New System.Drawing.Font("Calibri", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label89.Location = New System.Drawing.Point(1065, 557)
+        Me.Label89.Name = "Label89"
+        Me.Label89.Size = New System.Drawing.Size(43, 18)
+        Me.Label89.TabIndex = 154
+        Me.Label89.Text = "16000"
+        '
+        'Label88
+        '
+        Me.Label88.AutoSize = True
+        Me.Label88.BackColor = System.Drawing.Color.White
+        Me.Label88.Font = New System.Drawing.Font("Calibri", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label88.Location = New System.Drawing.Point(1010, 557)
+        Me.Label88.Name = "Label88"
+        Me.Label88.Size = New System.Drawing.Size(43, 18)
+        Me.Label88.TabIndex = 153
+        Me.Label88.Text = "10000"
+        '
+        'Label87
+        '
+        Me.Label87.AutoSize = True
+        Me.Label87.BackColor = System.Drawing.Color.White
+        Me.Label87.Font = New System.Drawing.Font("Calibri", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label87.Location = New System.Drawing.Point(979, 557)
+        Me.Label87.Name = "Label87"
+        Me.Label87.Size = New System.Drawing.Size(36, 18)
+        Me.Label87.TabIndex = 152
+        Me.Label87.Text = "8000"
+        '
+        'Label86
+        '
+        Me.Label86.AutoSize = True
+        Me.Label86.BackColor = System.Drawing.Color.White
+        Me.Label86.Font = New System.Drawing.Font("Calibri", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label86.Location = New System.Drawing.Point(944, 557)
+        Me.Label86.Name = "Label86"
+        Me.Label86.Size = New System.Drawing.Size(36, 18)
+        Me.Label86.TabIndex = 151
+        Me.Label86.Text = "6000"
+        '
+        'Label85
+        '
+        Me.Label85.AutoSize = True
+        Me.Label85.BackColor = System.Drawing.Color.White
+        Me.Label85.Font = New System.Drawing.Font("Calibri", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label85.Location = New System.Drawing.Point(893, 557)
+        Me.Label85.Name = "Label85"
+        Me.Label85.Size = New System.Drawing.Size(36, 18)
+        Me.Label85.TabIndex = 150
+        Me.Label85.Text = "4000"
+        '
+        'Label84
+        '
+        Me.Label84.AutoSize = True
+        Me.Label84.BackColor = System.Drawing.Color.White
+        Me.Label84.Font = New System.Drawing.Font("Calibri", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label84.Location = New System.Drawing.Point(856, 557)
+        Me.Label84.Name = "Label84"
+        Me.Label84.Size = New System.Drawing.Size(36, 18)
+        Me.Label84.TabIndex = 149
+        Me.Label84.Text = "3000"
+        '
+        'Label83
+        '
+        Me.Label83.AutoSize = True
+        Me.Label83.BackColor = System.Drawing.Color.White
+        Me.Label83.Font = New System.Drawing.Font("Calibri", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label83.Location = New System.Drawing.Point(806, 557)
+        Me.Label83.Name = "Label83"
+        Me.Label83.Size = New System.Drawing.Size(36, 18)
+        Me.Label83.TabIndex = 148
+        Me.Label83.Text = "2000"
+        '
+        'Label82
+        '
+        Me.Label82.AutoSize = True
+        Me.Label82.BackColor = System.Drawing.Color.White
+        Me.Label82.Font = New System.Drawing.Font("Calibri", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label82.Location = New System.Drawing.Point(718, 557)
+        Me.Label82.Name = "Label82"
+        Me.Label82.Size = New System.Drawing.Size(36, 18)
+        Me.Label82.TabIndex = 147
+        Me.Label82.Text = "1000"
+        '
+        'Label81
+        '
+        Me.Label81.AutoSize = True
+        Me.Label81.BackColor = System.Drawing.Color.White
+        Me.Label81.Font = New System.Drawing.Font("Calibri", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label81.Location = New System.Drawing.Point(693, 557)
+        Me.Label81.Name = "Label81"
+        Me.Label81.Size = New System.Drawing.Size(29, 18)
+        Me.Label81.TabIndex = 146
+        Me.Label81.Text = "800"
+        '
+        'Label80
+        '
+        Me.Label80.AutoSize = True
+        Me.Label80.BackColor = System.Drawing.Color.White
+        Me.Label80.Font = New System.Drawing.Font("Calibri", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label80.Location = New System.Drawing.Point(659, 557)
+        Me.Label80.Name = "Label80"
+        Me.Label80.Size = New System.Drawing.Size(29, 18)
+        Me.Label80.TabIndex = 145
+        Me.Label80.Text = "600"
+        '
+        'Label79
+        '
+        Me.Label79.AutoSize = True
+        Me.Label79.BackColor = System.Drawing.Color.White
+        Me.Label79.Font = New System.Drawing.Font("Calibri", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label79.Location = New System.Drawing.Point(605, 557)
+        Me.Label79.Name = "Label79"
+        Me.Label79.Size = New System.Drawing.Size(29, 18)
+        Me.Label79.TabIndex = 144
+        Me.Label79.Text = "400"
+        '
+        'Label78
+        '
+        Me.Label78.AutoSize = True
+        Me.Label78.BackColor = System.Drawing.Color.White
+        Me.Label78.Font = New System.Drawing.Font("Calibri", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label78.Location = New System.Drawing.Point(570, 557)
+        Me.Label78.Name = "Label78"
+        Me.Label78.Size = New System.Drawing.Size(29, 18)
+        Me.Label78.TabIndex = 143
+        Me.Label78.Text = "300"
+        '
+        'Label77
+        '
+        Me.Label77.AutoSize = True
+        Me.Label77.BackColor = System.Drawing.Color.White
+        Me.Label77.Font = New System.Drawing.Font("Calibri", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label77.Location = New System.Drawing.Point(519, 557)
+        Me.Label77.Name = "Label77"
+        Me.Label77.Size = New System.Drawing.Size(29, 18)
+        Me.Label77.TabIndex = 142
+        Me.Label77.Text = "200"
+        '
+        'Label76
+        '
+        Me.Label76.AutoSize = True
+        Me.Label76.BackColor = System.Drawing.Color.White
+        Me.Label76.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label76.Location = New System.Drawing.Point(409, 542)
+        Me.Label76.Name = "Label76"
+        Me.Label76.Size = New System.Drawing.Size(30, 19)
+        Me.Label76.TabIndex = 141
+        Me.Label76.Text = "-15"
+        '
+        'Label75
+        '
+        Me.Label75.AutoSize = True
+        Me.Label75.BackColor = System.Drawing.Color.White
+        Me.Label75.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label75.Location = New System.Drawing.Point(414, 449)
+        Me.Label75.Name = "Label75"
+        Me.Label75.Size = New System.Drawing.Size(22, 19)
+        Me.Label75.TabIndex = 140
+        Me.Label75.Text = "-9"
+        '
+        'Label74
+        '
+        Me.Label74.AutoSize = True
+        Me.Label74.BackColor = System.Drawing.Color.White
+        Me.Label74.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label74.Location = New System.Drawing.Point(414, 352)
+        Me.Label74.Name = "Label74"
+        Me.Label74.Size = New System.Drawing.Size(22, 19)
+        Me.Label74.TabIndex = 139
+        Me.Label74.Text = "-3"
+        '
+        'Label73
+        '
+        Me.Label73.AutoSize = True
+        Me.Label73.BackColor = System.Drawing.Color.White
+        Me.Label73.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label73.Location = New System.Drawing.Point(414, 257)
+        Me.Label73.Name = "Label73"
+        Me.Label73.Size = New System.Drawing.Size(21, 19)
+        Me.Label73.TabIndex = 138
+        Me.Label73.Text = " 3"
+        '
+        'Label72
+        '
+        Me.Label72.AutoSize = True
+        Me.Label72.BackColor = System.Drawing.Color.White
+        Me.Label72.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label72.Location = New System.Drawing.Point(414, 163)
+        Me.Label72.Name = "Label72"
+        Me.Label72.Size = New System.Drawing.Size(21, 19)
+        Me.Label72.TabIndex = 137
+        Me.Label72.Text = " 9"
+        '
+        'Label71
+        '
+        Me.Label71.AutoSize = True
+        Me.Label71.BackColor = System.Drawing.Color.White
+        Me.Label71.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label71.Location = New System.Drawing.Point(409, 69)
+        Me.Label71.Name = "Label71"
+        Me.Label71.Size = New System.Drawing.Size(29, 19)
+        Me.Label71.TabIndex = 136
+        Me.Label71.Text = " 15"
         '
         'Label70
         '
@@ -1629,226 +1863,6 @@ Partial Class UserControl1
         Me.CheckBox12.Text = "Undefined"
         Me.CheckBox12.UseVisualStyleBackColor = True
         '
-        'Label71
-        '
-        Me.Label71.AutoSize = True
-        Me.Label71.BackColor = System.Drawing.Color.White
-        Me.Label71.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label71.Location = New System.Drawing.Point(409, 69)
-        Me.Label71.Name = "Label71"
-        Me.Label71.Size = New System.Drawing.Size(29, 19)
-        Me.Label71.TabIndex = 136
-        Me.Label71.Text = " 15"
-        '
-        'Label72
-        '
-        Me.Label72.AutoSize = True
-        Me.Label72.BackColor = System.Drawing.Color.White
-        Me.Label72.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label72.Location = New System.Drawing.Point(414, 163)
-        Me.Label72.Name = "Label72"
-        Me.Label72.Size = New System.Drawing.Size(21, 19)
-        Me.Label72.TabIndex = 137
-        Me.Label72.Text = " 9"
-        '
-        'Label73
-        '
-        Me.Label73.AutoSize = True
-        Me.Label73.BackColor = System.Drawing.Color.White
-        Me.Label73.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label73.Location = New System.Drawing.Point(414, 257)
-        Me.Label73.Name = "Label73"
-        Me.Label73.Size = New System.Drawing.Size(21, 19)
-        Me.Label73.TabIndex = 138
-        Me.Label73.Text = " 3"
-        '
-        'Label74
-        '
-        Me.Label74.AutoSize = True
-        Me.Label74.BackColor = System.Drawing.Color.White
-        Me.Label74.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label74.Location = New System.Drawing.Point(414, 352)
-        Me.Label74.Name = "Label74"
-        Me.Label74.Size = New System.Drawing.Size(22, 19)
-        Me.Label74.TabIndex = 139
-        Me.Label74.Text = "-3"
-        '
-        'Label75
-        '
-        Me.Label75.AutoSize = True
-        Me.Label75.BackColor = System.Drawing.Color.White
-        Me.Label75.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label75.Location = New System.Drawing.Point(414, 449)
-        Me.Label75.Name = "Label75"
-        Me.Label75.Size = New System.Drawing.Size(22, 19)
-        Me.Label75.TabIndex = 140
-        Me.Label75.Text = "-9"
-        '
-        'Label76
-        '
-        Me.Label76.AutoSize = True
-        Me.Label76.BackColor = System.Drawing.Color.White
-        Me.Label76.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label76.Location = New System.Drawing.Point(409, 542)
-        Me.Label76.Name = "Label76"
-        Me.Label76.Size = New System.Drawing.Size(30, 19)
-        Me.Label76.TabIndex = 141
-        Me.Label76.Text = "-15"
-        '
-        'Label77
-        '
-        Me.Label77.AutoSize = True
-        Me.Label77.BackColor = System.Drawing.Color.White
-        Me.Label77.Font = New System.Drawing.Font("Calibri", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label77.Location = New System.Drawing.Point(519, 557)
-        Me.Label77.Name = "Label77"
-        Me.Label77.Size = New System.Drawing.Size(29, 18)
-        Me.Label77.TabIndex = 142
-        Me.Label77.Text = "200"
-        '
-        'Label78
-        '
-        Me.Label78.AutoSize = True
-        Me.Label78.BackColor = System.Drawing.Color.White
-        Me.Label78.Font = New System.Drawing.Font("Calibri", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label78.Location = New System.Drawing.Point(570, 557)
-        Me.Label78.Name = "Label78"
-        Me.Label78.Size = New System.Drawing.Size(29, 18)
-        Me.Label78.TabIndex = 143
-        Me.Label78.Text = "300"
-        '
-        'Label79
-        '
-        Me.Label79.AutoSize = True
-        Me.Label79.BackColor = System.Drawing.Color.White
-        Me.Label79.Font = New System.Drawing.Font("Calibri", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label79.Location = New System.Drawing.Point(605, 557)
-        Me.Label79.Name = "Label79"
-        Me.Label79.Size = New System.Drawing.Size(29, 18)
-        Me.Label79.TabIndex = 144
-        Me.Label79.Text = "400"
-        '
-        'Label80
-        '
-        Me.Label80.AutoSize = True
-        Me.Label80.BackColor = System.Drawing.Color.White
-        Me.Label80.Font = New System.Drawing.Font("Calibri", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label80.Location = New System.Drawing.Point(659, 557)
-        Me.Label80.Name = "Label80"
-        Me.Label80.Size = New System.Drawing.Size(29, 18)
-        Me.Label80.TabIndex = 145
-        Me.Label80.Text = "600"
-        '
-        'Label81
-        '
-        Me.Label81.AutoSize = True
-        Me.Label81.BackColor = System.Drawing.Color.White
-        Me.Label81.Font = New System.Drawing.Font("Calibri", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label81.Location = New System.Drawing.Point(693, 557)
-        Me.Label81.Name = "Label81"
-        Me.Label81.Size = New System.Drawing.Size(29, 18)
-        Me.Label81.TabIndex = 146
-        Me.Label81.Text = "800"
-        '
-        'Label82
-        '
-        Me.Label82.AutoSize = True
-        Me.Label82.BackColor = System.Drawing.Color.White
-        Me.Label82.Font = New System.Drawing.Font("Calibri", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label82.Location = New System.Drawing.Point(718, 557)
-        Me.Label82.Name = "Label82"
-        Me.Label82.Size = New System.Drawing.Size(36, 18)
-        Me.Label82.TabIndex = 147
-        Me.Label82.Text = "1000"
-        '
-        'Label83
-        '
-        Me.Label83.AutoSize = True
-        Me.Label83.BackColor = System.Drawing.Color.White
-        Me.Label83.Font = New System.Drawing.Font("Calibri", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label83.Location = New System.Drawing.Point(806, 557)
-        Me.Label83.Name = "Label83"
-        Me.Label83.Size = New System.Drawing.Size(36, 18)
-        Me.Label83.TabIndex = 148
-        Me.Label83.Text = "2000"
-        '
-        'Label84
-        '
-        Me.Label84.AutoSize = True
-        Me.Label84.BackColor = System.Drawing.Color.White
-        Me.Label84.Font = New System.Drawing.Font("Calibri", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label84.Location = New System.Drawing.Point(856, 557)
-        Me.Label84.Name = "Label84"
-        Me.Label84.Size = New System.Drawing.Size(36, 18)
-        Me.Label84.TabIndex = 149
-        Me.Label84.Text = "3000"
-        '
-        'Label85
-        '
-        Me.Label85.AutoSize = True
-        Me.Label85.BackColor = System.Drawing.Color.White
-        Me.Label85.Font = New System.Drawing.Font("Calibri", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label85.Location = New System.Drawing.Point(893, 557)
-        Me.Label85.Name = "Label85"
-        Me.Label85.Size = New System.Drawing.Size(36, 18)
-        Me.Label85.TabIndex = 150
-        Me.Label85.Text = "4000"
-        '
-        'Label86
-        '
-        Me.Label86.AutoSize = True
-        Me.Label86.BackColor = System.Drawing.Color.White
-        Me.Label86.Font = New System.Drawing.Font("Calibri", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label86.Location = New System.Drawing.Point(944, 557)
-        Me.Label86.Name = "Label86"
-        Me.Label86.Size = New System.Drawing.Size(36, 18)
-        Me.Label86.TabIndex = 151
-        Me.Label86.Text = "6000"
-        '
-        'Label87
-        '
-        Me.Label87.AutoSize = True
-        Me.Label87.BackColor = System.Drawing.Color.White
-        Me.Label87.Font = New System.Drawing.Font("Calibri", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label87.Location = New System.Drawing.Point(979, 557)
-        Me.Label87.Name = "Label87"
-        Me.Label87.Size = New System.Drawing.Size(36, 18)
-        Me.Label87.TabIndex = 152
-        Me.Label87.Text = "8000"
-        '
-        'Label88
-        '
-        Me.Label88.AutoSize = True
-        Me.Label88.BackColor = System.Drawing.Color.White
-        Me.Label88.Font = New System.Drawing.Font("Calibri", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label88.Location = New System.Drawing.Point(1010, 557)
-        Me.Label88.Name = "Label88"
-        Me.Label88.Size = New System.Drawing.Size(43, 18)
-        Me.Label88.TabIndex = 153
-        Me.Label88.Text = "10000"
-        '
-        'Label89
-        '
-        Me.Label89.AutoSize = True
-        Me.Label89.BackColor = System.Drawing.Color.White
-        Me.Label89.Font = New System.Drawing.Font("Calibri", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label89.Location = New System.Drawing.Point(1065, 557)
-        Me.Label89.Name = "Label89"
-        Me.Label89.Size = New System.Drawing.Size(43, 18)
-        Me.Label89.TabIndex = 154
-        Me.Label89.Text = "16000"
-        '
-        'Label90
-        '
-        Me.Label90.AutoSize = True
-        Me.Label90.BackColor = System.Drawing.Color.White
-        Me.Label90.Font = New System.Drawing.Font("Calibri", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label90.Location = New System.Drawing.Point(1114, 557)
-        Me.Label90.Name = "Label90"
-        Me.Label90.Size = New System.Drawing.Size(43, 18)
-        Me.Label90.TabIndex = 155
-        Me.Label90.Text = "24000"
-        '
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.Transparent
@@ -1857,17 +1871,6 @@ Partial Class UserControl1
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(130, 609)
         Me.Panel2.TabIndex = 156
-        '
-        'Label91
-        '
-        Me.Label91.AutoSize = True
-        Me.Label91.BackColor = System.Drawing.Color.White
-        Me.Label91.Font = New System.Drawing.Font("Calibri", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label91.Location = New System.Drawing.Point(777, 558)
-        Me.Label91.Name = "Label91"
-        Me.Label91.Size = New System.Drawing.Size(29, 18)
-        Me.Label91.TabIndex = 156
-        Me.Label91.Text = "       "
         '
         'UserControl1
         '

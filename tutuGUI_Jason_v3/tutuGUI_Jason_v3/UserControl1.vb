@@ -506,18 +506,18 @@
             Exit Sub
         End If
         Form1.dB_array(0) += 1  'value increase 1 after one click
-
-        '------------- dB array與 dB array compare 互相比較 以 顯示 正負值
-        If Form1.dB_array(0) - Form1.dB_array_compare(0) = 0 Then
-            Label37.Text = Form1.dB_array(0)
-            Label37.ForeColor = Color.Black
-        ElseIf Form1.dB_array(0) - Form1.dB_array_compare(0) > 0 Then
-            Label37.Text = Form1.dB_array(0) & "(+" & Form1.dB_array(0) - Form1.dB_array_compare(0) & ")"
-            Label37.ForeColor = Color.Blue
-        Else
-            Label37.Text = Form1.dB_array(0) & "(" & Form1.dB_array(0) - Form1.dB_array_compare(0) & ")"
-            Label37.ForeColor = Color.Red
-        End If
+        Label37.Text = Form1.dB_array(0)
+        '------------- dB array與 dB array compare 互相比較 以 顯示 正負值; 因為Andy覺得不需要這功能，所以我先註解
+        'If Form1.dB_array(0) - Form1.dB_array_compare(0) = 0 Then
+        '    Label37.Text = Form1.dB_array(0)
+        '    Label37.ForeColor = Color.Black
+        'ElseIf Form1.dB_array(0) - Form1.dB_array_compare(0) > 0 Then
+        '    Label37.Text = Form1.dB_array(0) & "(+" & Form1.dB_array(0) - Form1.dB_array_compare(0) & ")"
+        '    Label37.ForeColor = Color.Blue
+        'Else
+        '    Label37.Text = Form1.dB_array(0) & "(" & Form1.dB_array(0) - Form1.dB_array_compare(0) & ")"
+        '    Label37.ForeColor = Color.Red
+        'End If
 
 
     End Sub
@@ -528,17 +528,18 @@
             Exit Sub
         End If
         Form1.dB_array(0) -= 1      'value decrease 1 after one click
-        If Form1.dB_array(0) - Form1.dB_array_compare(0) = 0 Then
-            Label37.Text = Form1.dB_array(0)
-            Label37.ForeColor = Color.Black
+        Label37.Text = Form1.dB_array(0)
+        'If Form1.dB_array(0) - Form1.dB_array_compare(0) = 0 Then
+        'Label37.Text = Form1.dB_array(0)
+        'Label37.ForeColor = Color.Black
 
-        ElseIf Form1.dB_array(0) - Form1.dB_array_compare(0) > 0 Then
-            Label37.Text = Form1.dB_array(0) & "(+" & Form1.dB_array(0) - Form1.dB_array_compare(0) & ")"
-            Label37.ForeColor = Color.Blue
-        Else
-            Label37.Text = Form1.dB_array(0) & "(" & Form1.dB_array(0) - Form1.dB_array_compare(0) & ")"
-            Label37.ForeColor = Color.Red
-        End If
+        'ElseIf Form1.dB_array(0) - Form1.dB_array_compare(0) > 0 Then
+        'Label37.Text = Form1.dB_array(0) & "(+" & Form1.dB_array(0) - Form1.dB_array_compare(0) & ")"
+        'Label37.ForeColor = Color.Blue
+        'Else
+        'Label37.Text = Form1.dB_array(0) & "(" & Form1.dB_array(0) - Form1.dB_array_compare(0) & ")"
+        'Label37.ForeColor = Color.Red
+        'End If
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click   'dB (1) increase gain
@@ -547,16 +548,17 @@
             Exit Sub
         End If
         Form1.dB_array(1) += 1
-        If Form1.dB_array(1) - Form1.dB_array_compare(1) = 0 Then
-            Label38.Text = Form1.dB_array(1)
-            Label38.ForeColor = Color.Black
-        ElseIf Form1.dB_array(1) - Form1.dB_array_compare(1) > 0 Then
-            Label38.Text = Form1.dB_array(1) & "(+" & Form1.dB_array(1) - Form1.dB_array_compare(1) & ")"
-            Label38.ForeColor = Color.Blue
-        Else
-            Label38.Text = Form1.dB_array(1) & "(" & Form1.dB_array(1) - Form1.dB_array_compare(1) & ")"
-            Label38.ForeColor = Color.Red
-        End If
+        Label38.Text = Form1.dB_array(1)
+        'If Form1.dB_array(1) - Form1.dB_array_compare(1) = 0 Then
+        'Label38.Text = Form1.dB_array(1)
+        'Label38.ForeColor = Color.Black
+        'ElseIf Form1.dB_array(1) - Form1.dB_array_compare(1) > 0 Then
+        'Label38.Text = Form1.dB_array(1) & "(+" & Form1.dB_array(1) - Form1.dB_array_compare(1) & ")"
+        'Label38.ForeColor = Color.Blue
+        'Else
+        'Label38.Text = Form1.dB_array(1) & "(" & Form1.dB_array(1) - Form1.dB_array_compare(1) & ")"
+        'Label38.ForeColor = Color.Red
+        'End If
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click   'dB (1) decrease gain
@@ -565,17 +567,18 @@
             Exit Sub
         End If
         Form1.dB_array(1) -= 1
-        If Form1.dB_array(1) - Form1.dB_array_compare(1) = 0 Then
-            Label38.Text = Form1.dB_array(0)
-            Label38.ForeColor = Color.Black
+        Label38.Text = Form1.dB_array(1)
+        'If Form1.dB_array(1) - Form1.dB_array_compare(1) = 0 Then
+        'Label38.Text = Form1.dB_array(0)
+        'Label38.ForeColor = Color.Black
 
-        ElseIf Form1.dB_array(1) - Form1.dB_array_compare(1) > 0 Then
-            Label38.Text = Form1.dB_array(1) & "(+" & Form1.dB_array(1) - Form1.dB_array_compare(1) & ")"
-            Label38.ForeColor = Color.Blue
-        Else
-            Label38.Text = Form1.dB_array(1) & "(" & Form1.dB_array(1) - Form1.dB_array_compare(1) & ")"
-            Label38.ForeColor = Color.Red
-        End If
+        'ElseIf Form1.dB_array(1) - Form1.dB_array_compare(1) > 0 Then
+        'Label38.Text = Form1.dB_array(1) & "(+" & Form1.dB_array(1) - Form1.dB_array_compare(1) & ")"
+        'Label38.ForeColor = Color.Blue
+        'Else
+        'Label38.Text = Form1.dB_array(1) & "(" & Form1.dB_array(1) - Form1.dB_array_compare(1) & ")"
+        'Label38.ForeColor = Color.Red
+        'End If
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
@@ -585,17 +588,18 @@
             Exit Sub
         End If
         Form1.dB_array(2) += 1
-        If Form1.dB_array(2) - Form1.dB_array_compare(2) = 0 Then
-            Label39.Text = Form1.dB_array(2)
-            Label39.ForeColor = Color.Black
+        Label39.Text = Form1.dB_array(2)
+        'If Form1.dB_array(2) - Form1.dB_array_compare(2) = 0 Then
+        'Label39.Text = Form1.dB_array(2)
+        'Label39.ForeColor = Color.Black
 
-        ElseIf Form1.dB_array(2) - Form1.dB_array_compare(2) > 0 Then
-            Label39.Text = Form1.dB_array(2) & "(+" & Form1.dB_array(2) - Form1.dB_array_compare(2) & ")"
-            Label39.ForeColor = Color.Blue
-        Else
-            Label39.Text = Form1.dB_array(2) & "(" & Form1.dB_array(2) - Form1.dB_array_compare(2) & ")"
-            Label39.ForeColor = Color.Red
-        End If
+        'ElseIf Form1.dB_array(2) - Form1.dB_array_compare(2) > 0 Then
+        'Label39.Text = Form1.dB_array(2) & "(+" & Form1.dB_array(2) - Form1.dB_array_compare(2) & ")"
+        'Label39.ForeColor = Color.Blue
+        'Else
+        'Label39.Text = Form1.dB_array(2) & "(" & Form1.dB_array(2) - Form1.dB_array_compare(2) & ")"
+        'Label39.ForeColor = Color.Red
+        'End If
     End Sub
 
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
@@ -605,17 +609,18 @@
             Exit Sub
         End If
         Form1.dB_array(2) -= 1
-        If Form1.dB_array(2) - Form1.dB_array_compare(2) = 0 Then
-            Label39.Text = Form1.dB_array(2)
-            Label39.ForeColor = Color.Black
+        Label39.Text = Form1.dB_array(2)
+        'If Form1.dB_array(2) - Form1.dB_array_compare(2) = 0 Then
+        'Label39.Text = Form1.dB_array(2)
+        'Label39.ForeColor = Color.Black
 
-        ElseIf Form1.dB_array(2) - Form1.dB_array_compare(2) > 0 Then
-            Label39.Text = Form1.dB_array(2) & "(+" & Form1.dB_array(2) - Form1.dB_array_compare(2) & ")"
-            Label39.ForeColor = Color.Blue
-        Else
-            Label39.Text = Form1.dB_array(2) & "(" & Form1.dB_array(2) - Form1.dB_array_compare(2) & ")"
-            Label39.ForeColor = Color.Red
-        End If
+        'ElseIf Form1.dB_array(2) - Form1.dB_array_compare(2) > 0 Then
+        'Label39.Text = Form1.dB_array(2) & "(+" & Form1.dB_array(2) - Form1.dB_array_compare(2) & ")"
+        'Label39.ForeColor = Color.Blue
+        'Else
+        'Label39.Text = Form1.dB_array(2) & "(" & Form1.dB_array(2) - Form1.dB_array_compare(2) & ")"
+        'Label39.ForeColor = Color.Red
+        'End If
     End Sub
 
     Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
@@ -625,17 +630,18 @@
             Exit Sub
         End If
         Form1.dB_array(3) += 1
-        If Form1.dB_array(3) - Form1.dB_array_compare(3) = 0 Then
-            Label40.Text = Form1.dB_array(3)
-            Label40.ForeColor = Color.Black
+        Label40.Text = Form1.dB_array(3)
+        'If Form1.dB_array(3) - Form1.dB_array_compare(3) = 0 Then
+        'Label40.Text = Form1.dB_array(3)
+        'Label40.ForeColor = Color.Black
 
-        ElseIf Form1.dB_array(3) - Form1.dB_array_compare(3) > 0 Then
-            Label40.Text = Form1.dB_array(3) & "(+" & Form1.dB_array(3) - Form1.dB_array_compare(3) & ")"
-            Label40.ForeColor = Color.Blue
-        Else
-            Label40.Text = Form1.dB_array(3) & "(" & Form1.dB_array(3) - Form1.dB_array_compare(3) & ")"
-            Label40.ForeColor = Color.Red
-        End If
+        'ElseIf Form1.dB_array(3) - Form1.dB_array_compare(3) > 0 Then
+        'Label40.Text = Form1.dB_array(3) & "(+" & Form1.dB_array(3) - Form1.dB_array_compare(3) & ")"
+        'Label40.ForeColor = Color.Blue
+        'Else
+        'Label40.Text = Form1.dB_array(3) & "(" & Form1.dB_array(3) - Form1.dB_array_compare(3) & ")"
+        'Label40.ForeColor = Color.Red
+        'End If
     End Sub
 
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
@@ -645,17 +651,18 @@
             Exit Sub
         End If
         Form1.dB_array(3) -= 1
-        If Form1.dB_array(3) - Form1.dB_array_compare(3) = 0 Then
-            Label40.Text = Form1.dB_array(3)
-            Label40.ForeColor = Color.Black
+        Label40.Text = Form1.dB_array(3)
+        'If Form1.dB_array(3) - Form1.dB_array_compare(3) = 0 Then
+        'Label40.Text = Form1.dB_array(3)
+        'Label40.ForeColor = Color.Black
 
-        ElseIf Form1.dB_array(3) - Form1.dB_array_compare(3) > 0 Then
-            Label40.Text = Form1.dB_array(3) & "(+" & Form1.dB_array(3) - Form1.dB_array_compare(3) & ")"
-            Label40.ForeColor = Color.Blue
-        Else
-            Label40.Text = Form1.dB_array(3) & "(" & Form1.dB_array(3) - Form1.dB_array_compare(3) & ")"
-            Label40.ForeColor = Color.Red
-        End If
+        'ElseIf Form1.dB_array(3) - Form1.dB_array_compare(3) > 0 Then
+        'Label40.Text = Form1.dB_array(3) & "(+" & Form1.dB_array(3) - Form1.dB_array_compare(3) & ")"
+        'Label40.ForeColor = Color.Blue
+        'Else
+        'Label40.Text = Form1.dB_array(3) & "(" & Form1.dB_array(3) - Form1.dB_array_compare(3) & ")"
+        'Label40.ForeColor = Color.Red
+        'End If
     End Sub
 
     Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click
@@ -665,17 +672,18 @@
             Exit Sub
         End If
         Form1.dB_array(4) += 1
-        If Form1.dB_array(4) - Form1.dB_array_compare(4) = 0 Then
-            Label41.Text = Form1.dB_array(4)
-            Label41.ForeColor = Color.Black
+        Label41.Text = Form1.dB_array(4)
+        'If Form1.dB_array(4) - Form1.dB_array_compare(4) = 0 Then
+        'Label41.Text = Form1.dB_array(4)
+        'Label41.ForeColor = Color.Black
 
-        ElseIf Form1.dB_array(4) - Form1.dB_array_compare(4) > 0 Then
-            Label41.Text = Form1.dB_array(4) & "(+" & Form1.dB_array(4) - Form1.dB_array_compare(4) & ")"
-            Label41.ForeColor = Color.Blue
-        Else
-            Label41.Text = Form1.dB_array(4) & "(" & Form1.dB_array(4) - Form1.dB_array_compare(4) & ")"
-            Label41.ForeColor = Color.Red
-        End If
+        'ElseIf Form1.dB_array(4) - Form1.dB_array_compare(4) > 0 Then
+        'Label41.Text = Form1.dB_array(4) & "(+" & Form1.dB_array(4) - Form1.dB_array_compare(4) & ")"
+        'Label41.ForeColor = Color.Blue
+        'Else
+        'Label41.Text = Form1.dB_array(4) & "(" & Form1.dB_array(4) - Form1.dB_array_compare(4) & ")"
+        'Label41.ForeColor = Color.Red
+        'End If
     End Sub
 
     Private Sub Button11_Click(sender As Object, e As EventArgs) Handles Button11.Click
@@ -685,17 +693,18 @@
             Exit Sub
         End If
         Form1.dB_array(4) -= 1
-        If Form1.dB_array(4) - Form1.dB_array_compare(4) = 0 Then
-            Label41.Text = Form1.dB_array(4)
-            Label41.ForeColor = Color.Black
+        Label41.Text = Form1.dB_array(4)
+        'If Form1.dB_array(4) - Form1.dB_array_compare(4) = 0 Then
+        'Label41.Text = Form1.dB_array(4)
+        'Label41.ForeColor = Color.Black
 
-        ElseIf Form1.dB_array(4) - Form1.dB_array_compare(4) > 0 Then
-            Label41.Text = Form1.dB_array(4) & "(+" & Form1.dB_array(4) - Form1.dB_array_compare(4) & ")"
-            Label41.ForeColor = Color.Blue
-        Else
-            Label41.Text = Form1.dB_array(4) & "(" & Form1.dB_array(4) - Form1.dB_array_compare(4) & ")"
-            Label41.ForeColor = Color.Red
-        End If
+        'ElseIf Form1.dB_array(4) - Form1.dB_array_compare(4) > 0 Then
+        'Label41.Text = Form1.dB_array(4) & "(+" & Form1.dB_array(4) - Form1.dB_array_compare(4) & ")"
+        'Label41.ForeColor = Color.Blue
+        'Else
+        'Label41.Text = Form1.dB_array(4) & "(" & Form1.dB_array(4) - Form1.dB_array_compare(4) & ")"
+        'Label41.ForeColor = Color.Red
+        'End If
     End Sub
 
     Private Sub Button12_Click(sender As Object, e As EventArgs) Handles Button12.Click
@@ -705,17 +714,18 @@
             Exit Sub
         End If
         Form1.dB_array(5) += 1
-        If Form1.dB_array(5) - Form1.dB_array_compare(5) = 0 Then
-            Label42.Text = Form1.dB_array(5)
-            Label42.ForeColor = Color.Black
+        Label42.Text = Form1.dB_array(5)
+        'If Form1.dB_array(5) - Form1.dB_array_compare(5) = 0 Then
+        '    Label42.Text = Form1.dB_array(5)
+        '    Label42.ForeColor = Color.Black
 
-        ElseIf Form1.dB_array(5) - Form1.dB_array_compare(5) > 0 Then
-            Label42.Text = Form1.dB_array(5) & "(+" & Form1.dB_array(5) - Form1.dB_array_compare(5) & ")"
-            Label42.ForeColor = Color.Blue
-        Else
-            Label42.Text = Form1.dB_array(5) & "(" & Form1.dB_array(5) - Form1.dB_array_compare(5) & ")"
-            Label42.ForeColor = Color.Red
-        End If
+        'ElseIf Form1.dB_array(5) - Form1.dB_array_compare(5) > 0 Then
+        '    Label42.Text = Form1.dB_array(5) & "(+" & Form1.dB_array(5) - Form1.dB_array_compare(5) & ")"
+        '    Label42.ForeColor = Color.Blue
+        'Else
+        '    Label42.Text = Form1.dB_array(5) & "(" & Form1.dB_array(5) - Form1.dB_array_compare(5) & ")"
+        'Label42.ForeColor = Color.Red
+        'End If
     End Sub
 
     Private Sub Button13_Click(sender As Object, e As EventArgs) Handles Button13.Click
@@ -725,17 +735,18 @@
             Exit Sub
         End If
         Form1.dB_array(5) -= 1
-        If Form1.dB_array(5) - Form1.dB_array_compare(5) = 0 Then
-            Label42.Text = Form1.dB_array(5)
-            Label42.ForeColor = Color.Black
+        Label42.Text = Form1.dB_array(5)
+        'If Form1.dB_array(5) - Form1.dB_array_compare(5) = 0 Then
+        '    Label42.Text = Form1.dB_array(5)
+        '    Label42.ForeColor = Color.Black
 
-        ElseIf Form1.dB_array(5) - Form1.dB_array_compare(5) > 0 Then
-            Label42.Text = Form1.dB_array(5) & "(+" & Form1.dB_array(5) - Form1.dB_array_compare(5) & ")"
-            Label42.ForeColor = Color.Blue
-        Else
-            Label42.Text = Form1.dB_array(5) & "(" & Form1.dB_array(5) - Form1.dB_array_compare(5) & ")"
-            Label42.ForeColor = Color.Red
-        End If
+        'ElseIf Form1.dB_array(5) - Form1.dB_array_compare(5) > 0 Then
+        '    Label42.Text = Form1.dB_array(5) & "(+" & Form1.dB_array(5) - Form1.dB_array_compare(5) & ")"
+        '    Label42.ForeColor = Color.Blue
+        'Else
+        '    Label42.Text = Form1.dB_array(5) & "(" & Form1.dB_array(5) - Form1.dB_array_compare(5) & ")"
+        '    Label42.ForeColor = Color.Red
+        'End If
     End Sub
 
     Private Sub Button14_Click(sender As Object, e As EventArgs) Handles Button14.Click
@@ -745,17 +756,18 @@
             Exit Sub
         End If
         Form1.dB_array(6) += 1
-        If Form1.dB_array(6) - Form1.dB_array_compare(6) = 0 Then
-            Label43.Text = Form1.dB_array(6)
-            Label43.ForeColor = Color.Black
+        Label43.Text = Form1.dB_array(6)
+        'If Form1.dB_array(6) - Form1.dB_array_compare(6) = 0 Then
+        '    Label43.Text = Form1.dB_array(6)
+        '    Label43.ForeColor = Color.Black
 
-        ElseIf Form1.dB_array(6) - Form1.dB_array_compare(6) > 0 Then
-            Label43.Text = Form1.dB_array(6) & "(+" & Form1.dB_array(6) - Form1.dB_array_compare(6) & ")"
-            Label43.ForeColor = Color.Blue
-        Else
-            Label43.Text = Form1.dB_array(6) & "(" & Form1.dB_array(6) - Form1.dB_array_compare(6) & ")"
-            Label43.ForeColor = Color.Red
-        End If
+        'ElseIf Form1.dB_array(6) - Form1.dB_array_compare(6) > 0 Then
+        '    Label43.Text = Form1.dB_array(6) & "(+" & Form1.dB_array(6) - Form1.dB_array_compare(6) & ")"
+        '    Label43.ForeColor = Color.Blue
+        'Else
+        '    Label43.Text = Form1.dB_array(6) & "(" & Form1.dB_array(6) - Form1.dB_array_compare(6) & ")"
+        '    Label43.ForeColor = Color.Red
+        'End If
     End Sub
 
     Private Sub Button15_Click(sender As Object, e As EventArgs) Handles Button15.Click
@@ -765,17 +777,18 @@
             Exit Sub
         End If
         Form1.dB_array(6) -= 1
-        If Form1.dB_array(6) - Form1.dB_array_compare(6) = 0 Then
-            Label43.Text = Form1.dB_array(6)
-            Label43.ForeColor = Color.Black
+        Label43.Text = Form1.dB_array(6)
+        'If Form1.dB_array(6) - Form1.dB_array_compare(6) = 0 Then
+        '    Label43.Text = Form1.dB_array(6)
+        '    Label43.ForeColor = Color.Black
 
-        ElseIf Form1.dB_array(6) - Form1.dB_array_compare(6) > 0 Then
-            Label43.Text = Form1.dB_array(6) & "(+" & Form1.dB_array(6) - Form1.dB_array_compare(6) & ")"
-            Label43.ForeColor = Color.Blue
-        Else
-            Label43.Text = Form1.dB_array(6) & "(" & Form1.dB_array(6) - Form1.dB_array_compare(6) & ")"
-            Label43.ForeColor = Color.Red
-        End If
+        'ElseIf Form1.dB_array(6) - Form1.dB_array_compare(6) > 0 Then
+        '    Label43.Text = Form1.dB_array(6) & "(+" & Form1.dB_array(6) - Form1.dB_array_compare(6) & ")"
+        '    Label43.ForeColor = Color.Blue
+        'Else
+        '    Label43.Text = Form1.dB_array(6) & "(" & Form1.dB_array(6) - Form1.dB_array_compare(6) & ")"
+        '    Label43.ForeColor = Color.Red
+        'End If
     End Sub
 
     Private Sub Button16_Click(sender As Object, e As EventArgs) Handles Button16.Click
@@ -785,17 +798,18 @@
             Exit Sub
         End If
         Form1.dB_array(7) += 1
-        If Form1.dB_array(7) - Form1.dB_array_compare(7) = 0 Then
-            Label44.Text = Form1.dB_array(7)
-            Label44.ForeColor = Color.Black
+        Label44.Text = Form1.dB_array(7)
+        'If Form1.dB_array(7) - Form1.dB_array_compare(7) = 0 Then
+        '    Label44.Text = Form1.dB_array(7)
+        '    Label44.ForeColor = Color.Black
 
-        ElseIf Form1.dB_array(7) - Form1.dB_array_compare(7) > 0 Then
-            Label44.Text = Form1.dB_array(7) & "(+" & Form1.dB_array(7) - Form1.dB_array_compare(7) & ")"
-            Label44.ForeColor = Color.Blue
-        Else
-            Label44.Text = Form1.dB_array(7) & "(" & Form1.dB_array(7) - Form1.dB_array_compare(7) & ")"
-            Label44.ForeColor = Color.Red
-        End If
+        'ElseIf Form1.dB_array(7) - Form1.dB_array_compare(7) > 0 Then
+        '    Label44.Text = Form1.dB_array(7) & "(+" & Form1.dB_array(7) - Form1.dB_array_compare(7) & ")"
+        '    Label44.ForeColor = Color.Blue
+        'Else
+        '    Label44.Text = Form1.dB_array(7) & "(" & Form1.dB_array(7) - Form1.dB_array_compare(7) & ")"
+        '    Label44.ForeColor = Color.Red
+        'End If
     End Sub
 
     Private Sub Button17_Click(sender As Object, e As EventArgs) Handles Button17.Click
@@ -805,17 +819,18 @@
             Exit Sub
         End If
         Form1.dB_array(7) -= 1
-        If Form1.dB_array(7) - Form1.dB_array_compare(7) = 0 Then
-            Label44.Text = Form1.dB_array(7)
-            Label44.ForeColor = Color.Black
+        Label44.Text = Form1.dB_array(7)
+        'If Form1.dB_array(7) - Form1.dB_array_compare(7) = 0 Then
+        '    Label44.Text = Form1.dB_array(7)
+        '    Label44.ForeColor = Color.Black
 
-        ElseIf Form1.dB_array(7) - Form1.dB_array_compare(7) > 0 Then
-            Label44.Text = Form1.dB_array(7) & "(+" & Form1.dB_array(7) - Form1.dB_array_compare(7) & ")"
-            Label44.ForeColor = Color.Blue
-        Else
-            Label44.Text = Form1.dB_array(7) & "(" & Form1.dB_array(7) - Form1.dB_array_compare(7) & ")"
-            Label44.ForeColor = Color.Red
-        End If
+        'ElseIf Form1.dB_array(7) - Form1.dB_array_compare(7) > 0 Then
+        '    Label44.Text = Form1.dB_array(7) & "(+" & Form1.dB_array(7) - Form1.dB_array_compare(7) & ")"
+        '    Label44.ForeColor = Color.Blue
+        'Else
+        '    Label44.Text = Form1.dB_array(7) & "(" & Form1.dB_array(7) - Form1.dB_array_compare(7) & ")"
+        '    Label44.ForeColor = Color.Red
+        'End If
     End Sub
 
     Private Sub Button18_Click(sender As Object, e As EventArgs) Handles Button18.Click
@@ -825,17 +840,18 @@
             Exit Sub
         End If
         Form1.dB_array(8) += 1
-        If Form1.dB_array(8) - Form1.dB_array_compare(8) = 0 Then
-            Label45.Text = Form1.dB_array(8)
-            Label45.ForeColor = Color.Black
+        Label45.Text = Form1.dB_array(8)
+        'If Form1.dB_array(8) - Form1.dB_array_compare(8) = 0 Then
+        '    Label45.Text = Form1.dB_array(8)
+        '    Label45.ForeColor = Color.Black
 
-        ElseIf Form1.dB_array(8) - Form1.dB_array_compare(8) > 0 Then
-            Label45.Text = Form1.dB_array(8) & "(+" & Form1.dB_array(8) - Form1.dB_array_compare(8) & ")"
-            Label45.ForeColor = Color.Blue
-        Else
-            Label45.Text = Form1.dB_array(8) & "(" & Form1.dB_array(8) - Form1.dB_array_compare(8) & ")"
-            Label45.ForeColor = Color.Red
-        End If
+        'ElseIf Form1.dB_array(8) - Form1.dB_array_compare(8) > 0 Then
+        '    Label45.Text = Form1.dB_array(8) & "(+" & Form1.dB_array(8) - Form1.dB_array_compare(8) & ")"
+        '    Label45.ForeColor = Color.Blue
+        'Else
+        '    Label45.Text = Form1.dB_array(8) & "(" & Form1.dB_array(8) - Form1.dB_array_compare(8) & ")"
+        '    Label45.ForeColor = Color.Red
+        'End If
     End Sub
 
     Private Sub Button19_Click(sender As Object, e As EventArgs) Handles Button19.Click
@@ -845,17 +861,18 @@
             Exit Sub
         End If
         Form1.dB_array(8) -= 1
-        If Form1.dB_array(8) - Form1.dB_array_compare(8) = 0 Then
-            Label45.Text = Form1.dB_array(8)
-            Label45.ForeColor = Color.Black
+        Label45.Text = Form1.dB_array(8)
+        'If Form1.dB_array(8) - Form1.dB_array_compare(8) = 0 Then
+        '    Label45.Text = Form1.dB_array(8)
+        '    Label45.ForeColor = Color.Black
 
-        ElseIf Form1.dB_array(8) - Form1.dB_array_compare(8) > 0 Then
-            Label45.Text = Form1.dB_array(8) & "(+" & Form1.dB_array(8) - Form1.dB_array_compare(8) & ")"
-            Label45.ForeColor = Color.Blue
-        Else
-            Label45.Text = Form1.dB_array(8) & "(" & Form1.dB_array(8) - Form1.dB_array_compare(8) & ")"
-            Label45.ForeColor = Color.Red
-        End If
+        'ElseIf Form1.dB_array(8) - Form1.dB_array_compare(8) > 0 Then
+        '    Label45.Text = Form1.dB_array(8) & "(+" & Form1.dB_array(8) - Form1.dB_array_compare(8) & ")"
+        '    Label45.ForeColor = Color.Blue
+        'Else
+        '    Label45.Text = Form1.dB_array(8) & "(" & Form1.dB_array(8) - Form1.dB_array_compare(8) & ")"
+        '    Label45.ForeColor = Color.Red
+        'End If
     End Sub
 
     Private Sub Button20_Click(sender As Object, e As EventArgs) Handles Button20.Click
@@ -865,17 +882,18 @@
             Exit Sub
         End If
         Form1.dB_array(9) += 1
-        If Form1.dB_array(9) - Form1.dB_array_compare(9) = 0 Then
-            Label46.Text = Form1.dB_array(9)
-            Label46.ForeColor = Color.Black
+        Label46.Text = Form1.dB_array(9)
+        'If Form1.dB_array(9) - Form1.dB_array_compare(9) = 0 Then
+        '    Label46.Text = Form1.dB_array(9)
+        '    Label46.ForeColor = Color.Black
 
-        ElseIf Form1.dB_array(9) - Form1.dB_array_compare(9) > 0 Then
-            Label46.Text = Form1.dB_array(9) & "(+" & Form1.dB_array(9) - Form1.dB_array_compare(9) & ")"
-            Label46.ForeColor = Color.Blue
-        Else
-            Label46.Text = Form1.dB_array(9) & "(" & Form1.dB_array(9) - Form1.dB_array_compare(9) & ")"
-            Label46.ForeColor = Color.Red
-        End If
+        'ElseIf Form1.dB_array(9) - Form1.dB_array_compare(9) > 0 Then
+        '    Label46.Text = Form1.dB_array(9) & "(+" & Form1.dB_array(9) - Form1.dB_array_compare(9) & ")"
+        '    Label46.ForeColor = Color.Blue
+        'Else
+        '    Label46.Text = Form1.dB_array(9) & "(" & Form1.dB_array(9) - Form1.dB_array_compare(9) & ")"
+        '    Label46.ForeColor = Color.Red
+        'End If
     End Sub
 
     Private Sub Button21_Click(sender As Object, e As EventArgs) Handles Button21.Click
@@ -885,17 +903,18 @@
             Exit Sub
         End If
         Form1.dB_array(9) -= 1
-        If Form1.dB_array(9) - Form1.dB_array_compare(9) = 0 Then
-            Label46.Text = Form1.dB_array(9)
-            Label46.ForeColor = Color.Black
+        Label46.Text = Form1.dB_array(9)
+        'If Form1.dB_array(9) - Form1.dB_array_compare(9) = 0 Then
+        '    Label46.Text = Form1.dB_array(9)
+        '    Label46.ForeColor = Color.Black
 
-        ElseIf Form1.dB_array(9) - Form1.dB_array_compare(9) > 0 Then
-            Label46.Text = Form1.dB_array(9) & "(+" & Form1.dB_array(9) - Form1.dB_array_compare(9) & ")"
-            Label46.ForeColor = Color.Blue
-        Else
-            Label46.Text = Form1.dB_array(9) & "(" & Form1.dB_array(9) - Form1.dB_array_compare(9) & ")"
-            Label46.ForeColor = Color.Red
-        End If
+        'ElseIf Form1.dB_array(9) - Form1.dB_array_compare(9) > 0 Then
+        '    Label46.Text = Form1.dB_array(9) & "(+" & Form1.dB_array(9) - Form1.dB_array_compare(9) & ")"
+        '    Label46.ForeColor = Color.Blue
+        'Else
+        '    Label46.Text = Form1.dB_array(9) & "(" & Form1.dB_array(9) - Form1.dB_array_compare(9) & ")"
+        '    Label46.ForeColor = Color.Red
+        'End If
     End Sub
 
     Private Sub Button22_Click(sender As Object, e As EventArgs) Handles Button22.Click
@@ -905,17 +924,18 @@
             Exit Sub
         End If
         Form1.dB_array(10) += 1
-        If Form1.dB_array(10) - Form1.dB_array_compare(10) = 0 Then
-            Label47.Text = Form1.dB_array(10)
-            Label47.ForeColor = Color.Black
+        Label47.Text = Form1.dB_array(10)
+        'If Form1.dB_array(10) - Form1.dB_array_compare(10) = 0 Then
+        '    Label47.Text = Form1.dB_array(10)
+        '    Label47.ForeColor = Color.Black
 
-        ElseIf Form1.dB_array(10) - Form1.dB_array_compare(10) > 0 Then
-            Label47.Text = Form1.dB_array(10) & "(+" & Form1.dB_array(10) - Form1.dB_array_compare(10) & ")"
-            Label47.ForeColor = Color.Blue
-        Else
-            Label47.Text = Form1.dB_array(10) & "(" & Form1.dB_array(10) - Form1.dB_array_compare(10) & ")"
-            Label47.ForeColor = Color.Red
-        End If
+        'ElseIf Form1.dB_array(10) - Form1.dB_array_compare(10) > 0 Then
+        '    Label47.Text = Form1.dB_array(10) & "(+" & Form1.dB_array(10) - Form1.dB_array_compare(10) & ")"
+        '    Label47.ForeColor = Color.Blue
+        'Else
+        '    Label47.Text = Form1.dB_array(10) & "(" & Form1.dB_array(10) - Form1.dB_array_compare(10) & ")"
+        '    Label47.ForeColor = Color.Red
+        'End If
     End Sub
 
     Private Sub Button23_Click(sender As Object, e As EventArgs) Handles Button23.Click
@@ -925,17 +945,18 @@
             Exit Sub
         End If
         Form1.dB_array(10) -= 1
-        If Form1.dB_array(10) - Form1.dB_array_compare(10) = 0 Then
-            Label47.Text = Form1.dB_array(10)
-            Label47.ForeColor = Color.Black
+        Label47.Text = Form1.dB_array(10)
+        'If Form1.dB_array(10) - Form1.dB_array_compare(10) = 0 Then
+        '    Label47.Text = Form1.dB_array(10)
+        '    Label47.ForeColor = Color.Black
 
-        ElseIf Form1.dB_array(10) - Form1.dB_array_compare(10) > 0 Then
-            Label47.Text = Form1.dB_array(10) & "(+" & Form1.dB_array(10) - Form1.dB_array_compare(10) & ")"
-            Label47.ForeColor = Color.Blue
-        Else
-            Label47.Text = Form1.dB_array(10) & "(" & Form1.dB_array(10) - Form1.dB_array_compare(10) & ")"
-            Label47.ForeColor = Color.Red
-        End If
+        'ElseIf Form1.dB_array(10) - Form1.dB_array_compare(10) > 0 Then
+        '    Label47.Text = Form1.dB_array(10) & "(+" & Form1.dB_array(10) - Form1.dB_array_compare(10) & ")"
+        '    Label47.ForeColor = Color.Blue
+        'Else
+        '    Label47.Text = Form1.dB_array(10) & "(" & Form1.dB_array(10) - Form1.dB_array_compare(10) & ")"
+        '    Label47.ForeColor = Color.Red
+        'End If
     End Sub
 
     Private Sub Button24_Click(sender As Object, e As EventArgs) Handles Button24.Click
@@ -945,17 +966,18 @@
             Exit Sub
         End If
         Form1.dB_array(11) += 1
-        If Form1.dB_array(11) - Form1.dB_array_compare(11) = 0 Then
-            Label48.Text = Form1.dB_array(11)
-            Label48.ForeColor = Color.Black
+        Label48.Text = Form1.dB_array(11)
+        'If Form1.dB_array(11) - Form1.dB_array_compare(11) = 0 Then
+        '    Label48.Text = Form1.dB_array(11)
+        '    Label48.ForeColor = Color.Black
 
-        ElseIf Form1.dB_array(11) - Form1.dB_array_compare(11) > 0 Then
-            Label48.Text = Form1.dB_array(11) & "(+" & Form1.dB_array(11) - Form1.dB_array_compare(11) & ")"
-            Label48.ForeColor = Color.Blue
-        Else
-            Label48.Text = Form1.dB_array(11) & "(" & Form1.dB_array(11) - Form1.dB_array_compare(11) & ")"
-            Label48.ForeColor = Color.Red
-        End If
+        'ElseIf Form1.dB_array(11) - Form1.dB_array_compare(11) > 0 Then
+        '    Label48.Text = Form1.dB_array(11) & "(+" & Form1.dB_array(11) - Form1.dB_array_compare(11) & ")"
+        '    Label48.ForeColor = Color.Blue
+        'Else
+        '    Label48.Text = Form1.dB_array(11) & "(" & Form1.dB_array(11) - Form1.dB_array_compare(11) & ")"
+        '    Label48.ForeColor = Color.Red
+        'End If
     End Sub
 
     Private Sub Button25_Click(sender As Object, e As EventArgs) Handles Button25.Click
@@ -965,17 +987,18 @@
             Exit Sub
         End If
         Form1.dB_array(11) -= 1
-        If Form1.dB_array(11) - Form1.dB_array_compare(11) = 0 Then
-            Label48.Text = Form1.dB_array(11)
-            Label48.ForeColor = Color.Black
+        Label48.Text = Form1.dB_array(11)
+        'If Form1.dB_array(11) - Form1.dB_array_compare(11) = 0 Then
+        '    Label48.Text = Form1.dB_array(11)
+        '    Label48.ForeColor = Color.Black
 
-        ElseIf Form1.dB_array(11) - Form1.dB_array_compare(11) > 0 Then
-            Label48.Text = Form1.dB_array(11) & "(+" & Form1.dB_array(11) - Form1.dB_array_compare(11) & ")"
-            Label48.ForeColor = Color.Blue
-        Else
-            Label48.Text = Form1.dB_array(11) & "(" & Form1.dB_array(11) - Form1.dB_array_compare(11) & ")"
-            Label48.ForeColor = Color.Red
-        End If
+        'ElseIf Form1.dB_array(11) - Form1.dB_array_compare(11) > 0 Then
+        '    Label48.Text = Form1.dB_array(11) & "(+" & Form1.dB_array(11) - Form1.dB_array_compare(11) & ")"
+        '    Label48.ForeColor = Color.Blue
+        'Else
+        '    Label48.Text = Form1.dB_array(11) & "(" & Form1.dB_array(11) - Form1.dB_array_compare(11) & ")"
+        '    Label48.ForeColor = Color.Red
+        'End If
     End Sub
 
     Private Sub Button26_Click(sender As Object, e As EventArgs) Handles Button26.Click
@@ -985,17 +1008,18 @@
             Exit Sub
         End If
         Form1.dB_array(12) += 1
-        If Form1.dB_array(12) - Form1.dB_array_compare(12) = 0 Then
-            Label49.Text = Form1.dB_array(12)
-            Label49.ForeColor = Color.Black
+        Label49.Text = Form1.dB_array(12)
+        'If Form1.dB_array(12) - Form1.dB_array_compare(12) = 0 Then
+        '    Label49.Text = Form1.dB_array(12)
+        '    Label49.ForeColor = Color.Black
 
-        ElseIf Form1.dB_array(12) - Form1.dB_array_compare(12) > 0 Then
-            Label49.Text = Form1.dB_array(12) & "(+" & Form1.dB_array(12) - Form1.dB_array_compare(12) & ")"
-            Label49.ForeColor = Color.Blue
-        Else
-            Label49.Text = Form1.dB_array(12) & "(" & Form1.dB_array(0) - Form1.dB_array_compare(12) & ")"
-            Label49.ForeColor = Color.Red
-        End If
+        'ElseIf Form1.dB_array(12) - Form1.dB_array_compare(12) > 0 Then
+        '    Label49.Text = Form1.dB_array(12) & "(+" & Form1.dB_array(12) - Form1.dB_array_compare(12) & ")"
+        '    Label49.ForeColor = Color.Blue
+        'Else
+        '    Label49.Text = Form1.dB_array(12) & "(" & Form1.dB_array(0) - Form1.dB_array_compare(12) & ")"
+        '    Label49.ForeColor = Color.Red
+        'End If
     End Sub
 
     Private Sub Button27_Click(sender As Object, e As EventArgs) Handles Button27.Click
@@ -1005,17 +1029,18 @@
             Exit Sub
         End If
         Form1.dB_array(12) -= 1
-        If Form1.dB_array(12) - Form1.dB_array_compare(12) = 0 Then
-            Label49.Text = Form1.dB_array(12)
-            Label49.ForeColor = Color.Black
+        Label49.Text = Form1.dB_array(12)
+        'If Form1.dB_array(12) - Form1.dB_array_compare(12) = 0 Then
+        '    Label49.Text = Form1.dB_array(12)
+        '    Label49.ForeColor = Color.Black
 
-        ElseIf Form1.dB_array(12) - Form1.dB_array_compare(12) > 0 Then
-            Label49.Text = Form1.dB_array(12) & "(+" & Form1.dB_array(12) - Form1.dB_array_compare(12) & ")"
-            Label49.ForeColor = Color.Blue
-        Else
-            Label49.Text = Form1.dB_array(12) & "(" & Form1.dB_array(12) - Form1.dB_array_compare(12) & ")"
-            Label49.ForeColor = Color.Red
-        End If
+        'ElseIf Form1.dB_array(12) - Form1.dB_array_compare(12) > 0 Then
+        '    Label49.Text = Form1.dB_array(12) & "(+" & Form1.dB_array(12) - Form1.dB_array_compare(12) & ")"
+        '    Label49.ForeColor = Color.Blue
+        'Else
+        '    Label49.Text = Form1.dB_array(12) & "(" & Form1.dB_array(12) - Form1.dB_array_compare(12) & ")"
+        '    Label49.ForeColor = Color.Red
+        'End If
     End Sub
 
     Private Sub Button28_Click(sender As Object, e As EventArgs) Handles Button28.Click
@@ -1025,17 +1050,18 @@
             Exit Sub
         End If
         Form1.dB_array(13) += 1
-        If Form1.dB_array(13) - Form1.dB_array_compare(13) = 0 Then
-            Label50.Text = Form1.dB_array(13)
-            Label50.ForeColor = Color.Black
+        Label50.Text = Form1.dB_array(13)
+        'If Form1.dB_array(13) - Form1.dB_array_compare(13) = 0 Then
+        '    Label50.Text = Form1.dB_array(13)
+        '    Label50.ForeColor = Color.Black
 
-        ElseIf Form1.dB_array(13) - Form1.dB_array_compare(13) > 0 Then
-            Label50.Text = Form1.dB_array(13) & "(+" & Form1.dB_array(13) - Form1.dB_array_compare(13) & ")"
-            Label50.ForeColor = Color.Blue
-        Else
-            Label50.Text = Form1.dB_array(13) & "(" & Form1.dB_array(13) - Form1.dB_array_compare(13) & ")"
-            Label50.ForeColor = Color.Red
-        End If
+        'ElseIf Form1.dB_array(13) - Form1.dB_array_compare(13) > 0 Then
+        '    Label50.Text = Form1.dB_array(13) & "(+" & Form1.dB_array(13) - Form1.dB_array_compare(13) & ")"
+        '    Label50.ForeColor = Color.Blue
+        'Else
+        '    Label50.Text = Form1.dB_array(13) & "(" & Form1.dB_array(13) - Form1.dB_array_compare(13) & ")"
+        '    Label50.ForeColor = Color.Red
+        'End If
     End Sub
 
     Private Sub Button29_Click(sender As Object, e As EventArgs) Handles Button29.Click
@@ -1045,17 +1071,18 @@
             Exit Sub
         End If
         Form1.dB_array(13) -= 1
-        If Form1.dB_array(13) - Form1.dB_array_compare(13) = 0 Then
-            Label50.Text = Form1.dB_array(13)
-            Label50.ForeColor = Color.Black
+        Label50.Text = Form1.dB_array(13)
+        'If Form1.dB_array(13) - Form1.dB_array_compare(13) = 0 Then
+        '    Label50.Text = Form1.dB_array(13)
+        '    Label50.ForeColor = Color.Black
 
-        ElseIf Form1.dB_array(13) - Form1.dB_array_compare(13) > 0 Then
-            Label50.Text = Form1.dB_array(13) & "(+" & Form1.dB_array(13) - Form1.dB_array_compare(13) & ")"
-            Label50.ForeColor = Color.Blue
-        Else
-            Label50.Text = Form1.dB_array(13) & "(" & Form1.dB_array(13) - Form1.dB_array_compare(13) & ")"
-            Label50.ForeColor = Color.Red
-        End If
+        'ElseIf Form1.dB_array(13) - Form1.dB_array_compare(13) > 0 Then
+        '    Label50.Text = Form1.dB_array(13) & "(+" & Form1.dB_array(13) - Form1.dB_array_compare(13) & ")"
+        '    Label50.ForeColor = Color.Blue
+        'Else
+        '    Label50.Text = Form1.dB_array(13) & "(" & Form1.dB_array(13) - Form1.dB_array_compare(13) & ")"
+        '    Label50.ForeColor = Color.Red
+        'End If
     End Sub
 
     Private Sub Button30_Click(sender As Object, e As EventArgs) Handles Button30.Click
@@ -1065,17 +1092,18 @@
             Exit Sub
         End If
         Form1.dB_array(14) += 1
-        If Form1.dB_array(14) - Form1.dB_array_compare(14) = 0 Then
-            Label51.Text = Form1.dB_array(14)
-            Label51.ForeColor = Color.Black
+        Label51.Text = Form1.dB_array(14)
+        'If Form1.dB_array(14) - Form1.dB_array_compare(14) = 0 Then
+        '    Label51.Text = Form1.dB_array(14)
+        '    Label51.ForeColor = Color.Black
 
-        ElseIf Form1.dB_array(14) - Form1.dB_array_compare(14) > 0 Then
-            Label51.Text = Form1.dB_array(14) & "(+" & Form1.dB_array(14) - Form1.dB_array_compare(14) & ")"
-            Label51.ForeColor = Color.Blue
-        Else
-            Label51.Text = Form1.dB_array(14) & "(" & Form1.dB_array(14) - Form1.dB_array_compare(14) & ")"
-            Label51.ForeColor = Color.Red
-        End If
+        'ElseIf Form1.dB_array(14) - Form1.dB_array_compare(14) > 0 Then
+        '    Label51.Text = Form1.dB_array(14) & "(+" & Form1.dB_array(14) - Form1.dB_array_compare(14) & ")"
+        '    Label51.ForeColor = Color.Blue
+        'Else
+        '    Label51.Text = Form1.dB_array(14) & "(" & Form1.dB_array(14) - Form1.dB_array_compare(14) & ")"
+        '    Label51.ForeColor = Color.Red
+        'End If
     End Sub
 
     Private Sub Button31_Click(sender As Object, e As EventArgs) Handles Button31.Click
@@ -1085,17 +1113,18 @@
             Exit Sub
         End If
         Form1.dB_array(14) -= 1
-        If Form1.dB_array(14) - Form1.dB_array_compare(14) = 0 Then
-            Label51.Text = Form1.dB_array(14)
-            Label51.ForeColor = Color.Black
+        Label51.Text = Form1.dB_array(14)
+        'If Form1.dB_array(14) - Form1.dB_array_compare(14) = 0 Then
+        '    Label51.Text = Form1.dB_array(14)
+        '    Label51.ForeColor = Color.Black
 
-        ElseIf Form1.dB_array(14) - Form1.dB_array_compare(14) > 0 Then
-            Label51.Text = Form1.dB_array(14) & "(+" & Form1.dB_array(14) - Form1.dB_array_compare(14) & ")"
-            Label51.ForeColor = Color.Blue
-        Else
-            Label51.Text = Form1.dB_array(14) & "(" & Form1.dB_array(14) - Form1.dB_array_compare(14) & ")"
-            Label51.ForeColor = Color.Red
-        End If
+        'ElseIf Form1.dB_array(14) - Form1.dB_array_compare(14) > 0 Then
+        '    Label51.Text = Form1.dB_array(14) & "(+" & Form1.dB_array(14) - Form1.dB_array_compare(14) & ")"
+        '    Label51.ForeColor = Color.Blue
+        'Else
+        '    Label51.Text = Form1.dB_array(14) & "(" & Form1.dB_array(14) - Form1.dB_array_compare(14) & ")"
+        '    Label51.ForeColor = Color.Red
+        'End If
     End Sub
 
     Private Sub Button32_Click(sender As Object, e As EventArgs) Handles Button32.Click
@@ -1105,17 +1134,18 @@
             Exit Sub
         End If
         Form1.dB_array(15) += 1
-        If Form1.dB_array(15) - Form1.dB_array_compare(15) = 0 Then
-            Label52.Text = Form1.dB_array(15)
-            Label52.ForeColor = Color.Black
+        Label52.Text = Form1.dB_array(15)
+        'If Form1.dB_array(15) - Form1.dB_array_compare(15) = 0 Then
+        '    Label52.Text = Form1.dB_array(15)
+        '    Label52.ForeColor = Color.Black
 
-        ElseIf Form1.dB_array(15) - Form1.dB_array_compare(15) > 0 Then
-            Label52.Text = Form1.dB_array(15) & "(+" & Form1.dB_array(15) - Form1.dB_array_compare(15) & ")"
-            Label52.ForeColor = Color.Blue
-        Else
-            Label52.Text = Form1.dB_array(15) & "(" & Form1.dB_array(15) - Form1.dB_array_compare(15) & ")"
-            Label52.ForeColor = Color.Red
-        End If
+        'ElseIf Form1.dB_array(15) - Form1.dB_array_compare(15) > 0 Then
+        '    Label52.Text = Form1.dB_array(15) & "(+" & Form1.dB_array(15) - Form1.dB_array_compare(15) & ")"
+        '    Label52.ForeColor = Color.Blue
+        'Else
+        '    Label52.Text = Form1.dB_array(15) & "(" & Form1.dB_array(15) - Form1.dB_array_compare(15) & ")"
+        '    Label52.ForeColor = Color.Red
+        'End If
     End Sub
 
     Private Sub Button33_Click(sender As Object, e As EventArgs) Handles Button33.Click
@@ -1125,17 +1155,18 @@
             Exit Sub
         End If
         Form1.dB_array(15) -= 1
-        If Form1.dB_array(15) - Form1.dB_array_compare(15) = 0 Then
-            Label52.Text = Form1.dB_array(15)
-            Label52.ForeColor = Color.Black
+        Label52.Text = Form1.dB_array(15)
+        'If Form1.dB_array(15) - Form1.dB_array_compare(15) = 0 Then
+        '    Label52.Text = Form1.dB_array(15)
+        '    Label52.ForeColor = Color.Black
 
-        ElseIf Form1.dB_array(15) - Form1.dB_array_compare(15) > 0 Then
-            Label52.Text = Form1.dB_array(15) & "(+" & Form1.dB_array(15) - Form1.dB_array_compare(15) & ")"
-            Label52.ForeColor = Color.Blue
-        Else
-            Label52.Text = Form1.dB_array(15) & "(" & Form1.dB_array(15) - Form1.dB_array_compare(15) & ")"
-            Label52.ForeColor = Color.Red
-        End If
+        'ElseIf Form1.dB_array(15) - Form1.dB_array_compare(15) > 0 Then
+        '    Label52.Text = Form1.dB_array(15) & "(+" & Form1.dB_array(15) - Form1.dB_array_compare(15) & ")"
+        '    Label52.ForeColor = Color.Blue
+        'Else
+        '    Label52.Text = Form1.dB_array(15) & "(" & Form1.dB_array(15) - Form1.dB_array_compare(15) & ")"
+        '    Label52.ForeColor = Color.Red
+        'End If
     End Sub
 
     Private Sub Button34_Click(sender As Object, e As EventArgs) Handles Button34.Click  'remove EQ band from EQ-Band-List
