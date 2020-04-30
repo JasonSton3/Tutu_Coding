@@ -1169,7 +1169,7 @@
         'End If
     End Sub
 
-    Private Sub Button34_Click(sender As Object, e As EventArgs) Handles Button34.Click  'remove EQ band from EQ-Band-List
+    Private Sub Button34_Click(sender As Object, e As EventArgs) Handles Button34.Click  'remove any one of EQ-band from EQ-Band-List
 
         Dim row_index As Integer = 0
         Dim i_del_row As Integer
