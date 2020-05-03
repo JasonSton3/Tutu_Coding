@@ -30,7 +30,8 @@ Partial Class Form1
         Me.Button10 = New System.Windows.Forms.Button()
         Me.UserControl22 = New tutuGUI_Jason_v3.UserControl2()
         Me.UserControl12 = New tutuGUI_Jason_v3.UserControl1()
-        Me.Button6 = New System.Windows.Forms.Button()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Button1
@@ -102,21 +103,29 @@ Partial Class Form1
         Me.UserControl12.Size = New System.Drawing.Size(1385, 683)
         Me.UserControl12.TabIndex = 16
         '
-        'Button6
+        'Panel1
         '
-        Me.Button6.Location = New System.Drawing.Point(952, 18)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(75, 23)
-        Me.Button6.TabIndex = 18
-        Me.Button6.Text = "Button6"
-        Me.Button6.UseVisualStyleBackColor = True
+        Me.Panel1.Location = New System.Drawing.Point(366, 12)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(68, 47)
+        Me.Panel1.TabIndex = 19
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(357, 30)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(86, 12)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "Plot is under here"
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1434, 761)
-        Me.Controls.Add(Me.Button6)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.UserControl22)
         Me.Controls.Add(Me.UserControl12)
         Me.Controls.Add(Me.Button10)
@@ -128,6 +137,7 @@ Partial Class Form1
         Me.Name = "Form1"
         Me.Text = "Tutu Parameter Control Panel"
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -141,5 +151,6 @@ Partial Class Form1
     Friend WithEvents Button10 As Button
     Friend WithEvents UserControl12 As UserControl1
     Friend WithEvents UserControl22 As UserControl2
-    Friend WithEvents Button6 As Button
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents Label1 As Label
 End Class

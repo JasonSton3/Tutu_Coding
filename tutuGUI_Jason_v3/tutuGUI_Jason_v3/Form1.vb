@@ -96,38 +96,44 @@ Public Class Form1
         UserControl12.CheckBox11.Checked = False
 
         '---------------------------------------開始確認參數是否為對應的頻寬
-        If EQ_end_freq_in_Decimal.Max = 4000 Then
+        If EQ_end_freq_in_Decimal.Max <= 4000 Then
             UserControl12.CheckBox8.Checked = True
             'UserControl12.Chart1.BackImage = ""
             UserControl12.Chart1.BackImage = "D:\Works\Codings\SWB_FB_right_grid_with_no_data_plus_major_grid_no_x_db_lable_no_transparent.bmp"
             UserControl12.Chart1.ChartAreas(0).AxisX.Maximum = 25000 ' 設定Axis-X 的最大值
             SWB_FB_label_backimage_load()
+            Exit Sub
 
-        ElseIf EQ_end_freq_in_Decimal.Max = 8000 Then
+        ElseIf EQ_end_freq_in_Decimal.Max <= 8000 Then
             UserControl12.CheckBox9.Checked = True
             'UserControl12.Chart1.BackImage = ""
             UserControl12.Chart1.BackImage = "D:\Works\Codings\SWB_FB_right_grid_with_no_data_plus_major_grid_no_x_db_lable_no_transparent.bmp"
             UserControl12.Chart1.ChartAreas(0).AxisX.Maximum = 25000 ' 設定Axis-X 的最大值
             SWB_FB_label_backimage_load()
+            Exit Sub
 
-        ElseIf EQ_end_freq_in_Decimal.Max = 16000 Then
+        ElseIf EQ_end_freq_in_Decimal.Max <= 16000 Then
             UserControl12.CheckBox10.Checked = True
             'UserControl12.Chart1.BackImage = ""
             UserControl12.Chart1.BackImage = "D:\Works\Codings\SWB_FB_right_grid_with_no_data_plus_major_grid_no_x_db_lable_no_transparent.bmp"
             UserControl12.Chart1.ChartAreas(0).AxisX.Maximum = 25000 ' 設定Axis-X 的最大值
             SWB_FB_label_backimage_load()
+            Exit Sub
 
-        ElseIf EQ_end_freq_in_Decimal.Max = 24000 Then
+        ElseIf EQ_end_freq_in_Decimal.Max <= 24000 Then
             UserControl12.CheckBox11.Checked = True
             'UserControl12.Chart1.BackImage = ""
             UserControl12.Chart1.BackImage = "D:\Works\Codings\SWB_FB_right_grid_with_no_data_plus_major_grid_no_x_db_lable_no_transparent.bmp"
             UserControl12.Chart1.ChartAreas(0).AxisX.Maximum = 25000 ' 設定Axis-X 的最大值
             SWB_FB_label_backimage_load()
+            Exit Sub
+
         Else
-            UserControl12.CheckBox12.Checked = True
-            UserControl12.Chart1.BackImage = "D:\Works\Codings\SWB_FB_right_grid_with_no_data_plus_major_grid_no_x_db_lable_no_transparent.bmp"
-            UserControl12.Chart1.ChartAreas(0).AxisX.Maximum = 25000 ' 設定Axis-X 的最大值
-            SWB_FB_label_backimage_load()
+            'UserControl12.CheckBox12.Checked = True
+            'UserControl12.Chart1.BackImage = "D:\Works\Codings\SWB_FB_right_grid_with_no_data_plus_major_grid_no_x_db_lable_no_transparent.bmp"
+            'UserControl12.Chart1.ChartAreas(0).AxisX.Maximum = 25000 ' 設定Axis-X 的最大值
+            'SWB_FB_label_backimage_load()
+            MessageBox.Show("Frequency is over 24000Hz, please re-check the value again!")
 
         End If
     End Sub
@@ -183,6 +189,7 @@ Public Class Form1
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click  'EQ Click
         UserControl22.Hide()    'UserControl21 is DRC
         UserControl12.Show()    'UserControl11 is EQ
+        UserControl12.Label92.Hide()
 
 
         '-----------------------------Hide NB/WB Grid Label
@@ -754,7 +761,8 @@ Public Class Form1
         'MessageBox.Show(Hex(EQ_end_freq_in_Decimal(13)))   ' debug專用的message box example
         'array_from_clipboard_2D(1, 62) = Hex(4000) 'example: ' 在原本最後的頻段4000hz之後再加上4000hz的頻段，讓整個頻段到達8000hz
 
-
+        '------------------- Perform Button3 click
+        Button3.PerformClick()
 
 
     End Sub
@@ -838,6 +846,8 @@ Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         UserControl12.Hide()
         UserControl22.Hide()
+        Label1.Hide()
+
 
 
 

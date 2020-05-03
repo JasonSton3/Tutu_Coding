@@ -417,7 +417,7 @@
             MessageBox.Show("Wrong Value !")
             Exit Sub
         End If
-        '---------------------------Add End Frequency, TextBox1 = Input-start;TextBox2 = Input-End
+        '---------------------------Add End Frequency; TextBox1 = Input-start;TextBox2 = Input-End
         For i_add = 0 To 15
             temp1 = Form1.EQ_end_freq_in_Decimal(i_add)
 
@@ -492,7 +492,11 @@
         Form1.EQ_start_label_refresh()    '在每一次Add click後 refresh EQ start array
         Form1.EQ_end_label_refresh()      '在每一次Add click後 refresh EQ end array
         Form1.dB_label_refresh()          '在每一次Add click後 refresh dB array
-        dB_compare()
+        'dB_compare()                      '這一個功能因為Po and Andy認為不用，所以暫時先註解 (這功能是在add以後，會判定被add的頻段跟db_compare的array比了以後有無增減益，有的話改變其顏色，並且秀出增減益的值)
+
+        '----------------------------------------------- Auto-Perform plot-click event
+        Form1.Button3.PerformClick()
+
 
     End Sub
 
@@ -506,7 +510,7 @@
             Exit Sub
         End If
         Form1.dB_array(0) += 1  'value increase 1 after one click
-        Label37.Text = Form1.dB_array(0)
+        Label37.Text = Form1.dB_array(0)            '這一行應該是因為註解下面部分後，必須加上去的，要不然不會更新數值到Label37.text上
         '------------- dB array與 dB array compare 互相比較 以 顯示 正負值; 因為Andy覺得不需要這功能，所以我先註解
         'If Form1.dB_array(0) - Form1.dB_array_compare(0) = 0 Then
         '    Label37.Text = Form1.dB_array(0)
@@ -518,7 +522,8 @@
         '    Label37.Text = Form1.dB_array(0) & "(" & Form1.dB_array(0) - Form1.dB_array_compare(0) & ")"
         '    Label37.ForeColor = Color.Red
         'End If
-
+        '----------------------------------------------- Auto-Perform plot-click event
+        Form1.Button3.PerformClick()
 
     End Sub
 
@@ -528,7 +533,7 @@
             Exit Sub
         End If
         Form1.dB_array(0) -= 1      'value decrease 1 after one click
-        Label37.Text = Form1.dB_array(0)
+        Label37.Text = Form1.dB_array(0)                '這一行應該是因為註解下面部分後，必須加上去的，要不然不會更新數值到Label37.text上
         'If Form1.dB_array(0) - Form1.dB_array_compare(0) = 0 Then
         'Label37.Text = Form1.dB_array(0)
         'Label37.ForeColor = Color.Black
@@ -540,6 +545,8 @@
         'Label37.Text = Form1.dB_array(0) & "(" & Form1.dB_array(0) - Form1.dB_array_compare(0) & ")"
         'Label37.ForeColor = Color.Red
         'End If
+        '----------------------------------------------- Auto-Perform plot-click event
+        Form1.Button3.PerformClick()
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click   'dB (1) increase gain
@@ -559,6 +566,8 @@
         'Label38.Text = Form1.dB_array(1) & "(" & Form1.dB_array(1) - Form1.dB_array_compare(1) & ")"
         'Label38.ForeColor = Color.Red
         'End If
+        '----------------------------------------------- Auto-Perform plot-click event
+        Form1.Button3.PerformClick()
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click   'dB (1) decrease gain
@@ -579,6 +588,8 @@
         'Label38.Text = Form1.dB_array(1) & "(" & Form1.dB_array(1) - Form1.dB_array_compare(1) & ")"
         'Label38.ForeColor = Color.Red
         'End If
+        '----------------------------------------------- Auto-Perform plot-click event
+        Form1.Button3.PerformClick()
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
@@ -600,6 +611,8 @@
         'Label39.Text = Form1.dB_array(2) & "(" & Form1.dB_array(2) - Form1.dB_array_compare(2) & ")"
         'Label39.ForeColor = Color.Red
         'End If
+        '----------------------------------------------- Auto-Perform plot-click event
+        Form1.Button3.PerformClick()
     End Sub
 
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
@@ -621,6 +634,8 @@
         'Label39.Text = Form1.dB_array(2) & "(" & Form1.dB_array(2) - Form1.dB_array_compare(2) & ")"
         'Label39.ForeColor = Color.Red
         'End If
+        '----------------------------------------------- Auto-Perform plot-click event
+        Form1.Button3.PerformClick()
     End Sub
 
     Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
@@ -642,6 +657,8 @@
         'Label40.Text = Form1.dB_array(3) & "(" & Form1.dB_array(3) - Form1.dB_array_compare(3) & ")"
         'Label40.ForeColor = Color.Red
         'End If
+        '----------------------------------------------- Auto-Perform plot-click event
+        Form1.Button3.PerformClick()
     End Sub
 
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
@@ -663,6 +680,8 @@
         'Label40.Text = Form1.dB_array(3) & "(" & Form1.dB_array(3) - Form1.dB_array_compare(3) & ")"
         'Label40.ForeColor = Color.Red
         'End If
+        '----------------------------------------------- Auto-Perform plot-click event
+        Form1.Button3.PerformClick()
     End Sub
 
     Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click
@@ -684,6 +703,8 @@
         'Label41.Text = Form1.dB_array(4) & "(" & Form1.dB_array(4) - Form1.dB_array_compare(4) & ")"
         'Label41.ForeColor = Color.Red
         'End If
+        '----------------------------------------------- Auto-Perform plot-click event
+        Form1.Button3.PerformClick()
     End Sub
 
     Private Sub Button11_Click(sender As Object, e As EventArgs) Handles Button11.Click
@@ -705,6 +726,8 @@
         'Label41.Text = Form1.dB_array(4) & "(" & Form1.dB_array(4) - Form1.dB_array_compare(4) & ")"
         'Label41.ForeColor = Color.Red
         'End If
+        '----------------------------------------------- Auto-Perform plot-click event
+        Form1.Button3.PerformClick()
     End Sub
 
     Private Sub Button12_Click(sender As Object, e As EventArgs) Handles Button12.Click
@@ -726,6 +749,8 @@
         '    Label42.Text = Form1.dB_array(5) & "(" & Form1.dB_array(5) - Form1.dB_array_compare(5) & ")"
         'Label42.ForeColor = Color.Red
         'End If
+        '----------------------------------------------- Auto-Perform plot-click event
+        Form1.Button3.PerformClick()
     End Sub
 
     Private Sub Button13_Click(sender As Object, e As EventArgs) Handles Button13.Click
@@ -747,6 +772,8 @@
         '    Label42.Text = Form1.dB_array(5) & "(" & Form1.dB_array(5) - Form1.dB_array_compare(5) & ")"
         '    Label42.ForeColor = Color.Red
         'End If
+        '----------------------------------------------- Auto-Perform plot-click event
+        Form1.Button3.PerformClick()
     End Sub
 
     Private Sub Button14_Click(sender As Object, e As EventArgs) Handles Button14.Click
@@ -768,6 +795,8 @@
         '    Label43.Text = Form1.dB_array(6) & "(" & Form1.dB_array(6) - Form1.dB_array_compare(6) & ")"
         '    Label43.ForeColor = Color.Red
         'End If
+        '----------------------------------------------- Auto-Perform plot-click event
+        Form1.Button3.PerformClick()
     End Sub
 
     Private Sub Button15_Click(sender As Object, e As EventArgs) Handles Button15.Click
@@ -789,6 +818,8 @@
         '    Label43.Text = Form1.dB_array(6) & "(" & Form1.dB_array(6) - Form1.dB_array_compare(6) & ")"
         '    Label43.ForeColor = Color.Red
         'End If
+        '----------------------------------------------- Auto-Perform plot-click event
+        Form1.Button3.PerformClick()
     End Sub
 
     Private Sub Button16_Click(sender As Object, e As EventArgs) Handles Button16.Click
@@ -810,6 +841,8 @@
         '    Label44.Text = Form1.dB_array(7) & "(" & Form1.dB_array(7) - Form1.dB_array_compare(7) & ")"
         '    Label44.ForeColor = Color.Red
         'End If
+        '----------------------------------------------- Auto-Perform plot-click event
+        Form1.Button3.PerformClick()
     End Sub
 
     Private Sub Button17_Click(sender As Object, e As EventArgs) Handles Button17.Click
@@ -831,6 +864,8 @@
         '    Label44.Text = Form1.dB_array(7) & "(" & Form1.dB_array(7) - Form1.dB_array_compare(7) & ")"
         '    Label44.ForeColor = Color.Red
         'End If
+        '----------------------------------------------- Auto-Perform plot-click event
+        Form1.Button3.PerformClick()
     End Sub
 
     Private Sub Button18_Click(sender As Object, e As EventArgs) Handles Button18.Click
@@ -852,6 +887,8 @@
         '    Label45.Text = Form1.dB_array(8) & "(" & Form1.dB_array(8) - Form1.dB_array_compare(8) & ")"
         '    Label45.ForeColor = Color.Red
         'End If
+        '----------------------------------------------- Auto-Perform plot-click event
+        Form1.Button3.PerformClick()
     End Sub
 
     Private Sub Button19_Click(sender As Object, e As EventArgs) Handles Button19.Click
@@ -873,6 +910,8 @@
         '    Label45.Text = Form1.dB_array(8) & "(" & Form1.dB_array(8) - Form1.dB_array_compare(8) & ")"
         '    Label45.ForeColor = Color.Red
         'End If
+        '----------------------------------------------- Auto-Perform plot-click event
+        Form1.Button3.PerformClick()
     End Sub
 
     Private Sub Button20_Click(sender As Object, e As EventArgs) Handles Button20.Click
@@ -894,6 +933,8 @@
         '    Label46.Text = Form1.dB_array(9) & "(" & Form1.dB_array(9) - Form1.dB_array_compare(9) & ")"
         '    Label46.ForeColor = Color.Red
         'End If
+        '----------------------------------------------- Auto-Perform plot-click event
+        Form1.Button3.PerformClick()
     End Sub
 
     Private Sub Button21_Click(sender As Object, e As EventArgs) Handles Button21.Click
@@ -915,6 +956,8 @@
         '    Label46.Text = Form1.dB_array(9) & "(" & Form1.dB_array(9) - Form1.dB_array_compare(9) & ")"
         '    Label46.ForeColor = Color.Red
         'End If
+        '----------------------------------------------- Auto-Perform plot-click event
+        Form1.Button3.PerformClick()
     End Sub
 
     Private Sub Button22_Click(sender As Object, e As EventArgs) Handles Button22.Click
@@ -936,6 +979,8 @@
         '    Label47.Text = Form1.dB_array(10) & "(" & Form1.dB_array(10) - Form1.dB_array_compare(10) & ")"
         '    Label47.ForeColor = Color.Red
         'End If
+        '----------------------------------------------- Auto-Perform plot-click event
+        Form1.Button3.PerformClick()
     End Sub
 
     Private Sub Button23_Click(sender As Object, e As EventArgs) Handles Button23.Click
@@ -957,6 +1002,8 @@
         '    Label47.Text = Form1.dB_array(10) & "(" & Form1.dB_array(10) - Form1.dB_array_compare(10) & ")"
         '    Label47.ForeColor = Color.Red
         'End If
+        '----------------------------------------------- Auto-Perform plot-click event
+        Form1.Button3.PerformClick()
     End Sub
 
     Private Sub Button24_Click(sender As Object, e As EventArgs) Handles Button24.Click
@@ -978,6 +1025,8 @@
         '    Label48.Text = Form1.dB_array(11) & "(" & Form1.dB_array(11) - Form1.dB_array_compare(11) & ")"
         '    Label48.ForeColor = Color.Red
         'End If
+        '----------------------------------------------- Auto-Perform plot-click event
+        Form1.Button3.PerformClick()
     End Sub
 
     Private Sub Button25_Click(sender As Object, e As EventArgs) Handles Button25.Click
@@ -999,6 +1048,8 @@
         '    Label48.Text = Form1.dB_array(11) & "(" & Form1.dB_array(11) - Form1.dB_array_compare(11) & ")"
         '    Label48.ForeColor = Color.Red
         'End If
+        '----------------------------------------------- Auto-Perform plot-click event
+        Form1.Button3.PerformClick()
     End Sub
 
     Private Sub Button26_Click(sender As Object, e As EventArgs) Handles Button26.Click
@@ -1020,6 +1071,8 @@
         '    Label49.Text = Form1.dB_array(12) & "(" & Form1.dB_array(0) - Form1.dB_array_compare(12) & ")"
         '    Label49.ForeColor = Color.Red
         'End If
+        '----------------------------------------------- Auto-Perform plot-click event
+        Form1.Button3.PerformClick()
     End Sub
 
     Private Sub Button27_Click(sender As Object, e As EventArgs) Handles Button27.Click
@@ -1041,6 +1094,8 @@
         '    Label49.Text = Form1.dB_array(12) & "(" & Form1.dB_array(12) - Form1.dB_array_compare(12) & ")"
         '    Label49.ForeColor = Color.Red
         'End If
+        '----------------------------------------------- Auto-Perform plot-click event
+        Form1.Button3.PerformClick()
     End Sub
 
     Private Sub Button28_Click(sender As Object, e As EventArgs) Handles Button28.Click
@@ -1062,6 +1117,8 @@
         '    Label50.Text = Form1.dB_array(13) & "(" & Form1.dB_array(13) - Form1.dB_array_compare(13) & ")"
         '    Label50.ForeColor = Color.Red
         'End If
+        '----------------------------------------------- Auto-Perform plot-click event
+        Form1.Button3.PerformClick()
     End Sub
 
     Private Sub Button29_Click(sender As Object, e As EventArgs) Handles Button29.Click
@@ -1083,6 +1140,8 @@
         '    Label50.Text = Form1.dB_array(13) & "(" & Form1.dB_array(13) - Form1.dB_array_compare(13) & ")"
         '    Label50.ForeColor = Color.Red
         'End If
+        '----------------------------------------------- Auto-Perform plot-click event
+        Form1.Button3.PerformClick()
     End Sub
 
     Private Sub Button30_Click(sender As Object, e As EventArgs) Handles Button30.Click
@@ -1104,6 +1163,8 @@
         '    Label51.Text = Form1.dB_array(14) & "(" & Form1.dB_array(14) - Form1.dB_array_compare(14) & ")"
         '    Label51.ForeColor = Color.Red
         'End If
+        '----------------------------------------------- Auto-Perform plot-click event
+        Form1.Button3.PerformClick()
     End Sub
 
     Private Sub Button31_Click(sender As Object, e As EventArgs) Handles Button31.Click
@@ -1125,6 +1186,8 @@
         '    Label51.Text = Form1.dB_array(14) & "(" & Form1.dB_array(14) - Form1.dB_array_compare(14) & ")"
         '    Label51.ForeColor = Color.Red
         'End If
+        '----------------------------------------------- Auto-Perform plot-click event
+        Form1.Button3.PerformClick()
     End Sub
 
     Private Sub Button32_Click(sender As Object, e As EventArgs) Handles Button32.Click
@@ -1146,6 +1209,8 @@
         '    Label52.Text = Form1.dB_array(15) & "(" & Form1.dB_array(15) - Form1.dB_array_compare(15) & ")"
         '    Label52.ForeColor = Color.Red
         'End If
+        '----------------------------------------------- Auto-Perform plot-click event
+        Form1.Button3.PerformClick()
     End Sub
 
     Private Sub Button33_Click(sender As Object, e As EventArgs) Handles Button33.Click
@@ -1167,6 +1232,8 @@
         '    Label52.Text = Form1.dB_array(15) & "(" & Form1.dB_array(15) - Form1.dB_array_compare(15) & ")"
         '    Label52.ForeColor = Color.Red
         'End If
+        '----------------------------------------------- Auto-Perform plot-click event
+        Form1.Button3.PerformClick()
     End Sub
 
     Private Sub Button34_Click(sender As Object, e As EventArgs) Handles Button34.Click  'remove any one of EQ-band from EQ-Band-List
@@ -1196,8 +1263,9 @@
         Form1.EQ_start_label_refresh()
         Form1.EQ_end_label_refresh()
         Form1.dB_label_refresh()
-        dB_compare()
-
+        'dB_compare()               ; 註解這一段是因為Andy and Po 覺得沒有必要。這一function是當刪掉其中一段頻段時，會重新判斷一次是否跟沒增減益過的dB compare比較dB有無不同
+        '----------------------------------------------- Auto-Perform plot-click event
+        Form1.Button3.PerformClick()
 
     End Sub
 
@@ -1231,7 +1299,9 @@
         Form1.EQ_start_label_refresh()
         Form1.EQ_end_label_refresh()
         Form1.dB_label_refresh()
-        dB_compare()
+        'dB_compare()
+        '----------------------------------------------- Auto-Perform plot-click event
+        Form1.Button3.PerformClick()
     End Sub
 
     Private Sub Button36_Click(sender As Object, e As EventArgs) Handles Button36.Click
@@ -1260,7 +1330,9 @@
         Form1.EQ_start_label_refresh()
         Form1.EQ_end_label_refresh()
         Form1.dB_label_refresh()
-        dB_compare()
+        ' dB_compare()
+        '----------------------------------------------- Auto-Perform plot-click event
+        Form1.Button3.PerformClick()
     End Sub
 
     Private Sub Button37_Click(sender As Object, e As EventArgs) Handles Button37.Click
@@ -1289,7 +1361,9 @@
         Form1.EQ_start_label_refresh()
         Form1.EQ_end_label_refresh()
         Form1.dB_label_refresh()
-        dB_compare()
+        'dB_compare()
+        '----------------------------------------------- Auto-Perform plot-click event
+        Form1.Button3.PerformClick()
     End Sub
 
     Private Sub Button38_Click(sender As Object, e As EventArgs) Handles Button38.Click
@@ -1318,7 +1392,9 @@
         Form1.EQ_start_label_refresh()
         Form1.EQ_end_label_refresh()
         Form1.dB_label_refresh()
-        dB_compare()
+        'dB_compare()
+        '----------------------------------------------- Auto-Perform plot-click event
+        Form1.Button3.PerformClick()
     End Sub
 
     Private Sub Button39_Click(sender As Object, e As EventArgs) Handles Button39.Click
@@ -1347,7 +1423,9 @@
         Form1.EQ_start_label_refresh()
         Form1.EQ_end_label_refresh()
         Form1.dB_label_refresh()
-        dB_compare()
+        'dB_compare()
+        '----------------------------------------------- Auto-Perform plot-click event
+        Form1.Button3.PerformClick()
     End Sub
 
     Private Sub Button40_Click(sender As Object, e As EventArgs) Handles Button40.Click
@@ -1376,7 +1454,9 @@
         Form1.EQ_start_label_refresh()
         Form1.EQ_end_label_refresh()
         Form1.dB_label_refresh()
-        dB_compare()
+        'dB_compare()
+        '----------------------------------------------- Auto-Perform plot-click event
+        Form1.Button3.PerformClick()
     End Sub
 
     Private Sub Button41_Click(sender As Object, e As EventArgs) Handles Button41.Click
@@ -1405,7 +1485,9 @@
         Form1.EQ_start_label_refresh()
         Form1.EQ_end_label_refresh()
         Form1.dB_label_refresh()
-        dB_compare()
+        'dB_compare()
+        '----------------------------------------------- Auto-Perform plot-click event
+        Form1.Button3.PerformClick()
     End Sub
 
     Private Sub Button42_Click(sender As Object, e As EventArgs) Handles Button42.Click
@@ -1434,7 +1516,9 @@
         Form1.EQ_start_label_refresh()
         Form1.EQ_end_label_refresh()
         Form1.dB_label_refresh()
-        dB_compare()
+        'dB_compare()
+        '----------------------------------------------- Auto-Perform plot-click event
+        Form1.Button3.PerformClick()
     End Sub
 
     Private Sub Button43_Click(sender As Object, e As EventArgs) Handles Button43.Click
@@ -1463,7 +1547,9 @@
         Form1.EQ_start_label_refresh()
         Form1.EQ_end_label_refresh()
         Form1.dB_label_refresh()
-        dB_compare()
+        'dB_compare()
+        '----------------------------------------------- Auto-Perform plot-click event
+        Form1.Button3.PerformClick()
     End Sub
 
     Private Sub Button44_Click(sender As Object, e As EventArgs) Handles Button44.Click
@@ -1492,7 +1578,9 @@
         Form1.EQ_start_label_refresh()
         Form1.EQ_end_label_refresh()
         Form1.dB_label_refresh()
-        dB_compare()
+        'dB_compare()
+        '----------------------------------------------- Auto-Perform plot-click event
+        Form1.Button3.PerformClick()
     End Sub
 
     Private Sub Button45_Click(sender As Object, e As EventArgs) Handles Button45.Click
@@ -1521,7 +1609,9 @@
         Form1.EQ_start_label_refresh()
         Form1.EQ_end_label_refresh()
         Form1.dB_label_refresh()
-        dB_compare()
+        'dB_compare()
+        '----------------------------------------------- Auto-Perform plot-click event
+        Form1.Button3.PerformClick()
     End Sub
 
     Private Sub Button46_Click(sender As Object, e As EventArgs) Handles Button46.Click
@@ -1550,7 +1640,9 @@
         Form1.EQ_start_label_refresh()
         Form1.EQ_end_label_refresh()
         Form1.dB_label_refresh()
-        dB_compare()
+        'dB_compare()
+        '----------------------------------------------- Auto-Perform plot-click event
+        Form1.Button3.PerformClick()
     End Sub
 
     Private Sub Button47_Click(sender As Object, e As EventArgs) Handles Button47.Click
@@ -1579,7 +1671,9 @@
         Form1.EQ_start_label_refresh()
         Form1.EQ_end_label_refresh()
         Form1.dB_label_refresh()
-        dB_compare()
+        'dB_compare()
+        '----------------------------------------------- Auto-Perform plot-click event
+        Form1.Button3.PerformClick()
     End Sub
 
     Private Sub Button48_Click(sender As Object, e As EventArgs) Handles Button48.Click
@@ -1608,7 +1702,9 @@
         Form1.EQ_start_label_refresh()
         Form1.EQ_end_label_refresh()
         Form1.dB_label_refresh()
-        dB_compare()
+        'dB_compare()
+        '----------------------------------------------- Auto-Perform plot-click event
+        Form1.Button3.PerformClick()
     End Sub
 
     Private Sub Button49_Click(sender As Object, e As EventArgs) Handles Button49.Click
@@ -1637,22 +1733,13 @@
         Form1.EQ_start_label_refresh()
         Form1.EQ_end_label_refresh()
         Form1.dB_label_refresh()
-        dB_compare()
-    End Sub
-
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs)
-
-    End Sub
-
-    Private Sub Label62_Click(sender As Object, e As EventArgs) Handles Label62.Click
-
-    End Sub
-
-    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
-
+        'dB_compare()
+        '----------------------------------------------- Auto-Perform plot-click event
+        Form1.Button3.PerformClick()
     End Sub
 
     Private Sub UserControl1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        CheckBox12.Hide()   ' Andy and Po said this checkbox is unnecessary
 
     End Sub
 
