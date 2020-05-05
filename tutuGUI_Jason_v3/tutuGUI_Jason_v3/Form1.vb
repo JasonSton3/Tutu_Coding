@@ -922,22 +922,104 @@ Public Class Form1
 
     End Sub
 
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-        'Clipboard.SetText(array_from_clipboard_2D)
-
-
-    End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click  'debug click
-        For p As Integer = 0 To 15
-            Clipboard.SetText(p.ToString & vbTab & (p + 1).ToString & vbCrLf & p.ToString & vbCrLf)
-            'Clipboard.SetText(p.ToString.Replace(vbLf, vbCrLf))
+        DataGridView1.Rows.Clear()
+        'DataGridView1.Columns.Clear()          '不能clear columns, 會導致無法存值進去DataGridView
+        DataGridView1.Refresh()
+        Dim str_data As String
+
+        For loop1 As Integer = 0 To 15
+            If loop1 = 0 Then
+                str_data = Convert.ToString(Hex(EQ_end_freq_in_Decimal(loop1))) ' Put Calibrated EQ value into array_from_clipboard_2D
+                If str_data.Length = 1 Then
+                    str_data = "0x000" & str_data
+                ElseIf str_data.Length = 2 Then
+                    str_data = "0x00" & str_data
+                ElseIf str_data.Length = 3 Then
+                    str_data = "0x0" & str_data
+                ElseIf str_data.Length = 4 Then
+                    str_data = "0x" & str_data
+                End If
+                array_from_clipboard_2D(1, 59 + loop1) = str_data
+
+                'str_data = Convert.ToString(Hex(dB_array(loop1)))               ' Put Calibrated dB value into array_from_clipboard_2D
+                'If str_data.Length = 1 Then
+                '    str_data = "0x000" & str_data
+                'ElseIf str_data.Length = 2 Then
+                '    str_data = "0x00" & str_data
+                'ElseIf str_data.Length = 3 Then
+                '    str_data = "0x0" & str_data
+                'ElseIf str_data.Length = 4 Then
+                '    str_data = "0x" & str_data
+                'End If
+                'array_from_clipboard_2D(1, 75 + loop1) = str_data
+                If dB_array(loop1) < 0 Then                      ' if dB <0, Put Calibrated dB value into array_from_clipboard_2D
+                    str_data = Strings.Right(Convert.ToString(Hex(dB_array(loop1))), 4)
+                    str_data = "0x" & str_data
+                    array_from_clipboard_2D(1, 75 + loop1) = str_data
+                Else
+                    str_data = Convert.ToString(Hex(dB_array(loop1))) ' if dB >0, Put Calibrated dB value into array_from_clipboard_2D
+                    If str_data.Length = 1 Then
+                        str_data = "0x000" & str_data
+                    ElseIf str_data.Length = 2 Then
+                        str_data = "0x00" & str_data
+                    ElseIf str_data.Length = 3 Then
+                        str_data = "0x0" & str_data
+                    ElseIf str_data.Length = 4 Then
+                        str_data = "0x" & str_data
+                    End If
+                    array_from_clipboard_2D(1, 75 + loop1) = str_data
+                End If
+            ElseIf EQ_end_freq_in_Decimal(loop1) <> 0 Then          '防止相減後會有負的EQ band
+                str_data = Convert.ToString(Hex(EQ_end_freq_in_Decimal(loop1) - EQ_end_freq_in_Decimal(loop1 - 1))) ' Put Calibrated EQ value into array_from_clipboard_2D
+                If str_data.Length = 1 Then
+                    str_data = "0x000" & str_data
+                ElseIf str_data.Length = 2 Then
+                    str_data = "0x00" & str_data
+                ElseIf str_data.Length = 3 Then
+                    str_data = "0x0" & str_data
+                ElseIf str_data.Length = 4 Then
+                    str_data = "0x" & str_data
+                End If
+                array_from_clipboard_2D(1, 59 + loop1) = str_data
+
+                If dB_array(loop1) < 0 Then                      ' if dB <0, Put Calibrated dB value into array_from_clipboard_2D
+                    str_data = Strings.Right(Convert.ToString(Hex(dB_array(loop1))), 4)
+                    str_data = "0x" & str_data
+                    array_from_clipboard_2D(1, 75 + loop1) = str_data
+                Else
+                    str_data = Convert.ToString(Hex(dB_array(loop1))) ' if dB >0, Put Calibrated dB value into array_from_clipboard_2D
+                    If str_data.Length = 1 Then
+                        str_data = "0x000" & str_data
+                    ElseIf str_data.Length = 2 Then
+                        str_data = "0x00" & str_data
+                    ElseIf str_data.Length = 3 Then
+                        str_data = "0x0" & str_data
+                    ElseIf str_data.Length = 4 Then
+                        str_data = "0x" & str_data
+                    End If
+                    array_from_clipboard_2D(1, 75 + loop1) = str_data
+                End If
+
+            Else
+                array_from_clipboard_2D(1, 59 + loop1) = "0x0000"
+                array_from_clipboard_2D(1, 75 + loop1) = "0x0000"
+            End If
+
         Next
 
+        For index_gridview As Integer = 0 To 208        '209 is the length of one-dimentional axis in array_from_clipboard_2D
+            'Clipboard.SetText(p.ToString & vbTab & (p + 1).ToString & vbCrLf & p.ToString & vbCrLf)
+            'Clipboard.SetText(p.ToString.Replace(vbLf, vbCrLf))
+            DataGridView1.Rows.Add(array_from_clipboard_2D(0, index_gridview), array_from_clipboard_2D(1, index_gridview))
+        Next
 
 
         '--------------------save image example
         'UserControl12.Chart1.SaveImage("D:\Works\Codings\SWB_FB.bmp", DataVisualization.Charting.ChartImageFormat.Bmp)
+
+        CopyDataGridViewToClipboard(DataGridView1)     ' Copy calibrated tutu data in string format from DataGridView1
     End Sub
 
     Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged 'Tutu On
@@ -958,6 +1040,57 @@ Public Class Form1
             Panel2.Show()
 
         End If
+    End Sub
+
+    Private Sub CopyDataGridViewToClipboard(ByRef dgv As DataGridView)
+
+        Dim s As String = ""
+        Dim oCurrentCol As DataGridViewColumn    'Get header
+        oCurrentCol = dgv.Columns.GetFirstColumn(DataGridViewElementStates.Visible)
+        'Do                                                                         '這一步註解，是因為我不要把column的header copy下來
+        '    s &= oCurrentCol.HeaderText & Chr(Keys.Tab)
+        '    oCurrentCol = dgv.Columns.GetNextColumn(oCurrentCol,
+        ' DataGridViewElementStates.Visible, DataGridViewElementStates.None)
+        'Loop Until oCurrentCol Is Nothing
+        's = s.Substring(0, s.Length - 1)
+        's &= Environment.NewLine    'Get rows
+        For Each row As DataGridViewRow In dgv.Rows
+            oCurrentCol = dgv.Columns.GetFirstColumn(DataGridViewElementStates.Visible)
+            Do
+                If row.Cells(oCurrentCol.Index).Value IsNot Nothing Then
+                    s &= row.Cells(oCurrentCol.Index).Value.ToString
+                End If
+                s &= Chr(Keys.Tab)
+                oCurrentCol = dgv.Columns.GetNextColumn(oCurrentCol,
+              DataGridViewElementStates.Visible, DataGridViewElementStates.None)
+            Loop Until oCurrentCol Is Nothing
+            s = s.Substring(0, s.Length - 1)
+            s &= Environment.NewLine
+        Next    'Put to clipboard
+        Dim o As New DataObject
+        o.SetText(s)
+        Clipboard.SetDataObject(o, True)
+    End Sub
+
+    Private Sub Panel2_Paint(sender As Object, e As PaintEventArgs) Handles Panel2.Paint
+
+    End Sub
+
+
+
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+        'Dim str_data As String
+        'str_data = Convert.ToString(Hex(EQ_end_freq_in_Decimal(0)))
+        'If str_data.Length = 1 Then
+        '    str_data = "0x000" & str_data
+        'ElseIf str_data.Length = 2 Then
+        '    str_data = "0x00" & str_data
+        'ElseIf str_data.Length = 3 Then
+        '    str_data = "0x0" & str_data
+        'ElseIf str_data.Length = 4 Then
+        '    str_data = "0x" & str_data
+        'End If
+
     End Sub
 End Class
 
