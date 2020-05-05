@@ -18,7 +18,6 @@ D:\Works\Codings\Tutu_Coding\tutuGUI_Jason_v3\tutuGUI_Jason_v3\bin\Debug\tutuGUI
 D:\Works\Codings\Tutu_Coding\tutuGUI_Jason_v3\tutuGUI_Jason_v3\bin\Debug\tutuGUI_Jason_v3.exe
 D:\Works\Codings\Tutu_Coding\tutuGUI_Jason_v3\tutuGUI_Jason_v3\bin\Debug\tutuGUI_Jason_v3.pdb
 D:\Works\Codings\Tutu_Coding\tutuGUI_Jason_v3\tutuGUI_Jason_v3\bin\Debug\tutuGUI_Jason_v3.xml
-D:\Works\Codings\Tutu_Coding\tutuGUI_Jason_v3\tutuGUI_Jason_v3\obj\Debug\tutuGUI_Jason_v3.vbprojAssemblyReference.cache
 D:\Works\Codings\Tutu_Coding\tutuGUI_Jason_v3\tutuGUI_Jason_v3\obj\Debug\tutuGUI_Jason_v3.Form1.resources
 D:\Works\Codings\Tutu_Coding\tutuGUI_Jason_v3\tutuGUI_Jason_v3\obj\Debug\tutuGUI_Jason_v3.Resources.resources
 D:\Works\Codings\Tutu_Coding\tutuGUI_Jason_v3\tutuGUI_Jason_v3\obj\Debug\tutuGUI_Jason_v3.UserControl1.resources

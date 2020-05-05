@@ -227,6 +227,7 @@ Public Class Form1
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click  'EQ Click
+        UserControl31.Hide()    'Developer Panel
         UserControl22.Hide()    'UserControl21 is DRC
         UserControl12.Show()    'UserControl11 is EQ
         UserControl12.Label92.Hide()
@@ -269,6 +270,7 @@ Public Class Form1
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         UserControl22.Show()    'UserControl21 is DRC
         UserControl12.Hide()    'UserControl11 is EQ
+        UserControl31.Hide()    'Developer Panel
 
     End Sub
 
@@ -911,6 +913,7 @@ Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         UserControl12.Hide()
         UserControl22.Hide()
+        UserControl31.Hide()
         Label1.Hide()
         CheckBox1.Enabled = False
         CheckBox2.Enabled = False
@@ -924,9 +927,9 @@ Public Class Form1
 
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click  'debug click
-        DataGridView1.Rows.Clear()
+        UserControl31.DataGridView1.Rows.Clear()
         'DataGridView1.Columns.Clear()          '不能clear columns, 會導致無法存值進去DataGridView
-        DataGridView1.Refresh()
+        UserControl31.DataGridView1.Refresh()
         Dim str_data As String
 
         For loop1 As Integer = 0 To 15
@@ -1012,14 +1015,14 @@ Public Class Form1
         For index_gridview As Integer = 0 To 208        '209 is the length of one-dimentional axis in array_from_clipboard_2D
             'Clipboard.SetText(p.ToString & vbTab & (p + 1).ToString & vbCrLf & p.ToString & vbCrLf)
             'Clipboard.SetText(p.ToString.Replace(vbLf, vbCrLf))
-            DataGridView1.Rows.Add(array_from_clipboard_2D(0, index_gridview), array_from_clipboard_2D(1, index_gridview))
+            UserControl31.DataGridView1.Rows.Add(array_from_clipboard_2D(0, index_gridview), array_from_clipboard_2D(1, index_gridview))
         Next
 
 
         '--------------------save image example
         'UserControl12.Chart1.SaveImage("D:\Works\Codings\SWB_FB.bmp", DataVisualization.Charting.ChartImageFormat.Bmp)
 
-        CopyDataGridViewToClipboard(DataGridView1)     ' Copy calibrated tutu data in string format from DataGridView1
+        CopyDataGridViewToClipboard(UserControl31.DataGridView1)     ' Copy calibrated tutu data in string format from DataGridView1
     End Sub
 
     Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged 'Tutu On
@@ -1090,6 +1093,16 @@ Public Class Form1
         'ElseIf str_data.Length = 4 Then
         '    str_data = "0x" & str_data
         'End If
+
+    End Sub
+
+    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
+        UserControl22.Hide()    'UserControl21 is DRC
+        UserControl12.Hide()    'UserControl11 is EQ
+        UserControl31.Show()    'Developer Panel
+    End Sub
+
+    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
 
     End Sub
 End Class

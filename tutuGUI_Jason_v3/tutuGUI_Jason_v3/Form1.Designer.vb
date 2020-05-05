@@ -32,15 +32,12 @@ Partial Class Form1
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.CheckBox2 = New System.Windows.Forms.CheckBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.UserControl22 = New tutuGUI_Jason_v3.UserControl2()
-        Me.UserControl12 = New tutuGUI_Jason_v3.UserControl1()
         Me.Button7 = New System.Windows.Forms.Button()
         Me.Button8 = New System.Windows.Forms.Button()
-        Me.Panel2.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.UserControl31 = New tutuGUI_Jason_v3.UserControl3()
+        Me.UserControl22 = New tutuGUI_Jason_v3.UserControl2()
+        Me.UserControl12 = New tutuGUI_Jason_v3.UserControl1()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Button1
@@ -65,9 +62,9 @@ Partial Class Form1
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(621, 14)
+        Me.Button3.Location = New System.Drawing.Point(606, 23)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(55, 30)
+        Me.Button3.Size = New System.Drawing.Size(55, 27)
         Me.Button3.TabIndex = 2
         Me.Button3.Text = "Plot"
         Me.Button3.UseVisualStyleBackColor = True
@@ -94,19 +91,20 @@ Partial Class Form1
         '
         'Panel1
         '
-        Me.Panel1.Location = New System.Drawing.Point(621, 13)
+        Me.Panel1.Controls.Add(Me.Label1)
+        Me.Panel1.Location = New System.Drawing.Point(457, 3)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(68, 47)
+        Me.Panel1.Size = New System.Drawing.Size(209, 57)
         Me.Panel1.TabIndex = 19
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(612, 31)
+        Me.Label1.Location = New System.Drawing.Point(25, 22)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(86, 12)
+        Me.Label1.Size = New System.Drawing.Size(157, 12)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Plot is under here"
+        Me.Label1.Text = "Plot and Dev-Panel is under here"
         '
         'CheckBox1
         '
@@ -132,31 +130,37 @@ Partial Class Form1
         '
         'Panel2
         '
-        Me.Panel2.Controls.Add(Me.DataGridView1)
         Me.Panel2.Location = New System.Drawing.Point(2, 62)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(1431, 698)
         Me.Panel2.TabIndex = 22
         '
-        'DataGridView1
+        'Button7
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2})
-        Me.DataGridView1.Location = New System.Drawing.Point(437, 116)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.RowTemplate.Height = 24
-        Me.DataGridView1.Size = New System.Drawing.Size(479, 408)
-        Me.DataGridView1.TabIndex = 0
+        Me.Button7.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button7.Location = New System.Drawing.Point(986, 17)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(62, 28)
+        Me.Button7.TabIndex = 24
+        Me.Button7.Text = "debug"
+        Me.Button7.UseVisualStyleBackColor = True
         '
-        'Column1
+        'Button8
         '
-        Me.Column1.HeaderText = "Column1"
-        Me.Column1.Name = "Column1"
+        Me.Button8.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button8.Location = New System.Drawing.Point(463, 17)
+        Me.Button8.Name = "Button8"
+        Me.Button8.Size = New System.Drawing.Size(108, 34)
+        Me.Button8.TabIndex = 25
+        Me.Button8.Text = "Developer"
+        Me.Button8.UseVisualStyleBackColor = True
         '
-        'Column2
+        'UserControl31
         '
-        Me.Column2.HeaderText = "Column2"
-        Me.Column2.Name = "Column2"
+        Me.UserControl31.Location = New System.Drawing.Point(156, 56)
+        Me.UserControl31.Name = "UserControl31"
+        Me.UserControl31.Size = New System.Drawing.Size(1178, 618)
+        Me.UserControl31.TabIndex = 0
         '
         'UserControl22
         '
@@ -173,49 +177,29 @@ Partial Class Form1
         Me.UserControl12.Size = New System.Drawing.Size(1385, 683)
         Me.UserControl12.TabIndex = 16
         '
-        'Button7
-        '
-        Me.Button7.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button7.Location = New System.Drawing.Point(986, 17)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(62, 28)
-        Me.Button7.TabIndex = 24
-        Me.Button7.Text = "debug"
-        Me.Button7.UseVisualStyleBackColor = True
-        '
-        'Button8
-        '
-        Me.Button8.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button8.Location = New System.Drawing.Point(498, 16)
-        Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(108, 34)
-        Me.Button8.TabIndex = 25
-        Me.Button8.Text = "Developer"
-        Me.Button8.UseVisualStyleBackColor = True
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1434, 761)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Button8)
+        Me.Controls.Add(Me.UserControl31)
+        Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button7)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.CheckBox2)
         Me.Controls.Add(Me.CheckBox1)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.UserControl22)
         Me.Controls.Add(Me.UserControl12)
         Me.Controls.Add(Me.Button10)
         Me.Controls.Add(Me.Button5)
-        Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Name = "Form1"
         Me.Text = "Tutu Parameter Control Panel"
-        Me.Panel2.ResumeLayout(False)
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -235,9 +219,7 @@ Partial Class Form1
     Friend WithEvents CheckBox1 As CheckBox
     Friend WithEvents CheckBox2 As CheckBox
     Friend WithEvents Panel2 As Panel
-    Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Button7 As Button
     Friend WithEvents Button8 As Button
+    Friend WithEvents UserControl31 As UserControl3
 End Class
