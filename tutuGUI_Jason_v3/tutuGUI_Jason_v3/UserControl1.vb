@@ -366,7 +366,7 @@
 
         '---------------------------check if input-start > input-end
         If Convert.ToInt32(TextBox1.Text) > Convert.ToInt32(TextBox2.Text) Then
-            MessageBox.Show("Please enter your value completely!")
+            MessageBox.Show("Please enter your value correctly!")
             Exit Sub
         End If
 
@@ -1740,28 +1740,35 @@
 
     Private Sub UserControl1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CheckBox12.Hide()   ' Andy and Po said this checkbox is unnecessary
+        Label77.Show()
+
+
 
     End Sub
 
-    Private Sub CheckBox8_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox8.CheckedChanged
+    Private Sub CheckBox8_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox8.CheckedChanged 'NB checkbox
         If CheckBox8.Checked = True Then
             CheckBox9.Checked = False
             CheckBox10.Checked = False
             CheckBox11.Checked = False
             CheckBox12.Checked = False
         End If
+        Form1.Button3.PerformClick()
+
+
     End Sub
 
-    Private Sub CheckBox9_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox9.CheckedChanged
+    Private Sub CheckBox9_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox9.CheckedChanged 'WB checkbox
         If CheckBox9.Checked = True Then
             CheckBox8.Checked = False
             CheckBox10.Checked = False
             CheckBox11.Checked = False
             CheckBox12.Checked = False
         End If
+        Form1.Button3.PerformClick()
     End Sub
 
-    Private Sub CheckBox10_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox10.CheckedChanged
+    Private Sub CheckBox10_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox10.CheckedChanged   'SWB checkbox
 
         If CheckBox10.Checked = True Then
             CheckBox8.Checked = False
@@ -1769,10 +1776,11 @@
             CheckBox11.Checked = False
             CheckBox12.Checked = False
         End If
+        Form1.Button3.PerformClick()
 
     End Sub
 
-    Private Sub CheckBox11_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox11.CheckedChanged
+    Private Sub CheckBox11_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox11.CheckedChanged   'FB checkbox
 
         If CheckBox11.Checked = True Then
             CheckBox8.Checked = False
@@ -1780,10 +1788,10 @@
             CheckBox10.Checked = False
             CheckBox12.Checked = False
         End If
-
+        Form1.Button3.PerformClick()
     End Sub
 
-    Private Sub CheckBox12_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox12.CheckedChanged
+    Private Sub CheckBox12_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox12.CheckedChanged   'Undefined checkbox
 
         If CheckBox12.Checked = True Then
             CheckBox8.Checked = False
@@ -1798,6 +1806,25 @@
     End Sub
 
     Private Sub Label76_Click(sender As Object, e As EventArgs) Handles Label76.Click
+
+    End Sub
+
+    Private Sub CheckBox13_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox13.CheckedChanged
+        If CheckBox13.Checked = True Then
+            CheckBox14.Checked = False
+            Panel5.Hide()
+
+        End If
+    End Sub
+
+    Private Sub CheckBox14_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox14.CheckedChanged
+        If CheckBox14.Checked = True Then
+            CheckBox13.Checked = False
+            Panel5.Show()
+        End If
+    End Sub
+
+    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
 
     End Sub
 End Class

@@ -6,7 +6,37 @@ Public Class Form1
     Public dB_array(15) As Integer
     Public dB_array_compare(15) As Integer
     Public EQ_decimal_max_match_index As Integer
+    Public tutu_sys01_bin As String
+    Public tutu_sys00_bin As String
+    Public tutu_onoff_bin As String
 
+    Public Sub tutu_sys_parameter_to_binary()           '將Tutu sys參數轉換成 binary
+
+        '------------------------------On/Off
+        tutu_onoff_bin = Convert.ToString(Convert.ToInt32(array_from_clipboard_2D(1, 0), 16), 2)
+        'tutu_onoff_bin.Chars(tutu_onoff_bin.Length - 1)     ;on or off
+
+        '------------------------------SYS00
+        tutu_sys00_bin = Convert.ToString(Convert.ToInt32(array_from_clipboard_2D(1, 1), 16), 2)
+        'tutu_sys00_bin.Chars(tutu_sys00_bin.Length - 1)     ;HS mode
+        'tutu_sys00_bin.Chars(tutu_sys00_bin.Length - 2)     ;Music stay mode
+        'tutu_sys00_bin.Chars(tutu_sys00_bin.Length - 12)    ;Mic Block
+        'tutu_sys00_bin.Chars(tutu_sys00_bin.Length - 13)    ;3Quest
+
+
+        '------------------------------SYS01
+        tutu_sys01_bin = Convert.ToString(Convert.ToInt32(array_from_clipboard_2D(1, 2), 16), 2)
+        'tutu_sys01_bin.Chars(tutu_sys01_bin.Length - 7)    ;AEC
+        'tutu_sys01_bin.Chars(tutu_sys01_bin.Length - 8)     ;BF
+        'tutu_sys01_bin.Chars(tutu_sys01_bin.Length - 9)     ;NS
+        'tutu_sys01_bin.Chars(tutu_sys01_bin.Length - 10)    ;EQ
+        'tutu_sys01_bin.Chars(tutu_sys01_bin.Length - 11)    ;AGC
+        'tutu_sys01_bin.Chars(tutu_sys01_bin.Length - 11)    ;DRC
+        'tutu_sys01_bin.Chars(tutu_sys01_bin.Length - 11)    ;HPF
+        'tutu_sys01_bin.Chars(tutu_sys01_bin.Length - 11)    ;SC
+        'tutu_sys01_bin.Chars(tutu_sys01_bin.Length - 11)    ;DAQ    
+        'tutu_sys01_bin.Chars(tutu_sys01_bin.Length - 11)    ;SPKID
+    End Sub
 
     Public Sub debug_into_form1()
         Dim debug_form1 As Integer
@@ -48,7 +78,6 @@ Public Class Form1
         UserControl12.Label59.Hide()    '2000hz for NB  
         UserControl12.Label60.Hide()    '3000hz for NB  
         UserControl12.Label61.Hide()    '4000hz for NB  
-        UserControl12.Label65.Hide()    '100hz for NB/WB/SWB/FB  
         UserControl12.Label66.Hide()    '6000hz for NB  
         UserControl12.Label67.Hide()    '8000hz for NB  
 
@@ -86,7 +115,18 @@ Public Class Form1
 
     End Sub
 
+    Public Sub EQ_Enable_disable()                ' Check EQ參數是否開啟
+        '-------------------------------------- 一開始先unchecked   
+        UserControl12.CheckBox13.Checked = False
+        UserControl12.CheckBox14.Checked = False
+        If tutu_sys01_bin.Chars(tutu_sys01_bin.Length - 10) = "1" Then
+            UserControl12.CheckBox13.Checked = True
+        Else
+            UserControl12.CheckBox14.Checked = True
+        End If
 
+
+    End Sub
     Public Sub Bandwidth_refresh()
         '---------------------------------------一開始全部unchecked
         UserControl12.CheckBox8.Checked = False
@@ -202,26 +242,26 @@ Public Class Form1
         UserControl12.Label59.Hide()    '2000hz for NB  
         UserControl12.Label60.Hide()    '3000hz for NB  
         UserControl12.Label61.Hide()    '4000hz for NB  
-        UserControl12.Label65.Hide()    '100hz for NB/WB/SWB/FB  
+        'UserControl12.Label65.Hide()    '100hz for NB/WB/SWB/FB  ; 不hide，因為之後固定選用SWB/FB 並且常駐，100Hz也需要存在
         UserControl12.Label66.Hide()    '6000hz for NB  
         UserControl12.Label67.Hide()    '8000hz for NB  
 
-        '-----------------------------Hide SWB/FB Grid Label
-        UserControl12.Label77.Hide()
-        UserControl12.Label78.Hide()
-        UserControl12.Label79.Hide()
-        UserControl12.Label80.Hide()
-        UserControl12.Label81.Hide()
-        UserControl12.Label82.Hide()
-        UserControl12.Label83.Hide()
-        UserControl12.Label84.Hide()
-        UserControl12.Label85.Hide()
-        UserControl12.Label86.Hide()
-        UserControl12.Label87.Hide()
-        UserControl12.Label88.Hide()
-        UserControl12.Label89.Hide()
-        UserControl12.Label90.Hide()
-        UserControl12.Label91.Hide()
+        '-----------------------------Hide SWB/FB Grid Label ; 不hide，因為之後固定選用SWB/FB 並且常駐
+        'UserControl12.Label77.Hide()
+        'UserControl12.Label78.Hide()
+        'UserControl12.Label79.Hide()
+        'UserControl12.Label80.Hide()
+        'UserControl12.Label81.Hide()
+        'UserControl12.Label82.Hide()
+        'UserControl12.Label83.Hide()
+        'UserControl12.Label84.Hide()
+        'UserControl12.Label85.Hide()
+        'UserControl12.Label86.Hide()
+        'UserControl12.Label87.Hide()
+        'UserControl12.Label88.Hide()
+        'UserControl12.Label89.Hide()
+        'UserControl12.Label90.Hide()
+        'UserControl12.Label91.Hide()
 
 
     End Sub
@@ -237,7 +277,7 @@ Public Class Form1
     End Sub
 
 
-    Private Sub Button3_Click(sender As Object, EQ_Data2 As EventArgs) Handles Button3.Click 'Plote click
+    Private Sub Button3_Click(sender As Object, EQ_Data2 As EventArgs) Handles Button3.Click 'Plot click
         'setup the chart area
         '----------以下是plot chart codes
         Dim newSeries = New DataVisualization.Charting.Series()
@@ -608,7 +648,7 @@ Public Class Form1
         Dim array_splitvbCrLf_from_clipboard_moved(208) As String
         Dim array_splitvbTab_from_clipboard_moved() As String
         'Dim array_from_clipboard_2D(1, 208) As String
-        Dim quotearray_2D(1, 208) As String
+        'Dim quotearray_2D(1, 208) As String
         Dim quoteArray As String() = File.ReadAllLines("D:\textfile.txt")
         'Dim quoteArray_split() As String
 
@@ -684,12 +724,17 @@ Public Class Form1
         Next
 
 
-
+        '------------------------------ 以下是建立出tutu 參數 2D Array ;array_from_clipboard_2D
         For quotearray_i = 0 To 208
             array_splitvbTab_from_clipboard_moved = array_splitvbCrLf_from_clipboard_moved(quotearray_i).Split(vbTab)
             array_from_clipboard_2D(0, quotearray_i) = array_splitvbTab_from_clipboard_moved(0)
             array_from_clipboard_2D(1, quotearray_i) = array_splitvbTab_from_clipboard_moved(1)
         Next
+
+        '------------------------------ 將tutu on/off, SYS00 和 SYS01轉換成2進制 字串
+        tutu_sys_parameter_to_binary()
+
+
 
         '------------------------------------判斷HPF 的value from clipbpard
         If array_from_clipboard_2D(1, 58) = "0x0000" Then
@@ -757,12 +802,32 @@ Public Class Form1
 
         '------------------- call this function to refresh bandwidth value to checkbox
         Bandwidth_refresh()
+
+
+        '------------------------------ 判斷Tutu on or off; 如果off, 不讓你按EQ和 DRC，以及其他任何東西
+        CheckBox1.Enabled = True
+        CheckBox2.Enabled = True
+
+        CheckBox1.Checked = False       '先設定checkbox 為 沒勾選
+        CheckBox2.Checked = False       '先設定checkbox 為 沒勾選 
+        If tutu_onoff_bin.Chars(tutu_onoff_bin.Length - 1) <> "1" Then
+            CheckBox1.Checked = False
+            CheckBox2.Checked = True
+        Else
+            CheckBox1.Checked = True
+            CheckBox2.Checked = False
+        End If
+
+        '------------------------------ 判斷EQ 是否enable or disable
+        EQ_Enable_disable()
+
+
         '----------------------------------------
         'MessageBox.Show(Hex(EQ_end_freq_in_Decimal(13)))   ' debug專用的message box example
         'array_from_clipboard_2D(1, 62) = Hex(4000) 'example: ' 在原本最後的頻段4000hz之後再加上4000hz的頻段，讓整個頻段到達8000hz
 
-        '------------------- Perform Button3 click
-        Button3.PerformClick()
+        '------------------- Perform Button3 click; this step is uneccessary, because it has already proceeded in Bandwidth_refresh()
+        'Button3.PerformClick()
 
 
     End Sub
@@ -847,6 +912,10 @@ Public Class Form1
         UserControl12.Hide()
         UserControl22.Hide()
         Label1.Hide()
+        CheckBox1.Enabled = False
+        CheckBox2.Enabled = False
+        Button1.Enabled = False
+        Button2.Enabled = False
 
 
 
@@ -856,26 +925,40 @@ Public Class Form1
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         'Clipboard.SetText(array_from_clipboard_2D)
 
+
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click  'debug click
-        UserControl12.Label53.Hide()    '200hz for NB
-        UserControl12.Label54.Hide()    '300hz for NB  
-        UserControl12.Label55.Hide()    '400hz for NB  
-        UserControl12.Label56.Hide()    '600hz for NB  
-        UserControl12.Label57.Hide()    '800hz for NB  
-        UserControl12.Label58.Hide()    '1000hz for NB  
-        UserControl12.Label59.Hide()    '2000hz for NB  
-        UserControl12.Label60.Hide()    '3000hz for NB  
-        UserControl12.Label61.Hide()    '4000hz for NB  
-        UserControl12.Label65.Hide()    '100hz for NB  
-        UserControl12.Label66.Hide()    '6000hz for NB  
-        UserControl12.Label67.Hide()    '8000hz for NB  
+        For p As Integer = 0 To 15
+            Clipboard.SetText(p.ToString & vbTab & (p + 1).ToString & vbCrLf & p.ToString & vbCrLf)
+            'Clipboard.SetText(p.ToString.Replace(vbLf, vbCrLf))
+        Next
 
-        UserControl12.Chart1.SaveImage("D:\Works\Codings\SWB_FB.bmp", DataVisualization.Charting.ChartImageFormat.Bmp)
+
+
+        '--------------------save image example
+        'UserControl12.Chart1.SaveImage("D:\Works\Codings\SWB_FB.bmp", DataVisualization.Charting.ChartImageFormat.Bmp)
     End Sub
 
+    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged 'Tutu On
+        If CheckBox1.Checked = True Then
+            CheckBox2.Checked = False
+            Button1.Enabled = True
+            Button2.Enabled = True
+            Panel2.Hide()
 
+        End If
+    End Sub
+
+    Private Sub CheckBox2_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox2.CheckedChanged 'Tutu Off
+        If CheckBox2.Checked = True Then
+            CheckBox1.Checked = False
+            Button1.Enabled = False
+            Button2.Enabled = False
+            Panel2.Show()
+
+        End If
+    End Sub
 End Class
 
 

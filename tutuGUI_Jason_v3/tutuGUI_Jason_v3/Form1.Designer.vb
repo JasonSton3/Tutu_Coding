@@ -32,29 +32,34 @@ Partial Class Form1
         Me.UserControl12 = New tutuGUI_Jason_v3.UserControl1()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
+        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.SuspendLayout()
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(12, 12)
+        Me.Button1.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(156, 15)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(115, 34)
+        Me.Button1.Size = New System.Drawing.Size(115, 35)
         Me.Button1.TabIndex = 0
         Me.Button1.Text = "EQ"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(143, 12)
+        Me.Button2.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.Location = New System.Drawing.Point(287, 15)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(115, 32)
+        Me.Button2.Size = New System.Drawing.Size(115, 35)
         Me.Button2.TabIndex = 1
         Me.Button2.Text = "DRC"
         Me.Button2.UseVisualStyleBackColor = True
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(366, 13)
+        Me.Button3.Location = New System.Drawing.Point(696, 14)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(55, 30)
         Me.Button3.TabIndex = 2
@@ -63,15 +68,17 @@ Partial Class Form1
         '
         'Button4
         '
-        Me.Button4.Location = New System.Drawing.Point(659, 12)
+        Me.Button4.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button4.Location = New System.Drawing.Point(918, 15)
         Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(165, 31)
+        Me.Button4.Size = New System.Drawing.Size(115, 35)
         Me.Button4.TabIndex = 3
         Me.Button4.Text = "Copy"
         Me.Button4.UseVisualStyleBackColor = True
         '
         'Button5
         '
+        Me.Button5.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button5.Location = New System.Drawing.Point(1194, 12)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(120, 34)
@@ -81,9 +88,10 @@ Partial Class Form1
         '
         'Button10
         '
-        Me.Button10.Location = New System.Drawing.Point(451, 14)
+        Me.Button10.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button10.Location = New System.Drawing.Point(779, 15)
         Me.Button10.Name = "Button10"
-        Me.Button10.Size = New System.Drawing.Size(202, 28)
+        Me.Button10.Size = New System.Drawing.Size(115, 35)
         Me.Button10.TabIndex = 15
         Me.Button10.Text = "Paste"
         Me.Button10.UseVisualStyleBackColor = True
@@ -98,14 +106,14 @@ Partial Class Form1
         'UserControl12
         '
         Me.UserControl12.BackColor = System.Drawing.SystemColors.Control
-        Me.UserControl12.Location = New System.Drawing.Point(37, 48)
+        Me.UserControl12.Location = New System.Drawing.Point(37, 62)
         Me.UserControl12.Name = "UserControl12"
         Me.UserControl12.Size = New System.Drawing.Size(1385, 683)
         Me.UserControl12.TabIndex = 16
         '
         'Panel1
         '
-        Me.Panel1.Location = New System.Drawing.Point(366, 12)
+        Me.Panel1.Location = New System.Drawing.Point(696, 13)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(68, 47)
         Me.Panel1.TabIndex = 19
@@ -113,17 +121,49 @@ Partial Class Form1
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(357, 30)
+        Me.Label1.Location = New System.Drawing.Point(687, 31)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(86, 12)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Plot is under here"
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CheckBox1.Location = New System.Drawing.Point(26, 16)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(81, 23)
+        Me.CheckBox1.TabIndex = 20
+        Me.CheckBox1.Text = "Tutu ON"
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
+        'CheckBox2
+        '
+        Me.CheckBox2.AutoSize = True
+        Me.CheckBox2.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CheckBox2.Location = New System.Drawing.Point(26, 41)
+        Me.CheckBox2.Name = "CheckBox2"
+        Me.CheckBox2.Size = New System.Drawing.Size(85, 23)
+        Me.CheckBox2.TabIndex = 21
+        Me.CheckBox2.Text = "Tutu OFF"
+        Me.CheckBox2.UseVisualStyleBackColor = True
+        '
+        'Panel2
+        '
+        Me.Panel2.Location = New System.Drawing.Point(2, 62)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(1431, 698)
+        Me.Panel2.TabIndex = 22
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1434, 761)
+        Me.Controls.Add(Me.Panel2)
+        Me.Controls.Add(Me.CheckBox2)
+        Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.UserControl22)
@@ -153,4 +193,7 @@ Partial Class Form1
     Friend WithEvents UserControl22 As UserControl2
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label1 As Label
+    Friend WithEvents CheckBox1 As CheckBox
+    Friend WithEvents CheckBox2 As CheckBox
+    Friend WithEvents Panel2 As Panel
 End Class
