@@ -832,6 +832,67 @@ Public Class Form1
         'Button3.PerformClick()
 
 
+        '----------------------------------------------DRC Section----------------------------------------------------
+        '------DRC-Expander Points
+        If Convert.ToInt32(array_from_clipboard_2D(1, 91), 16) > 60000 Then
+            UserControl22.TextBox10.Text = Convert.ToString(Convert.ToInt32(array_from_clipboard_2D(1, 91), 16) - 65536)    'Expander Point 0
+        Else
+            UserControl22.TextBox10.Text = Convert.ToString(Convert.ToInt32(array_from_clipboard_2D(1, 91), 16))
+        End If
+
+        If Convert.ToInt32(array_from_clipboard_2D(1, 92), 16) > 60000 Then
+            UserControl22.TextBox11.Text = Convert.ToString(Convert.ToInt32(array_from_clipboard_2D(1, 92), 16) - 65536)    'Expander Point 1
+        Else
+            UserControl22.TextBox11.Text = Convert.ToString(Convert.ToInt32(array_from_clipboard_2D(1, 92), 16))
+        End If
+        '------DRC-Knee Points
+        UserControl22.TextBox9.Text = Convert.ToString(Convert.ToInt32(array_from_clipboard_2D(1, 93), 16))     'Number of Knee Points
+
+        If Convert.ToInt32(array_from_clipboard_2D(1, 93), 16) = 2 Then
+            UserControl22.TextBox1.Text = Convert.ToString(Convert.ToInt32(array_from_clipboard_2D(1, 97), 16))
+            UserControl22.TextBox2.Text = Convert.ToString(Convert.ToInt32(array_from_clipboard_2D(1, 96), 16) - 65536)
+            UserControl22.TextBox3.Text = Convert.ToString(Convert.ToInt32(array_from_clipboard_2D(1, 95), 16) - 65536)
+            'UserControl22.TextBox4.Enabled = False                 '因為在UserControl22.textbox4的text change event已經寫好判斷式了
+            UserControl22.TextBox5.Text = Convert.ToString(Convert.ToInt32(array_from_clipboard_2D(1, 101), 16) - 65536)
+            UserControl22.TextBox6.Text = Convert.ToString(Convert.ToInt32(array_from_clipboard_2D(1, 100), 16) - 65536)
+            UserControl22.TextBox7.Text = Convert.ToString(Convert.ToInt32(array_from_clipboard_2D(1, 99), 16) - 65536)
+            'UserControl22.TextBox8.Enabled = False                 '因為在UserControl22.textbox4的text change event已經寫好判斷式了
+        ElseIf Convert.ToInt32(array_from_clipboard_2D(1, 93), 16) = 3 Then
+            UserControl22.TextBox1.Text = Convert.ToString(Convert.ToInt32(array_from_clipboard_2D(1, 98), 16))
+            UserControl22.TextBox2.Text = Convert.ToString(Convert.ToInt32(array_from_clipboard_2D(1, 97), 16) - 65536)
+            UserControl22.TextBox3.Text = Convert.ToString(Convert.ToInt32(array_from_clipboard_2D(1, 96), 16) - 65536)
+            UserControl22.TextBox4.Text = Convert.ToString(Convert.ToInt32(array_from_clipboard_2D(1, 95), 16) - 65536)
+            UserControl22.TextBox5.Text = Convert.ToString(Convert.ToInt32(array_from_clipboard_2D(1, 102), 16) - 65536)
+            UserControl22.TextBox6.Text = Convert.ToString(Convert.ToInt32(array_from_clipboard_2D(1, 101), 16) - 65536)
+            UserControl22.TextBox7.Text = Convert.ToString(Convert.ToInt32(array_from_clipboard_2D(1, 100), 16) - 65536)
+            UserControl22.TextBox8.Text = Convert.ToString(Convert.ToInt32(array_from_clipboard_2D(1, 99), 16) - 65536)
+        End If
+
+        '------DRC-makeup gain     ;checkbox 12; EQ_cell no.105 
+        If array_from_clipboard_2D(1, 105) = "0x0000" Then
+            UserControl22.TextBox12.Text = "Mute!"
+        Else
+            Dim string_drc14(1) As String
+            string_drc14 = Convert.ToString(Math.Log10(Math.Round(Convert.ToInt32(array_from_clipboard_2D(1, 105), 16) / 256, 4)) * 20).Split(".")
+
+            UserControl22.TextBox12.Text = string_drc14(0) & "." & string_drc14(1).Chars(0) & string_drc14(1).Chars(1) & string_drc14(1).Chars(2) & string_drc14(1).Chars(3)
+        End If
+        '------DRC-attack time      ;checkbox 13
+        UserControl22.TextBox13.Text = Convert.ToString(Convert.ToInt32(array_from_clipboard_2D(1, 103), 16))
+        '------DRC-release time     ;checkbox 14
+        UserControl22.TextBox14.Text = Convert.ToString(Convert.ToInt32(array_from_clipboard_2D(1, 104), 16))
+
+        '------1st MIC gain     ;checkbox 15; 106
+        Dim string_MIC(1) As String
+        string_MIC = Convert.ToString(Math.Log10(Math.Round(Convert.ToInt32(array_from_clipboard_2D(1, 106), 16) / 256, 4)) * 20).Split(".")
+
+        UserControl22.TextBox15.Text = string_MIC(0) & "." & string_MIC(1).Chars(0) & string_MIC(1).Chars(1) & string_MIC(1).Chars(2) & string_MIC(1).Chars(3)
+
+        '------2nd MIC gain     ;checkbox 16; 107
+        string_MIC = Convert.ToString(Math.Log10(Math.Round(Convert.ToInt32(array_from_clipboard_2D(1, 107), 16) / 256, 4)) * 20).Split(".")
+
+        UserControl22.TextBox16.Text = string_MIC(0) & "." & string_MIC(1).Chars(0) & string_MIC(1).Chars(1) & string_MIC(1).Chars(2) & string_MIC(1).Chars(3)
+
     End Sub
     Public Sub EQ_start_label_refresh()
         UserControl12.Label4.Text = EQ_start_freq_in_Decimal(0)     '  Shows Start Frequency on Panel

@@ -29,3 +29,4 @@ D:\Works\Codings\Tutu_Coding\tutuGUI_Jason_v3\tutuGUI_Jason_v3\obj\Debug\tutuGUI
 D:\Works\Codings\Tutu_Coding\tutuGUI_Jason_v3\tutuGUI_Jason_v3\obj\Debug\tutuGUI_Jason_v3.exe
 D:\Works\Codings\Tutu_Coding\tutuGUI_Jason_v3\tutuGUI_Jason_v3\obj\Debug\tutuGUI_Jason_v3.xml
 D:\Works\Codings\Tutu_Coding\tutuGUI_Jason_v3\tutuGUI_Jason_v3\obj\Debug\tutuGUI_Jason_v3.pdb
+D:\Works\Codings\Tutu_Coding\tutuGUI_Jason_v3\tutuGUI_Jason_v3\obj\Debug\tutuGUI_Jason_v3.vbprojAssemblyReference.cache

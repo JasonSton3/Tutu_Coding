@@ -130,9 +130,9 @@ Partial Class Form1
         '
         'Panel2
         '
-        Me.Panel2.Location = New System.Drawing.Point(2, 62)
+        Me.Panel2.Location = New System.Drawing.Point(3, 62)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1431, 698)
+        Me.Panel2.Size = New System.Drawing.Size(1430, 698)
         Me.Panel2.TabIndex = 22
         '
         'Button7
@@ -166,7 +166,7 @@ Partial Class Form1
         '
         Me.UserControl22.Location = New System.Drawing.Point(16, 66)
         Me.UserControl22.Name = "UserControl22"
-        Me.UserControl22.Size = New System.Drawing.Size(1318, 575)
+        Me.UserControl22.Size = New System.Drawing.Size(1386, 660)
         Me.UserControl22.TabIndex = 17
         '
         'UserControl12
