@@ -22,7 +22,7 @@ Partial Class UserControl1
     '請勿使用程式碼編輯器進行修改。
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim ChartArea4 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
@@ -208,28 +208,28 @@ Partial Class UserControl1
     "transparent.bmp"
         Me.Chart1.BackImageTransparentColor = System.Drawing.Color.White
         Me.Chart1.BorderlineWidth = 3
-        ChartArea4.AxisX.IsMarginVisible = False
-        ChartArea4.AxisX.LabelStyle.Enabled = False
-        ChartArea4.AxisX.MajorGrid.Interval = 10.0R
-        ChartArea4.AxisX.MajorGrid.LineColor = System.Drawing.Color.Transparent
-        ChartArea4.AxisX.Maximum = 8000.0R
-        ChartArea4.AxisX.Minimum = 1000.0R
-        ChartArea4.AxisX.MinorGrid.Enabled = True
-        ChartArea4.AxisX.MinorGrid.Interval = 1.0R
-        ChartArea4.AxisX.MinorGrid.LineColor = System.Drawing.Color.Transparent
-        ChartArea4.AxisX2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.[False]
-        ChartArea4.AxisY.Interval = 1.0R
-        ChartArea4.AxisY.MajorGrid.Interval = 5.0R
-        ChartArea4.AxisY.MajorGrid.LineColor = System.Drawing.Color.Transparent
-        ChartArea4.AxisY.MinorGrid.Enabled = True
-        ChartArea4.AxisY.MinorGrid.Interval = 1.0R
-        ChartArea4.AxisY.MinorGrid.LineColor = System.Drawing.Color.Transparent
-        ChartArea4.AxisY.ScaleBreakStyle.StartFromZero = System.Windows.Forms.DataVisualization.Charting.StartFromZero.No
-        ChartArea4.BackColor = System.Drawing.Color.Transparent
-        ChartArea4.CursorX.LineWidth = 3
-        ChartArea4.CursorY.LineWidth = 3
-        ChartArea4.Name = "ChartArea1"
-        Me.Chart1.ChartAreas.Add(ChartArea4)
+        ChartArea1.AxisX.IsMarginVisible = False
+        ChartArea1.AxisX.LabelStyle.Enabled = False
+        ChartArea1.AxisX.MajorGrid.Interval = 10.0R
+        ChartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.Transparent
+        ChartArea1.AxisX.Maximum = 8000.0R
+        ChartArea1.AxisX.Minimum = 1000.0R
+        ChartArea1.AxisX.MinorGrid.Enabled = True
+        ChartArea1.AxisX.MinorGrid.Interval = 1.0R
+        ChartArea1.AxisX.MinorGrid.LineColor = System.Drawing.Color.Transparent
+        ChartArea1.AxisX2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.[False]
+        ChartArea1.AxisY.Interval = 1.0R
+        ChartArea1.AxisY.MajorGrid.Interval = 5.0R
+        ChartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.Transparent
+        ChartArea1.AxisY.MinorGrid.Enabled = True
+        ChartArea1.AxisY.MinorGrid.Interval = 1.0R
+        ChartArea1.AxisY.MinorGrid.LineColor = System.Drawing.Color.Transparent
+        ChartArea1.AxisY.ScaleBreakStyle.StartFromZero = System.Windows.Forms.DataVisualization.Charting.StartFromZero.No
+        ChartArea1.BackColor = System.Drawing.Color.Transparent
+        ChartArea1.CursorX.LineWidth = 3
+        ChartArea1.CursorY.LineWidth = 3
+        ChartArea1.Name = "ChartArea1"
+        Me.Chart1.ChartAreas.Add(ChartArea1)
         Me.Chart1.Location = New System.Drawing.Point(372, 21)
         Me.Chart1.Name = "Chart1"
         Me.Chart1.Size = New System.Drawing.Size(794, 573)

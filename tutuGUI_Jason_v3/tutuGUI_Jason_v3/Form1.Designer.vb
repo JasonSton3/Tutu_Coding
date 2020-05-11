@@ -37,6 +37,7 @@ Partial Class Form1
         Me.UserControl31 = New tutuGUI_Jason_v3.UserControl3()
         Me.UserControl22 = New tutuGUI_Jason_v3.UserControl2()
         Me.UserControl12 = New tutuGUI_Jason_v3.UserControl1()
+        Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -130,9 +131,9 @@ Partial Class Form1
         '
         'Panel2
         '
-        Me.Panel2.Location = New System.Drawing.Point(3, 62)
+        Me.Panel2.Location = New System.Drawing.Point(1, 62)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1430, 698)
+        Me.Panel2.Size = New System.Drawing.Size(1432, 698)
         Me.Panel2.TabIndex = 22
         '
         'Button7
@@ -157,16 +158,18 @@ Partial Class Form1
         '
         'UserControl31
         '
-        Me.UserControl31.Location = New System.Drawing.Point(156, 56)
+        Me.UserControl31.Location = New System.Drawing.Point(52, 91)
         Me.UserControl31.Name = "UserControl31"
-        Me.UserControl31.Size = New System.Drawing.Size(1178, 618)
+        Me.UserControl31.Size = New System.Drawing.Size(1282, 583)
         Me.UserControl31.TabIndex = 0
         '
         'UserControl22
         '
-        Me.UserControl22.Location = New System.Drawing.Point(16, 66)
+        Me.UserControl22.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.UserControl22.Location = New System.Drawing.Point(37, 62)
+        Me.UserControl22.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.UserControl22.Name = "UserControl22"
-        Me.UserControl22.Size = New System.Drawing.Size(1386, 660)
+        Me.UserControl22.Size = New System.Drawing.Size(1332, 675)
         Me.UserControl22.TabIndex = 17
         '
         'UserControl12
@@ -177,11 +180,19 @@ Partial Class Form1
         Me.UserControl12.Size = New System.Drawing.Size(1385, 683)
         Me.UserControl12.TabIndex = 16
         '
+        'Panel3
+        '
+        Me.Panel3.Location = New System.Drawing.Point(972, 17)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(112, 30)
+        Me.Panel3.TabIndex = 26
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1434, 761)
+        Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Button8)
         Me.Controls.Add(Me.UserControl31)
@@ -222,4 +233,5 @@ Partial Class Form1
     Friend WithEvents Button7 As Button
     Friend WithEvents Button8 As Button
     Friend WithEvents UserControl31 As UserControl3
+    Friend WithEvents Panel3 As Panel
 End Class
