@@ -236,8 +236,68 @@
 
     End Sub
 
-    Private Sub Chart1_Click(sender As Object, e As EventArgs)
-
+    Private Sub panel_check()
+        If CheckBox13.Checked = True Then 'enable
+            Panel4.Enabled = True
+            Chart1.Visible = True
+            '----------------------Chart 的 x 座標labels
+            Label65.Show()    '100hz for NB/WB/SWB/FB
+            Label77.Show()
+            Label78.Show()
+            Label79.Show()
+            Label80.Show()
+            Label81.Show()
+            Label82.Show()
+            Label83.Show()
+            Label84.Show()
+            Label85.Show()
+            Label86.Show()
+            Label87.Show()
+            Label88.Show()
+            Label89.Show()
+            Label90.Show()
+            Label91.Show()
+            Label68.Show() '(Hz)
+            '----------------------Chart 的 y 座標labels
+            Label69.Show()
+            Label70.Show()
+            Label71.Show()
+            Label72.Show()
+            Label73.Show()
+            Label74.Show()
+            Label75.Show()
+            Label76.Show()
+        Else
+            Panel4.Enabled = False      'disable
+            Chart1.Visible = False
+            '----------------------Chart 的 x 座標labels
+            Label65.Hide()    '100hz for NB/WB/SWB/FB
+            Label77.Hide()
+            Label78.Hide()
+            Label79.Hide()
+            Label80.Hide()
+            Label81.Hide()
+            Label82.Hide()
+            Label83.Hide()
+            Label84.Hide()
+            Label85.Hide()
+            Label86.Hide()
+            Label87.Hide()
+            Label88.Hide()
+            Label89.Hide()
+            Label90.Hide()
+            Label91.Hide()
+            Label68.Hide() '(Hz)
+            '----------------------Chart 的 y 座標labels
+            Label69.Hide()
+            Label70.Hide()
+            Label71.Hide()
+            Label72.Hide()
+            Label73.Hide()
+            Label74.Hide()
+            Label75.Hide()
+            Label76.Hide()
+        End If
     End Sub
 
     Private Sub CheckBox2_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox2.CheckedChanged
@@ -1812,15 +1872,20 @@
     Private Sub CheckBox13_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox13.CheckedChanged
         If CheckBox13.Checked = True Then
             CheckBox14.Checked = False
-            Panel5.Hide()
-
+            'Panel5.Hide()
+            panel_check()
+        Else
+            CheckBox14.Checked = True
         End If
     End Sub
 
     Private Sub CheckBox14_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox14.CheckedChanged
         If CheckBox14.Checked = True Then
             CheckBox13.Checked = False
-            Panel5.Show()
+            'Panel5.Show()
+            panel_check()
+        Else
+            CheckBox13.Checked = True
         End If
     End Sub
 

@@ -5,10 +5,245 @@
     Public DRC_knee3_output(5) As Integer
     Public newDRCSeries = New DataVisualization.Charting.Series()
     Public kneepoint_special_check As Integer = 0
-
+    Public Sub panel_label_numeric_check()
+        If CheckBox5.Checked = True And CheckBox7.Checked = True Then  'DRC enabled, DRC14 0x0000
+            Label2.Enabled = False
+            NumericUpDown1.Enabled = False
+            Label21.Enabled = False
+            'Expander 1
+            Label3.Enabled = False
+            NumericUpDown2.Enabled = False
+            Label22.Enabled = False
+            'Knee Points Number
+            Label4.Enabled = False
+            NumericUpDown3.Enabled = False
+            Label23.Enabled = False
+            'Knee points In & Out
+            Label5.Enabled = False
+            Label6.Enabled = False
+            Label7.Enabled = False
+            Label8.Enabled = False
+            Label9.Enabled = False
+            Label10.Enabled = False
+            Label11.Enabled = False
+            Label12.Enabled = False
+            Label13.Enabled = False
+            Label14.Enabled = False
+            Label15.Enabled = False
+            Label16.Enabled = False
+            Label17.Enabled = False
+            Label18.Enabled = False
+            NumericUpDown4.Enabled = False
+            NumericUpDown5.Enabled = False
+            NumericUpDown6.Enabled = False
+            NumericUpDown7.Enabled = False
+            NumericUpDown8.Enabled = False
+            NumericUpDown9.Enabled = False
+            NumericUpDown10.Enabled = False
+            NumericUpDown11.Enabled = False
+            'makeup gain
+            Label19.Enabled = False
+            NumericUpDown12.Enabled = False
+            Label20.Enabled = False
+            'attack time
+            Label25.Enabled = False
+            NumericUpDown13.Enabled = False
+            Label24.Enabled = False
+            'release time
+            Label27.Enabled = False
+            NumericUpDown14.Enabled = False
+            Label26.Enabled = False
+            'Panels
+            Panel1.Enabled = False
+            Panel2.Enabled = False
+            Panel3.Enabled = False
+            'Chart
+            Chart1.Visible = False
+        ElseIf CheckBox6.Checked = True And CheckBox7.Checked = True Then 'DRC disable, DRC14 0x0000
+            Label2.Enabled = False
+            NumericUpDown1.Enabled = False
+            Label21.Enabled = False
+            'Expander 1
+            Label3.Enabled = False
+            NumericUpDown2.Enabled = False
+            Label22.Enabled = False
+            'Knee Points Number
+            Label4.Enabled = False
+            NumericUpDown3.Enabled = False
+            Label23.Enabled = False
+            'Knee points In & Out
+            Label5.Enabled = False
+            Label6.Enabled = False
+            Label7.Enabled = False
+            Label8.Enabled = False
+            Label9.Enabled = False
+            Label10.Enabled = False
+            Label11.Enabled = False
+            Label12.Enabled = False
+            Label13.Enabled = False
+            Label14.Enabled = False
+            Label15.Enabled = False
+            Label16.Enabled = False
+            Label17.Enabled = False
+            Label18.Enabled = False
+            NumericUpDown4.Enabled = False
+            NumericUpDown5.Enabled = False
+            NumericUpDown6.Enabled = False
+            NumericUpDown7.Enabled = False
+            NumericUpDown8.Enabled = False
+            NumericUpDown9.Enabled = False
+            NumericUpDown10.Enabled = False
+            NumericUpDown11.Enabled = False
+            'makeup gain
+            Label19.Enabled = False
+            NumericUpDown12.Enabled = False
+            Label20.Enabled = False
+            'attack time
+            Label25.Enabled = False
+            NumericUpDown13.Enabled = False
+            Label24.Enabled = False
+            'release time
+            Label27.Enabled = False
+            NumericUpDown14.Enabled = False
+            Label26.Enabled = False
+            'Panels
+            Panel1.Enabled = False
+            Panel2.Enabled = False
+            Panel3.Enabled = False
+            'Chart
+            Chart1.Visible = False
+        ElseIf CheckBox5.Checked = True And CheckBox7.Checked = False Then    'DRC enable, DRC14 note muted
+            'Expander 0
+            Label2.Enabled = True
+            NumericUpDown1.Enabled = True
+            Label21.Enabled = True
+            'Expander 1
+            Label3.Enabled = True
+            NumericUpDown2.Enabled = True
+            Label22.Enabled = True
+            'Knee Points Number
+            Label4.Enabled = True
+            NumericUpDown3.Enabled = True
+            Label23.Enabled = True
+            'Knee points In & Out
+            If NumericUpDown3.Value = 2 Then
+                Label5.Enabled = True
+                Label6.Enabled = True
+                Label7.Enabled = True
+                Label9.Enabled = True
+                Label10.Enabled = True
+                Label11.Enabled = True
+                Label12.Enabled = True
+                Label13.Enabled = True
+                Label15.Enabled = True
+                Label16.Enabled = True
+                Label17.Enabled = True
+                NumericUpDown4.Enabled = True
+                NumericUpDown5.Enabled = True
+                NumericUpDown6.Enabled = True
+                NumericUpDown8.Enabled = True
+                NumericUpDown9.Enabled = True
+                NumericUpDown10.Enabled = True
+            ElseIf NumericUpDown3.Value = 3 Then
+                Label5.Enabled = True
+                Label6.Enabled = True
+                Label7.Enabled = True
+                Label8.Enabled = True
+                Label9.Enabled = True
+                Label10.Enabled = True
+                Label11.Enabled = True
+                Label12.Enabled = True
+                Label13.Enabled = True
+                Label14.Enabled = True
+                Label15.Enabled = True
+                Label16.Enabled = True
+                Label17.Enabled = True
+                Label18.Enabled = True
+                NumericUpDown4.Enabled = True
+                NumericUpDown5.Enabled = True
+                NumericUpDown6.Enabled = True
+                NumericUpDown7.Enabled = True
+                NumericUpDown8.Enabled = True
+                NumericUpDown9.Enabled = True
+                NumericUpDown10.Enabled = True
+                NumericUpDown11.Enabled = True
+            End If
+            'makeup gain
+            Label19.Enabled = True
+            NumericUpDown12.Enabled = True
+            Label20.Enabled = True
+            'attack time
+            Label25.Enabled = True
+            NumericUpDown13.Enabled = True
+            Label24.Enabled = True
+            'release time
+            Label27.Enabled = True
+            NumericUpDown14.Enabled = True
+            Label26.Enabled = True
+            'Panels
+            Panel1.Enabled = True
+            Panel2.Enabled = True
+            Panel3.Enabled = True
+            Chart1.Visible = True
+        ElseIf CheckBox6.Checked = True And CheckBox7.Checked = False Then    ''DRC disable, DRC14 note muted
+            'Expander 0
+            Label2.Enabled = False
+            NumericUpDown1.Enabled = False
+            Label21.Enabled = False
+            'Expander 1
+            Label3.Enabled = False
+            NumericUpDown2.Enabled = False
+            Label22.Enabled = False
+            'Knee Points Number
+            Label4.Enabled = False
+            NumericUpDown3.Enabled = False
+            Label23.Enabled = False
+            'Knee points In & Out
+            Label5.Enabled = False
+            Label6.Enabled = False
+            Label7.Enabled = False
+            Label8.Enabled = False
+            Label9.Enabled = False
+            Label10.Enabled = False
+            Label11.Enabled = False
+            Label12.Enabled = False
+            Label13.Enabled = False
+            Label14.Enabled = False
+            Label15.Enabled = False
+            Label16.Enabled = False
+            Label17.Enabled = False
+            Label18.Enabled = False
+            NumericUpDown4.Enabled = False
+            NumericUpDown5.Enabled = False
+            NumericUpDown6.Enabled = False
+            NumericUpDown7.Enabled = False
+            NumericUpDown8.Enabled = False
+            NumericUpDown9.Enabled = False
+            NumericUpDown10.Enabled = False
+            NumericUpDown11.Enabled = False
+            'makeup gain
+            Label19.Enabled = True
+            NumericUpDown12.Enabled = True
+            Label20.Enabled = True
+            'attack time
+            Label25.Enabled = False
+            NumericUpDown13.Enabled = False
+            Label24.Enabled = False
+            'release time
+            Label27.Enabled = False
+            NumericUpDown14.Enabled = False
+            Label26.Enabled = False
+            'Panels
+            Panel1.Enabled = False
+            Panel2.Enabled = False
+            Panel3.Enabled = False
+            'Chart
+            Chart1.Visible = False
+        End If
+    End Sub
     Private Sub ClickHandler(sender As Object, e As MouseEventArgs) Handles Me.MouseClick
         '可以把畫圖的功能放在這
-        DRC_Plot()
+        'DRC_Plot()
     End Sub
     Private Sub UserControl2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         '---------------------------------- set NumericUpDown controls to be read-only
@@ -453,22 +688,33 @@
     Private Sub CheckBox5_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox5.CheckedChanged
         If CheckBox5.Checked = True Then
             CheckBox6.Checked = False
-            Panel6.Hide()
+            'Panel6.Hide()
+            panel_label_numeric_check()
+        Else
+            CheckBox6.Checked = True
         End If
     End Sub
 
     Private Sub CheckBox6_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox6.CheckedChanged
         If CheckBox6.Checked = True Then
             CheckBox5.Checked = False
-            Panel6.Show()
+            'Panel6.Show()
+            panel_label_numeric_check()
+        Else
+            CheckBox5.Checked = True
         End If
     End Sub
 
-    Private Sub NumericUpDown1_ValueChanged(sender As Object, e As EventArgs) Handles NumericUpDown1.ValueChanged
 
+
+    Private Sub CheckBox7_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox7.CheckedChanged
+        If CheckBox7.Checked = True Then
+            panel_label_numeric_check()
+        Else
+            panel_label_numeric_check()
+
+        End If
     End Sub
 
-    Private Sub NumericUpDown11_ValueChanged(sender As Object, e As EventArgs)
 
-    End Sub
 End Class

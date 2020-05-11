@@ -22,7 +22,7 @@ Partial Class UserControl2
     '請勿使用程式碼編輯器進行修改。
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim ChartArea7 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -80,12 +80,11 @@ Partial Class UserControl2
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.CheckBox7 = New System.Windows.Forms.CheckBox()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Panel5 = New System.Windows.Forms.Panel()
-        Me.Panel6 = New System.Windows.Forms.Panel()
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.Label32 = New System.Windows.Forms.Label()
-        Me.CheckBox7 = New System.Windows.Forms.CheckBox()
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDown2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDown3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -103,7 +102,6 @@ Partial Class UserControl2
         CType(Me.NumericUpDown15, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDown16, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel3.SuspendLayout()
         Me.Panel7.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -283,9 +281,9 @@ Partial Class UserControl2
         Me.Label18.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label18.Location = New System.Drawing.Point(446, 359)
         Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(26, 19)
+        Me.Label18.Size = New System.Drawing.Size(32, 19)
         Me.Label18.TabIndex = 29
-        Me.Label18.Text = "dB"
+        Me.Label18.Text = "Lab"
         '
         'Label19
         '
@@ -610,22 +608,22 @@ Partial Class UserControl2
         '
         'Chart1
         '
-        ChartArea7.AxisX.MajorGrid.Interval = 12.0R
-        ChartArea7.AxisX.MajorGrid.IntervalOffset = 0R
-        ChartArea7.AxisX.MajorGrid.LineColor = System.Drawing.Color.LightGray
-        ChartArea7.AxisX.MajorGrid.LineWidth = 2
-        ChartArea7.AxisX.MinorGrid.Enabled = True
-        ChartArea7.AxisX.MinorGrid.Interval = 3.0R
-        ChartArea7.AxisX.MinorGrid.LineColor = System.Drawing.Color.Gainsboro
-        ChartArea7.AxisY.MajorGrid.Interval = 12.0R
-        ChartArea7.AxisY.MajorGrid.IntervalOffset = 0R
-        ChartArea7.AxisY.MajorGrid.LineColor = System.Drawing.Color.LightGray
-        ChartArea7.AxisY.MajorGrid.LineWidth = 2
-        ChartArea7.AxisY.MinorGrid.Enabled = True
-        ChartArea7.AxisY.MinorGrid.Interval = 3.0R
-        ChartArea7.AxisY.MinorGrid.LineColor = System.Drawing.Color.Gainsboro
-        ChartArea7.Name = "ChartArea1"
-        Me.Chart1.ChartAreas.Add(ChartArea7)
+        ChartArea1.AxisX.MajorGrid.Interval = 12.0R
+        ChartArea1.AxisX.MajorGrid.IntervalOffset = 0R
+        ChartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.LightGray
+        ChartArea1.AxisX.MajorGrid.LineWidth = 2
+        ChartArea1.AxisX.MinorGrid.Enabled = True
+        ChartArea1.AxisX.MinorGrid.Interval = 3.0R
+        ChartArea1.AxisX.MinorGrid.LineColor = System.Drawing.Color.Gainsboro
+        ChartArea1.AxisY.MajorGrid.Interval = 12.0R
+        ChartArea1.AxisY.MajorGrid.IntervalOffset = 0R
+        ChartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.LightGray
+        ChartArea1.AxisY.MajorGrid.LineWidth = 2
+        ChartArea1.AxisY.MinorGrid.Enabled = True
+        ChartArea1.AxisY.MinorGrid.Interval = 3.0R
+        ChartArea1.AxisY.MinorGrid.LineColor = System.Drawing.Color.Gainsboro
+        ChartArea1.Name = "ChartArea1"
+        Me.Chart1.ChartAreas.Add(ChartArea1)
         Me.Chart1.Location = New System.Drawing.Point(602, 50)
         Me.Chart1.Name = "Chart1"
         Me.Chart1.Size = New System.Drawing.Size(650, 573)
@@ -677,11 +675,20 @@ Partial Class UserControl2
         Me.Panel3.BackColor = System.Drawing.Color.Transparent
         Me.Panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel3.Controls.Add(Me.CheckBox7)
         Me.Panel3.Location = New System.Drawing.Point(74, 401)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(428, 121)
         Me.Panel3.TabIndex = 77
+        '
+        'CheckBox7
+        '
+        Me.CheckBox7.AutoSize = True
+        Me.CheckBox7.Location = New System.Drawing.Point(229, 11)
+        Me.CheckBox7.Name = "CheckBox7"
+        Me.CheckBox7.Size = New System.Drawing.Size(62, 23)
+        Me.CheckBox7.TabIndex = 82
+        Me.CheckBox7.Text = "Mute"
+        Me.CheckBox7.UseVisualStyleBackColor = True
         '
         'Panel4
         '
@@ -703,13 +710,6 @@ Partial Class UserControl2
         Me.Panel5.Size = New System.Drawing.Size(679, 599)
         Me.Panel5.TabIndex = 79
         '
-        'Panel6
-        '
-        Me.Panel6.Location = New System.Drawing.Point(709, 21)
-        Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(602, 674)
-        Me.Panel6.TabIndex = 80
-        '
         'Panel7
         '
         Me.Panel7.Controls.Add(Me.Label32)
@@ -727,22 +727,12 @@ Partial Class UserControl2
         Me.Label32.TabIndex = 0
         Me.Label32.Text = "1st Mic Gain & 2nd Mic Gain are here"
         '
-        'CheckBox7
-        '
-        Me.CheckBox7.AutoSize = True
-        Me.CheckBox7.Location = New System.Drawing.Point(247, 9)
-        Me.CheckBox7.Name = "CheckBox7"
-        Me.CheckBox7.Size = New System.Drawing.Size(62, 23)
-        Me.CheckBox7.TabIndex = 82
-        Me.CheckBox7.Text = "Mute"
-        Me.CheckBox7.UseVisualStyleBackColor = True
-        '
         'UserControl2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 19.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.CheckBox7)
         Me.Controls.Add(Me.Panel7)
-        Me.Controls.Add(Me.Panel6)
         Me.Controls.Add(Me.CheckBox6)
         Me.Controls.Add(Me.CheckBox5)
         Me.Controls.Add(Me.Chart1)
@@ -823,8 +813,6 @@ Partial Class UserControl2
         CType(Me.NumericUpDown15, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NumericUpDown16, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel3.ResumeLayout(False)
-        Me.Panel3.PerformLayout()
         Me.Panel7.ResumeLayout(False)
         Me.Panel7.PerformLayout()
         Me.ResumeLayout(False)
@@ -891,7 +879,6 @@ Partial Class UserControl2
     Friend WithEvents Panel3 As Panel
     Friend WithEvents Panel4 As Panel
     Friend WithEvents Panel5 As Panel
-    Friend WithEvents Panel6 As Panel
     Friend WithEvents Panel7 As Panel
     Friend WithEvents Label32 As Label
     Friend WithEvents CheckBox7 As CheckBox

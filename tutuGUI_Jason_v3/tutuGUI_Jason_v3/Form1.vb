@@ -12,7 +12,89 @@ Public Class Form1
     Public tutu_sys00_bin_filled(15) As Integer
     Public tutu_sys01_bin_filled(15) As Integer
     Public Sub DRC_paste()
+        If Convert.ToInt32(array_from_clipboard_2D(1, 91), 16) > 60000 Then
+            UserControl22.NumericUpDown1.Text = Convert.ToString(Convert.ToInt32(array_from_clipboard_2D(1, 91), 16) - 65536)    'Expander Point 0
+        Else
+            UserControl22.NumericUpDown1.Text = Convert.ToString(Convert.ToInt32(array_from_clipboard_2D(1, 91), 16))
+        End If
 
+        If Convert.ToInt32(array_from_clipboard_2D(1, 92), 16) > 60000 Then
+            UserControl22.NumericUpDown2.Text = Convert.ToString(Convert.ToInt32(array_from_clipboard_2D(1, 92), 16) - 65536)    'Expander Point 1
+        Else
+            UserControl22.NumericUpDown2.Text = Convert.ToString(Convert.ToInt32(array_from_clipboard_2D(1, 92), 16))
+        End If
+        '------DRC-Knee Points
+        UserControl22.NumericUpDown3.Text = Convert.ToString(Convert.ToInt32(array_from_clipboard_2D(1, 93), 16))     'Number of Knee Points
+
+        If Convert.ToInt32(array_from_clipboard_2D(1, 93), 16) = 2 Then
+            UserControl22.NumericUpDown4.Text = Convert.ToString(Convert.ToInt32(array_from_clipboard_2D(1, 97), 16))
+            UserControl22.NumericUpDown5.Text = Convert.ToString(Convert.ToInt32(array_from_clipboard_2D(1, 96), 16) - 65536)
+            UserControl22.NumericUpDown6.Text = Convert.ToString(Convert.ToInt32(array_from_clipboard_2D(1, 95), 16) - 65536)
+            'UserControl22.TextBox4.Enabled = False                 '因為在UserControl22.textbox4的text change event已經寫好判斷式了
+            UserControl22.NumericUpDown8.Text = Convert.ToString(Convert.ToInt32(array_from_clipboard_2D(1, 101), 16) - 65536)
+            UserControl22.NumericUpDown9.Text = Convert.ToString(Convert.ToInt32(array_from_clipboard_2D(1, 100), 16) - 65536)
+            UserControl22.NumericUpDown10.Text = Convert.ToString(Convert.ToInt32(array_from_clipboard_2D(1, 99), 16) - 65536)
+            'UserControl22.TextBox8.Enabled = False                 '因為在UserControl22.textbox4的text change event已經寫好判斷式了
+        ElseIf Convert.ToInt32(array_from_clipboard_2D(1, 93), 16) = 3 Then
+            UserControl22.NumericUpDown4.Text = Convert.ToString(Convert.ToInt32(array_from_clipboard_2D(1, 98), 16))
+            UserControl22.NumericUpDown5.Text = Convert.ToString(Convert.ToInt32(array_from_clipboard_2D(1, 97), 16) - 65536)
+            UserControl22.NumericUpDown6.Text = Convert.ToString(Convert.ToInt32(array_from_clipboard_2D(1, 96), 16) - 65536)
+            UserControl22.NumericUpDown7.Text = Convert.ToString(Convert.ToInt32(array_from_clipboard_2D(1, 95), 16) - 65536)
+            UserControl22.NumericUpDown8.Text = Convert.ToString(Convert.ToInt32(array_from_clipboard_2D(1, 102), 16) - 65536)
+            UserControl22.NumericUpDown9.Text = Convert.ToString(Convert.ToInt32(array_from_clipboard_2D(1, 101), 16) - 65536)
+            UserControl22.NumericUpDown10.Text = Convert.ToString(Convert.ToInt32(array_from_clipboard_2D(1, 100), 16) - 65536)
+            UserControl22.NumericUpDown11.Text = Convert.ToString(Convert.ToInt32(array_from_clipboard_2D(1, 99), 16) - 65536)
+        End If
+
+        '------DRC-makeup gain     ;checkbox 12; EQ_cell no.105 
+        If array_from_clipboard_2D(1, 105) = "0x0000" Then
+            UserControl22.NumericUpDown12.Text = ""
+            UserControl22.CheckBox7.Checked = True
+            Exit Sub
+        ElseIf array_from_clipboard_2D(1, 105) = "0x0100" Then
+            UserControl22.NumericUpDown12.Text = "0"
+        Else
+            Dim string_drc14(1) As String
+            string_drc14 = Convert.ToString(Math.Log10(Math.Round(Convert.ToInt32(array_from_clipboard_2D(1, 105), 16) / 256, 4)) * 20).Split(".")
+            'UserControl22.NumericUpDown12.Text = string_drc14(0) & "." & string_drc14(1).Chars(0) & string_drc14(1).Chars(1) & string_drc14(1).Chars(2) & string_drc14(1).Chars(3)
+            UserControl22.NumericUpDown12.Value = (Math.Log10(Math.Round(Convert.ToInt32(array_from_clipboard_2D(1, 105), 16) / 256, 4)) * 20)
+        End If
+        '------DRC-attack time      ;checkbox 13
+        UserControl22.NumericUpDown13.Text = Convert.ToString(Convert.ToInt32(array_from_clipboard_2D(1, 103), 16))
+        '------DRC-release time     ;checkbox 14
+        UserControl22.NumericUpDown14.Text = Convert.ToString(Convert.ToInt32(array_from_clipboard_2D(1, 104), 16))
+
+        '------1st MIC gain     ;checkbox 15; 106
+        If array_from_clipboard_2D(1, 106) = "0x0000" Then
+            UserControl22.NumericUpDown15.Text = ""
+            UserControl22.CheckBox2.Checked = True
+
+        Else
+            Dim string_MIC(1) As String
+            string_MIC = Convert.ToString(Math.Log10(Math.Round(Convert.ToInt32(array_from_clipboard_2D(1, 106), 16) / 256, 4)) * 20).Split(".")
+            UserControl22.NumericUpDown15.Text = string_MIC(0) & "." & string_MIC(1).Chars(0) & string_MIC(1).Chars(1) & string_MIC(1).Chars(2) & string_MIC(1).Chars(3)
+            UserControl22.CheckBox1.Checked = True
+
+        End If
+
+        '------2nd MIC gain     ;checkbox 16; 107
+        If array_from_clipboard_2D(1, 107) = "0x0000" Then
+            UserControl22.NumericUpDown16.Text = ""
+            UserControl22.CheckBox4.Checked = True
+
+
+        Else
+            Dim string_MIC(1) As String
+            string_MIC = Convert.ToString(Math.Log10(Math.Round(Convert.ToInt32(array_from_clipboard_2D(1, 107), 16) / 256, 4)) * 20).Split(".")
+            UserControl22.NumericUpDown16.Text = string_MIC(0) & "." & string_MIC(1).Chars(0) & string_MIC(1).Chars(1) & string_MIC(1).Chars(2) & string_MIC(1).Chars(3)
+            UserControl22.CheckBox3.Checked = True
+        End If
+
+        '----------------------Plot DRC by click DRC Plot button in DRC panel
+        UserControl22.DRC_Plot()
+
+        '----------------------判定DRC是否enable or disable
+        DRC_Enable_Disable_check()
     End Sub
     Public Sub tutu_sys_parameter_to_binary()           '將Tutu sys參數轉換成 binary
 
@@ -859,6 +941,7 @@ Public Class Form1
 
 
         '----------------------------------------------DRC Section----------------------------------------------------
+
         '------DRC-Expander Points
         If Convert.ToInt32(array_from_clipboard_2D(1, 91), 16) > 60000 Then
             UserControl22.NumericUpDown1.Text = Convert.ToString(Convert.ToInt32(array_from_clipboard_2D(1, 91), 16) - 65536)    'Expander Point 0
@@ -894,19 +977,7 @@ Public Class Form1
             UserControl22.NumericUpDown11.Text = Convert.ToString(Convert.ToInt32(array_from_clipboard_2D(1, 99), 16) - 65536)
         End If
 
-        '------DRC-makeup gain     ;checkbox 12; EQ_cell no.105 
-        If array_from_clipboard_2D(1, 105) = "0x0000" Then
-            UserControl22.NumericUpDown12.Text = ""
-            UserControl22.CheckBox7.Checked = True
 
-        ElseIf array_from_clipboard_2D(1, 105) = "0x0100" Then
-            UserControl22.NumericUpDown12.Text = "0"
-        Else
-            Dim string_drc14(1) As String
-            string_drc14 = Convert.ToString(Math.Log10(Math.Round(Convert.ToInt32(array_from_clipboard_2D(1, 105), 16) / 256, 4)) * 20).Split(".")
-            'UserControl22.NumericUpDown12.Text = string_drc14(0) & "." & string_drc14(1).Chars(0) & string_drc14(1).Chars(1) & string_drc14(1).Chars(2) & string_drc14(1).Chars(3)
-            UserControl22.NumericUpDown12.Value = (Math.Log10(Math.Round(Convert.ToInt32(array_from_clipboard_2D(1, 105), 16) / 256, 4)) * 20)
-        End If
         '------DRC-attack time      ;checkbox 13
         UserControl22.NumericUpDown13.Text = Convert.ToString(Convert.ToInt32(array_from_clipboard_2D(1, 103), 16))
         '------DRC-release time     ;checkbox 14
@@ -941,9 +1012,23 @@ Public Class Form1
         '----------------------Plot DRC by click DRC Plot button in DRC panel
         UserControl22.DRC_Plot()
 
-        '----------------------判定DRC是否enable or disable
-        DRC_Enable_Disable_check()
+        '------DRC-makeup gain     ;checkbox 12; EQ_cell no.105 ;放在最後才判斷DRC14是否mute，是因為要讓所有參數都填到panel上的controls後，再決定要不要反灰
+        If array_from_clipboard_2D(1, 105) = "0x0000" Then
+            UserControl22.NumericUpDown12.Text = ""
+            UserControl22.CheckBox7.Checked = True
+        ElseIf array_from_clipboard_2D(1, 105) = "0x0100" Then
+            UserControl22.NumericUpDown12.Text = "0"
+        Else
+            Dim string_drc14(1) As String
+            string_drc14 = Convert.ToString(Math.Log10(Math.Round(Convert.ToInt32(array_from_clipboard_2D(1, 105), 16) / 256, 4)) * 20).Split(".")
+            'UserControl22.NumericUpDown12.Text = string_drc14(0) & "." & string_drc14(1).Chars(0) & string_drc14(1).Chars(1) & string_drc14(1).Chars(2) & string_drc14(1).Chars(3)
+            UserControl22.NumericUpDown12.Value = (Math.Log10(Math.Round(Convert.ToInt32(array_from_clipboard_2D(1, 105), 16) / 256, 4)) * 20)
+        End If
 
+
+        '----------------------判定DRC是否enable or disable
+        '---------------check if DRC is enable or disable
+        DRC_Enable_Disable_check()
 
     End Sub
     Public Sub EQ_start_label_refresh()
@@ -1126,139 +1211,143 @@ Public Class Form1
 
         Next
         '--------------------------------------Put DRC panel text value into array_from_clipboard_2D
-        '------------Expander 0
-        If UserControl22.NumericUpDown1.Value = 0 Then
-            array_from_clipboard_2D(1, 91) = "0x0000"
-        Else
-            array_from_clipboard_2D(1, 91) = "0x" & Strings.Right(Convert.ToString(Hex(UserControl22.NumericUpDown1.Value)), 4)
-        End If
-        '------------Expander 1
-        If UserControl22.NumericUpDown2.Value = 0 Then
-            array_from_clipboard_2D(1, 92) = "0x0000"
-        Else
-            array_from_clipboard_2D(1, 92) = "0x" & Strings.Right(Convert.ToString(Hex(UserControl22.NumericUpDown2.Value)), 4)
-        End If
-        '------------Knee Point Number
-        array_from_clipboard_2D(1, 93) = "0x000" & Convert.ToString(Hex(UserControl22.NumericUpDown3.Value))
+        '先判斷DRC14，是因為如果 DRC14是 0x0000，那使用者也無法調整，所以參數也就不用重新copy了
+        If UserControl22.CheckBox7.Checked = False Then
+            '------------Expander 0
+            If UserControl22.NumericUpDown1.Value = 0 Then
+                array_from_clipboard_2D(1, 91) = "0x0000"
+            Else
+                array_from_clipboard_2D(1, 91) = "0x" & Strings.Right(Convert.ToString(Hex(UserControl22.NumericUpDown1.Value)), 4)
+            End If
+            '------------Expander 1
+            If UserControl22.NumericUpDown2.Value = 0 Then
+                array_from_clipboard_2D(1, 92) = "0x0000"
+            Else
+                array_from_clipboard_2D(1, 92) = "0x" & Strings.Right(Convert.ToString(Hex(UserControl22.NumericUpDown2.Value)), 4)
+            End If
+            '------------Knee Point Number
+            array_from_clipboard_2D(1, 93) = "0x000" & Convert.ToString(Hex(UserControl22.NumericUpDown3.Value))
 
 
-        If UserControl22.NumericUpDown3.Value = 2 Then          '如果Knee-Point = 2
-            '-------------------------Knee-in
-            'knee-2 in
-            If UserControl22.NumericUpDown6.Value = 0 Then
-                array_from_clipboard_2D(1, 95) = "0x0000"
-            Else
-                array_from_clipboard_2D(1, 95) = "0x" & Strings.Right(Convert.ToString(Hex(UserControl22.NumericUpDown6.Value)), 4)
-            End If
-            'knee-1 in
-            If UserControl22.NumericUpDown5.Value = 0 Then
-                array_from_clipboard_2D(1, 96) = "0x0000"
-            Else
-                array_from_clipboard_2D(1, 96) = "0x" & Strings.Right(Convert.ToString(Hex(UserControl22.NumericUpDown5.Value)), 4)
-            End If
-            'knee-0 in
-            array_from_clipboard_2D(1, 97) = "0x0000"
-            '-------------------------Knee-Outs
-            'Knee-2 out
-            If UserControl22.NumericUpDown10.Value = 0 Then
-                array_from_clipboard_2D(1, 99) = "0x0000"
-            Else
-                array_from_clipboard_2D(1, 99) = "0x" & Strings.Right(Convert.ToString(Hex(UserControl22.NumericUpDown10.Value)), 4)
-            End If
-            'Knee-1 out
-            If UserControl22.NumericUpDown9.Value = 0 Then
-                array_from_clipboard_2D(1, 100) = "0x0000"
-            Else
-                array_from_clipboard_2D(1, 100) = "0x" & Strings.Right(Convert.ToString(Hex(UserControl22.NumericUpDown9.Value)), 4)
-            End If
-            'Knee-0 out
-            If UserControl22.NumericUpDown8.Value = 0 Then
-                array_from_clipboard_2D(1, 101) = "0x0000"
-            Else
-                array_from_clipboard_2D(1, 101) = "0x" & Strings.Right(Convert.ToString(Hex(UserControl22.NumericUpDown8.Value)), 4)
-            End If
-
-        ElseIf UserControl22.NumericUpDown3.Value = 3 Then      '如果Knee-Point = 3
-            '-------------------------Knee-in
-            'knee-3 in
-            If UserControl22.NumericUpDown7.Value = 0 Then
-                array_from_clipboard_2D(1, 95) = "0x0000"
-            Else
-                array_from_clipboard_2D(1, 95) = "0x" & Strings.Right(Convert.ToString(Hex(UserControl22.NumericUpDown7.Value)), 4)
-            End If
-            'knee-2 in
-            If UserControl22.NumericUpDown6.Value = 0 Then
-                array_from_clipboard_2D(1, 96) = "0x0000"
-            Else
-                array_from_clipboard_2D(1, 96) = "0x" & Strings.Right(Convert.ToString(Hex(UserControl22.NumericUpDown6.Value)), 4)
-            End If
-            'knee-1 in
-            If UserControl22.NumericUpDown5.Value = 0 Then
+            If UserControl22.NumericUpDown3.Value = 2 Then          '如果Knee-Point = 2
+                '-------------------------Knee-in
+                'knee-2 in
+                If UserControl22.NumericUpDown6.Value = 0 Then
+                    array_from_clipboard_2D(1, 95) = "0x0000"
+                Else
+                    array_from_clipboard_2D(1, 95) = "0x" & Strings.Right(Convert.ToString(Hex(UserControl22.NumericUpDown6.Value)), 4)
+                End If
+                'knee-1 in
+                If UserControl22.NumericUpDown5.Value = 0 Then
+                    array_from_clipboard_2D(1, 96) = "0x0000"
+                Else
+                    array_from_clipboard_2D(1, 96) = "0x" & Strings.Right(Convert.ToString(Hex(UserControl22.NumericUpDown5.Value)), 4)
+                End If
+                'knee-0 in
                 array_from_clipboard_2D(1, 97) = "0x0000"
-            Else
-                array_from_clipboard_2D(1, 97) = "0x" & Strings.Right(Convert.ToString(Hex(UserControl22.NumericUpDown5.Value)), 4)
-            End If
-            'knee-0 in
-            array_from_clipboard_2D(1, 98) = "0x0000"
-            '-------------------------Knee-Outs
-            'Knee-3 out
-            If UserControl22.NumericUpDown11.Value = 0 Then
-                array_from_clipboard_2D(1, 99) = "0x0000"
-            Else
-                array_from_clipboard_2D(1, 99) = "0x" & Strings.Right(Convert.ToString(Hex(UserControl22.NumericUpDown11.Value)), 4)
-            End If
-            'Knee-2 out
-            If UserControl22.NumericUpDown10.Value = 0 Then
-                array_from_clipboard_2D(1, 100) = "0x0000"
-            Else
-                array_from_clipboard_2D(1, 100) = "0x" & Strings.Right(Convert.ToString(Hex(UserControl22.NumericUpDown10.Value)), 4)
-            End If
-            'Knee-1 out
-            If UserControl22.NumericUpDown9.Value = 0 Then
-                array_from_clipboard_2D(1, 101) = "0x0000"
-            Else
-                array_from_clipboard_2D(1, 101) = "0x" & Strings.Right(Convert.ToString(Hex(UserControl22.NumericUpDown9.Value)), 4)
-            End If
-            'Knee-0 out
-            If UserControl22.NumericUpDown8.Value = 0 Then
-                array_from_clipboard_2D(1, 102) = "0x0000"
-            Else
-                array_from_clipboard_2D(1, 102) = "0x" & Strings.Right(Convert.ToString(Hex(UserControl22.NumericUpDown8.Value)), 4)
-            End If
-        End If
-        'attack time
-        If Convert.ToString(Hex(UserControl22.NumericUpDown13.Value)).Length = 3 Then
-            array_from_clipboard_2D(1, 103) = "0x0" & Convert.ToString(Hex(UserControl22.NumericUpDown13.Value))
-        ElseIf Convert.ToString(Hex(UserControl22.NumericUpDown13.Value)).Length = 2 Then
-            array_from_clipboard_2D(1, 103) = "0x00" & Convert.ToString(Hex(UserControl22.NumericUpDown13.Value))
-        ElseIf Convert.ToString(Hex(UserControl22.NumericUpDown13.Value)).Length = 1 Then
-            array_from_clipboard_2D(1, 103) = "0x000" & Convert.ToString(Hex(UserControl22.NumericUpDown13.Value))
-        Else
-            array_from_clipboard_2D(1, 103) = "0x0000"
-        End If
+                '-------------------------Knee-Outs
+                'Knee-2 out
+                If UserControl22.NumericUpDown10.Value = 0 Then
+                    array_from_clipboard_2D(1, 99) = "0x0000"
+                Else
+                    array_from_clipboard_2D(1, 99) = "0x" & Strings.Right(Convert.ToString(Hex(UserControl22.NumericUpDown10.Value)), 4)
+                End If
+                'Knee-1 out
+                If UserControl22.NumericUpDown9.Value = 0 Then
+                    array_from_clipboard_2D(1, 100) = "0x0000"
+                Else
+                    array_from_clipboard_2D(1, 100) = "0x" & Strings.Right(Convert.ToString(Hex(UserControl22.NumericUpDown9.Value)), 4)
+                End If
+                'Knee-0 out
+                If UserControl22.NumericUpDown8.Value = 0 Then
+                    array_from_clipboard_2D(1, 101) = "0x0000"
+                Else
+                    array_from_clipboard_2D(1, 101) = "0x" & Strings.Right(Convert.ToString(Hex(UserControl22.NumericUpDown8.Value)), 4)
+                End If
 
-        'release time
-        If Convert.ToString(Hex(UserControl22.NumericUpDown14.Value)).Length = 3 Then
-            array_from_clipboard_2D(1, 104) = "0x0" & Convert.ToString(Hex(UserControl22.NumericUpDown14.Value))
-        ElseIf Convert.ToString(Hex(UserControl22.NumericUpDown14.Value)).Length = 2 Then
-            array_from_clipboard_2D(1, 104) = "0x00" & Convert.ToString(Hex(UserControl22.NumericUpDown14.Value))
-        ElseIf Convert.ToString(Hex(UserControl22.NumericUpDown14.Value)).Length = 1 Then
-            array_from_clipboard_2D(1, 104) = "0x000" & Convert.ToString(Hex(UserControl22.NumericUpDown14.Value))
-        Else
-            array_from_clipboard_2D(1, 104) = "0x0000"
-        End If
+            ElseIf UserControl22.NumericUpDown3.Value = 3 Then      '如果Knee-Point = 3
+                '-------------------------Knee-in
+                'knee-3 in
+                If UserControl22.NumericUpDown7.Value = 0 Then
+                    array_from_clipboard_2D(1, 95) = "0x0000"
+                Else
+                    array_from_clipboard_2D(1, 95) = "0x" & Strings.Right(Convert.ToString(Hex(UserControl22.NumericUpDown7.Value)), 4)
+                End If
+                'knee-2 in
+                If UserControl22.NumericUpDown6.Value = 0 Then
+                    array_from_clipboard_2D(1, 96) = "0x0000"
+                Else
+                    array_from_clipboard_2D(1, 96) = "0x" & Strings.Right(Convert.ToString(Hex(UserControl22.NumericUpDown6.Value)), 4)
+                End If
+                'knee-1 in
+                If UserControl22.NumericUpDown5.Value = 0 Then
+                    array_from_clipboard_2D(1, 97) = "0x0000"
+                Else
+                    array_from_clipboard_2D(1, 97) = "0x" & Strings.Right(Convert.ToString(Hex(UserControl22.NumericUpDown5.Value)), 4)
+                End If
+                'knee-0 in
+                array_from_clipboard_2D(1, 98) = "0x0000"
+                '-------------------------Knee-Outs
+                'Knee-3 out
+                If UserControl22.NumericUpDown11.Value = 0 Then
+                    array_from_clipboard_2D(1, 99) = "0x0000"
+                Else
+                    array_from_clipboard_2D(1, 99) = "0x" & Strings.Right(Convert.ToString(Hex(UserControl22.NumericUpDown11.Value)), 4)
+                End If
+                'Knee-2 out
+                If UserControl22.NumericUpDown10.Value = 0 Then
+                    array_from_clipboard_2D(1, 100) = "0x0000"
+                Else
+                    array_from_clipboard_2D(1, 100) = "0x" & Strings.Right(Convert.ToString(Hex(UserControl22.NumericUpDown10.Value)), 4)
+                End If
+                'Knee-1 out
+                If UserControl22.NumericUpDown9.Value = 0 Then
+                    array_from_clipboard_2D(1, 101) = "0x0000"
+                Else
+                    array_from_clipboard_2D(1, 101) = "0x" & Strings.Right(Convert.ToString(Hex(UserControl22.NumericUpDown9.Value)), 4)
+                End If
+                'Knee-0 out
+                If UserControl22.NumericUpDown8.Value = 0 Then
+                    array_from_clipboard_2D(1, 102) = "0x0000"
+                Else
+                    array_from_clipboard_2D(1, 102) = "0x" & Strings.Right(Convert.ToString(Hex(UserControl22.NumericUpDown8.Value)), 4)
+                End If
+            End If
+            'attack time
+            If Convert.ToString(Hex(UserControl22.NumericUpDown13.Value)).Length = 3 Then
+                array_from_clipboard_2D(1, 103) = "0x0" & Convert.ToString(Hex(UserControl22.NumericUpDown13.Value))
+            ElseIf Convert.ToString(Hex(UserControl22.NumericUpDown13.Value)).Length = 2 Then
+                array_from_clipboard_2D(1, 103) = "0x00" & Convert.ToString(Hex(UserControl22.NumericUpDown13.Value))
+            ElseIf Convert.ToString(Hex(UserControl22.NumericUpDown13.Value)).Length = 1 Then
+                array_from_clipboard_2D(1, 103) = "0x000" & Convert.ToString(Hex(UserControl22.NumericUpDown13.Value))
+            Else
+                array_from_clipboard_2D(1, 103) = "0x0000"
+            End If
 
-        'makeup gain
-        If Convert.ToString(Hex(Math.Round(Math.Pow(10, (UserControl22.NumericUpDown12.Value / 20)) * 256, 0))).Length = 4 Then
-            array_from_clipboard_2D(1, 105) = "0x" & Convert.ToString(Hex(Math.Round(Math.Pow(10, (UserControl22.NumericUpDown12.Value / 20)) * 256, 0)))
-        ElseIf Convert.ToString(Hex(Math.Round(Math.Pow(10, (UserControl22.NumericUpDown12.Value / 20)) * 256, 0))).Length = 3 Then
-            array_from_clipboard_2D(1, 105) = "0x0" & Convert.ToString(Hex(Math.Round(Math.Pow(10, (UserControl22.NumericUpDown12.Value / 20)) * 256, 0)))
-        ElseIf Convert.ToString(Hex(Math.Round(Math.Pow(10, (UserControl22.NumericUpDown12.Value / 20)) * 256, 0))).Length = 2 Then
-            array_from_clipboard_2D(1, 105) = "0x00" & Convert.ToString(Hex(Math.Round(Math.Pow(10, (UserControl22.NumericUpDown12.Value / 20)) * 256, 0)))
-        ElseIf Convert.ToString(Hex(Math.Round(Math.Pow(10, (UserControl22.NumericUpDown12.Value / 20)) * 256, 0))).Length = 1 Then
-            array_from_clipboard_2D(1, 105) = "0x000" & Convert.ToString(Hex(Math.Round(Math.Pow(10, (UserControl22.NumericUpDown12.Value / 20)) * 256, 0)))
-        Else
-            array_from_clipboard_2D(1, 105) = "0x0000"
+            'release time
+            If Convert.ToString(Hex(UserControl22.NumericUpDown14.Value)).Length = 3 Then
+                array_from_clipboard_2D(1, 104) = "0x0" & Convert.ToString(Hex(UserControl22.NumericUpDown14.Value))
+            ElseIf Convert.ToString(Hex(UserControl22.NumericUpDown14.Value)).Length = 2 Then
+                array_from_clipboard_2D(1, 104) = "0x00" & Convert.ToString(Hex(UserControl22.NumericUpDown14.Value))
+            ElseIf Convert.ToString(Hex(UserControl22.NumericUpDown14.Value)).Length = 1 Then
+                array_from_clipboard_2D(1, 104) = "0x000" & Convert.ToString(Hex(UserControl22.NumericUpDown14.Value))
+            Else
+                array_from_clipboard_2D(1, 104) = "0x0000"
+            End If
+            'Makeup gain  DRC14
+            If Convert.ToString(Hex(Math.Round(Math.Pow(10, (UserControl22.NumericUpDown12.Value / 20)) * 256, 0))).Length = 4 Then
+                array_from_clipboard_2D(1, 105) = "0x" & Convert.ToString(Hex(Math.Round(Math.Pow(10, (UserControl22.NumericUpDown12.Value / 20)) * 256, 0)))
+            ElseIf Convert.ToString(Hex(Math.Round(Math.Pow(10, (UserControl22.NumericUpDown12.Value / 20)) * 256, 0))).Length = 3 Then
+                array_from_clipboard_2D(1, 105) = "0x0" & Convert.ToString(Hex(Math.Round(Math.Pow(10, (UserControl22.NumericUpDown12.Value / 20)) * 256, 0)))
+            ElseIf Convert.ToString(Hex(Math.Round(Math.Pow(10, (UserControl22.NumericUpDown12.Value / 20)) * 256, 0))).Length = 2 Then
+                array_from_clipboard_2D(1, 105) = "0x00" & Convert.ToString(Hex(Math.Round(Math.Pow(10, (UserControl22.NumericUpDown12.Value / 20)) * 256, 0)))
+            ElseIf Convert.ToString(Hex(Math.Round(Math.Pow(10, (UserControl22.NumericUpDown12.Value / 20)) * 256, 0))).Length = 1 Then
+                array_from_clipboard_2D(1, 105) = "0x000" & Convert.ToString(Hex(Math.Round(Math.Pow(10, (UserControl22.NumericUpDown12.Value / 20)) * 256, 0)))
+            Else
+                array_from_clipboard_2D(1, 105) = "0x0000"
+            End If
+        Else '如果DRC14 = 0x0000，就不改動原本已經在 array_from_clipboard_2D的參數
+
         End If
 
         'array_from_clipboard_2D(1, 105) = Convert.ToString(Hex(Math.Round(Math.Pow(10, (UserControl22.NumericUpDown12.Value / 20)), 0)))    'makeup gain
