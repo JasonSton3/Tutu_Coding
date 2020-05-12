@@ -22,7 +22,7 @@ Partial Class UserControl1
     '請勿使用程式碼編輯器進行修改。
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim ChartArea4 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
@@ -185,10 +185,12 @@ Partial Class UserControl1
         Me.CheckBox13 = New System.Windows.Forms.CheckBox()
         Me.CheckBox14 = New System.Windows.Forms.CheckBox()
         Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.Panel5 = New System.Windows.Forms.Panel()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel4.SuspendLayout()
+        Me.Panel5.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -207,28 +209,28 @@ Partial Class UserControl1
     "transparent.bmp"
         Me.Chart1.BackImageTransparentColor = System.Drawing.Color.White
         Me.Chart1.BorderlineWidth = 3
-        ChartArea3.AxisX.IsMarginVisible = False
-        ChartArea3.AxisX.LabelStyle.Enabled = False
-        ChartArea3.AxisX.MajorGrid.Interval = 10.0R
-        ChartArea3.AxisX.MajorGrid.LineColor = System.Drawing.Color.Transparent
-        ChartArea3.AxisX.Maximum = 8000.0R
-        ChartArea3.AxisX.Minimum = 1000.0R
-        ChartArea3.AxisX.MinorGrid.Enabled = True
-        ChartArea3.AxisX.MinorGrid.Interval = 1.0R
-        ChartArea3.AxisX.MinorGrid.LineColor = System.Drawing.Color.Transparent
-        ChartArea3.AxisX2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.[False]
-        ChartArea3.AxisY.Interval = 1.0R
-        ChartArea3.AxisY.MajorGrid.Interval = 5.0R
-        ChartArea3.AxisY.MajorGrid.LineColor = System.Drawing.Color.Transparent
-        ChartArea3.AxisY.MinorGrid.Enabled = True
-        ChartArea3.AxisY.MinorGrid.Interval = 1.0R
-        ChartArea3.AxisY.MinorGrid.LineColor = System.Drawing.Color.Transparent
-        ChartArea3.AxisY.ScaleBreakStyle.StartFromZero = System.Windows.Forms.DataVisualization.Charting.StartFromZero.No
-        ChartArea3.BackColor = System.Drawing.Color.Transparent
-        ChartArea3.CursorX.LineWidth = 3
-        ChartArea3.CursorY.LineWidth = 3
-        ChartArea3.Name = "ChartArea1"
-        Me.Chart1.ChartAreas.Add(ChartArea3)
+        ChartArea4.AxisX.IsMarginVisible = False
+        ChartArea4.AxisX.LabelStyle.Enabled = False
+        ChartArea4.AxisX.MajorGrid.Interval = 10.0R
+        ChartArea4.AxisX.MajorGrid.LineColor = System.Drawing.Color.Transparent
+        ChartArea4.AxisX.Maximum = 8000.0R
+        ChartArea4.AxisX.Minimum = 1000.0R
+        ChartArea4.AxisX.MinorGrid.Enabled = True
+        ChartArea4.AxisX.MinorGrid.Interval = 1.0R
+        ChartArea4.AxisX.MinorGrid.LineColor = System.Drawing.Color.Transparent
+        ChartArea4.AxisX2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.[False]
+        ChartArea4.AxisY.Interval = 1.0R
+        ChartArea4.AxisY.MajorGrid.Interval = 5.0R
+        ChartArea4.AxisY.MajorGrid.LineColor = System.Drawing.Color.Transparent
+        ChartArea4.AxisY.MinorGrid.Enabled = True
+        ChartArea4.AxisY.MinorGrid.Interval = 1.0R
+        ChartArea4.AxisY.MinorGrid.LineColor = System.Drawing.Color.Transparent
+        ChartArea4.AxisY.ScaleBreakStyle.StartFromZero = System.Windows.Forms.DataVisualization.Charting.StartFromZero.No
+        ChartArea4.BackColor = System.Drawing.Color.Transparent
+        ChartArea4.CursorX.LineWidth = 3
+        ChartArea4.CursorY.LineWidth = 3
+        ChartArea4.Name = "ChartArea1"
+        Me.Chart1.ChartAreas.Add(ChartArea4)
         Me.Chart1.Location = New System.Drawing.Point(372, 21)
         Me.Chart1.Name = "Chart1"
         Me.Chart1.Size = New System.Drawing.Size(794, 573)
@@ -1224,7 +1226,6 @@ Partial Class UserControl1
         Me.Panel1.Controls.Add(Me.Label74)
         Me.Panel1.Controls.Add(Me.Label73)
         Me.Panel1.Controls.Add(Me.Label72)
-        Me.Panel1.Controls.Add(Me.Label71)
         Me.Panel1.Controls.Add(Me.Label70)
         Me.Panel1.Controls.Add(Me.Label69)
         Me.Panel1.Controls.Add(Me.Label68)
@@ -1242,9 +1243,10 @@ Partial Class UserControl1
         Me.Panel1.Controls.Add(Me.Label59)
         Me.Panel1.Controls.Add(Me.Label53)
         Me.Panel1.Controls.Add(Me.Chart1)
+        Me.Panel1.Controls.Add(Me.Panel5)
         Me.Panel1.Location = New System.Drawing.Point(156, 5)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1182, 609)
+        Me.Panel1.Size = New System.Drawing.Size(1191, 618)
         Me.Panel1.TabIndex = 96
         '
         'Label91
@@ -1472,7 +1474,7 @@ Partial Class UserControl1
         Me.Label71.AutoSize = True
         Me.Label71.BackColor = System.Drawing.Color.White
         Me.Label71.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label71.Location = New System.Drawing.Point(411, 69)
+        Me.Label71.Location = New System.Drawing.Point(49, 56)
         Me.Label71.Name = "Label71"
         Me.Label71.Size = New System.Drawing.Size(29, 19)
         Me.Label71.TabIndex = 136
@@ -2094,6 +2096,15 @@ Partial Class UserControl1
         Me.Panel4.Size = New System.Drawing.Size(1350, 626)
         Me.Panel4.TabIndex = 160
         '
+        'Panel5
+        '
+        Me.Panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel5.Controls.Add(Me.Label71)
+        Me.Panel5.Location = New System.Drawing.Point(362, 13)
+        Me.Panel5.Name = "Panel5"
+        Me.Panel5.Size = New System.Drawing.Size(815, 591)
+        Me.Panel5.TabIndex = 157
+        '
         'UserControl1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -2112,6 +2123,8 @@ Partial Class UserControl1
         Me.Panel3.PerformLayout()
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
+        Me.Panel5.ResumeLayout(False)
+        Me.Panel5.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -2279,4 +2292,5 @@ Partial Class UserControl1
     Friend WithEvents CheckBox13 As CheckBox
     Friend WithEvents CheckBox14 As CheckBox
     Friend WithEvents Panel4 As Panel
+    Friend WithEvents Panel5 As Panel
 End Class

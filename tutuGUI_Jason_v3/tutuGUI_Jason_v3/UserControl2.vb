@@ -341,6 +341,9 @@
     Private Sub NumericUpDown1_Click(sender As Object, e As EventArgs) Handles NumericUpDown1.Click 'Expander 0
         DRC_Plot()
     End Sub
+    Private Sub NumericUpDown1_DoubleClick(sender As Object, e As EventArgs) Handles NumericUpDown1.DoubleClick 'Expander 0
+        DRC_Plot()
+    End Sub
     Private Sub NumericUpDown2_TextChanged(sender As Object, e As EventArgs) Handles NumericUpDown2.TextChanged 'Expander 1
         If NumericUpDown2.Value < NumericUpDown1.Value Then
             NumericUpDown1.Value = NumericUpDown2.Value
@@ -357,8 +360,12 @@
     Private Sub NumericUpDown2_Click(sender As Object, e As EventArgs) Handles NumericUpDown2.Click 'Expander 0
         DRC_Plot()
     End Sub
+    Private Sub NumericUpDown2_DoubleClick(sender As Object, e As EventArgs) Handles NumericUpDown2.DoubleClick 'Expander 0
+        DRC_Plot()
+    End Sub
     Private Sub NumericUpDown3_TextChanged(sender As Object, e As EventArgs) Handles NumericUpDown3.TextChanged
         If NumericUpDown3.Text = "2" Then
+            kneepoint_special_check = 0
             NumericUpDown3.ForeColor = Color.Black
             Label8.Enabled = False
             Label14.Enabled = False
@@ -383,6 +390,7 @@
     End Sub
 
     Private Sub NumericUpDown4_TextChanged(sender As Object, e As EventArgs) Handles NumericUpDown4.TextChanged
+        '下面註解，因為
         'If NumericUpDown4.Value >= NumericUpDown8.Value Then
         '    NumericUpDown4.ForeColor = Color.Black
         '    NumericUpDown8.ForeColor = Color.Black
@@ -394,7 +402,7 @@
         If NumericUpDown8.Value <= NumericUpDown4.Value And NumericUpDown8.Value < NumericUpDown5.Value Then
             NumericUpDown5.Value = NumericUpDown8.Value
         End If
-
+        '註解掉下方，是因為不要用顏色來請示數值有無超過限制，直接透過上方的code來動態調整數值範圍就不用警示功能了
         'If NumericUpDown8.Value <= NumericUpDown4.Value And NumericUpDown8.Value >= NumericUpDown5.Value Then
         '    'NumericUpDown4.ForeColor = Color.Black
         '    'NumericUpDown8.ForeColor = Color.Black
@@ -410,7 +418,10 @@
         '    'NumericUpDown8.ForeColor = Color.Red
         'End If
     End Sub
-    Private Sub NumericUpDown8_UpButton(sender As Object, e As EventArgs) Handles NumericUpDown8.Click  '1把DRC_Plot放在click event 而不是在text_changed event的原因是因為不要導致多次重覆執行 DRC_Plot而浪費系統資源
+    Private Sub NumericUpDown8_Click(sender As Object, e As EventArgs) Handles NumericUpDown8.Click  '1把DRC_Plot放在click event 而不是在text_changed event的原因是因為不要導致多次重覆執行 DRC_Plot而浪費系統資源
+        DRC_Plot()
+    End Sub
+    Private Sub NumericUpDown8_DoubleClick(sender As Object, e As EventArgs) Handles NumericUpDown8.DoubleClick  '設double click是因為，當使用者快速點擊時系統會觸發Double Click事件。
         DRC_Plot()
     End Sub
 
@@ -420,7 +431,7 @@
         ElseIf NumericUpDown5.Value > NumericUpDown8.Value And NumericUpDown5.Value >= NumericUpDown9.Value Then
             NumericUpDown8.Value = NumericUpDown5.Value
         End If
-
+        '註解掉下方，是因為不要用顏色來請示數值有無超過限制，直接透過上方的code來動態調整數值範圍就不用警示功能了
         'If NumericUpDown5.Value <= NumericUpDown8.Value And NumericUpDown5.Value >= NumericUpDown9.Value Then
         '    NumericUpDown8.ForeColor = Color.Black
         '    NumericUpDown5.ForeColor = Color.Black
@@ -437,7 +448,10 @@
         '    NumericUpDown5.ForeColor = Color.Red
         'End If
     End Sub
-    Private Sub NumericUpDown5_UpButton(sender As Object, e As EventArgs) Handles NumericUpDown5.Click
+    Private Sub NumericUpDown5_Click(sender As Object, e As EventArgs) Handles NumericUpDown5.Click
+        DRC_Plot()
+    End Sub
+    Private Sub NumericUpDown5_DoubleClick(sender As Object, e As EventArgs) Handles NumericUpDown5.DoubleClick
         DRC_Plot()
     End Sub
     Private Sub NumericUpDown9_TextChanged(sender As Object, e As EventArgs) Handles NumericUpDown9.TextChanged
@@ -460,7 +474,10 @@
         '    NumericUpDown9.ForeColor = Color.Red
         'End If
     End Sub
-    Private Sub NumericUpDown9_UpButton(sender As Object, e As EventArgs) Handles NumericUpDown9.Click
+    Private Sub NumericUpDown9_Click(sender As Object, e As EventArgs) Handles NumericUpDown9.Click
+        DRC_Plot()
+    End Sub
+    Private Sub NumericUpDown9_DoubleClick(sender As Object, e As EventArgs) Handles NumericUpDown9.DoubleClick
         DRC_Plot()
     End Sub
     Private Sub NumericUpDown6_TextChanged(sender As Object, e As EventArgs) Handles NumericUpDown6.TextChanged
@@ -483,7 +500,10 @@
         '    NumericUpDown6.ForeColor = Color.Red
         'End If
     End Sub
-    Private Sub NumericUpDown6_UpButton(sender As Object, e As EventArgs) Handles NumericUpDown6.Click
+    Private Sub NumericUpDown6_Click(sender As Object, e As EventArgs) Handles NumericUpDown6.Click
+        DRC_Plot()
+    End Sub
+    Private Sub NumericUpDown6_DoubleClick(sender As Object, e As EventArgs) Handles NumericUpDown6.DoubleClick
         DRC_Plot()
     End Sub
     Private Sub NumericUpDown10_TextChanged(sender As Object, e As EventArgs) Handles NumericUpDown10.TextChanged
@@ -518,7 +538,10 @@
             'End If
         End If
     End Sub
-    Private Sub NumericUpDown10_UpButton(sender As Object, e As EventArgs) Handles NumericUpDown10.Click
+    Private Sub NumericUpDown10_Click(sender As Object, e As EventArgs) Handles NumericUpDown10.Click
+        DRC_Plot()
+    End Sub
+    Private Sub NumericUpDown10_DoubleClick(sender As Object, e As EventArgs) Handles NumericUpDown10.DoubleClick
         DRC_Plot()
     End Sub
     Private Sub NumericUpDown7_TextChanged(sender As Object, e As EventArgs) Handles NumericUpDown7.TextChanged
@@ -545,7 +568,10 @@
             Exit Sub
         End If
     End Sub
-    Private Sub NumericUpDown7_UpButton(sender As Object, e As EventArgs) Handles NumericUpDown7.Click
+    Private Sub NumericUpDown7_Click(sender As Object, e As EventArgs) Handles NumericUpDown7.Click
+        DRC_Plot()
+    End Sub
+    Private Sub NumericUpDown7_DoubleClick(sender As Object, e As EventArgs) Handles NumericUpDown7.DoubleClick
         DRC_Plot()
     End Sub
     Private Sub NumericUpDown11_TextChanged(sender As Object, e As EventArgs) Handles NumericUpDown11.TextChanged
@@ -563,7 +589,10 @@
             Exit Sub
         End If
     End Sub
-    Private Sub NumericUpDown11_UpButton(sender As Object, e As EventArgs) Handles NumericUpDown11.Click
+    Private Sub NumericUpDown11_Click(sender As Object, e As EventArgs) Handles NumericUpDown11.Click
+        DRC_Plot()
+    End Sub
+    Private Sub NumericUpDown11_DoubleClick(sender As Object, e As EventArgs) Handles NumericUpDown11.DoubleClick
         DRC_Plot()
     End Sub
     Public Sub DRC_Plot()

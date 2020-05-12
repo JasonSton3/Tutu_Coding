@@ -1129,6 +1129,40 @@ Public Class Form1
         'DataGridView1.Columns.Clear()          '不能clear columns, 會導致無法存值進去DataGridView
         UserControl31.DataGridView1.Refresh()
         Dim str_data As String
+        Dim sys01_0to3 As String
+        Dim sys01_4to7 As String
+        Dim sys01_8to11 As String
+        Dim sys01_12to15 As String
+        Dim sys01 As String
+        '--------------------------------Set Tutu Enable or Disable
+        If CheckBox1.Checked = True Then
+            array_from_clipboard_2D(1, 0) = "0x0001"
+        Else
+            array_from_clipboard_2D(1, 0) = "0x0000"
+        End If
+        '--------------------------------Set EQ enable or disable
+        If UserControl12.CheckBox13.Checked = True Then
+            tutu_sys01_bin_filled(9) = 1
+        Else
+            tutu_sys01_bin_filled(9) = 0
+        End If
+        '--------------------------------Set DRC enable or disable
+        If UserControl22.CheckBox5.Checked = True Then
+            tutu_sys01_bin_filled(11) = 1
+        Else
+            tutu_sys01_bin_filled(11) = 0
+        End If
+        '--------------------------------Set SYS01 to array_from_clipboard_2D
+        sys01_0to3 = tutu_sys01_bin_filled(3) & tutu_sys01_bin_filled(2) & tutu_sys01_bin_filled(1) & tutu_sys01_bin_filled(0)
+        sys01_4to7 = tutu_sys01_bin_filled(7) & tutu_sys01_bin_filled(6) & tutu_sys01_bin_filled(5) & tutu_sys01_bin_filled(4)
+        sys01_8to11 = tutu_sys01_bin_filled(11) & tutu_sys01_bin_filled(10) & tutu_sys01_bin_filled(9) & tutu_sys01_bin_filled(8)
+        sys01_12to15 = tutu_sys01_bin_filled(15) & tutu_sys01_bin_filled(14) & tutu_sys01_bin_filled(13) & tutu_sys01_bin_filled(12)
+
+        sys01_0to3 = Hex(Convert.ToInt32(sys01_0to3, 2))  'example: Convert.ToInt32(, 2):將字串"XXXX"轉成2進制格式字串->Hex():再把2進制格式字串轉成16進制格式字串
+        sys01_4to7 = Hex(Convert.ToInt32(sys01_4to7, 2))
+        sys01_8to11 = Hex(Convert.ToInt32(sys01_8to11, 2))
+        sys01_12to15 = Hex(Convert.ToInt32(sys01_12to15, 2))
+        array_from_clipboard_2D(1, 2) = "0x0000" & sys01_12to15 & sys01_8to11 & sys01_4to7 & sys01_0to3
 
         '--------------------------------Put Calibrated EQ value into array_from_clipboard_2D
         For loop1 As Integer = 0 To 15
