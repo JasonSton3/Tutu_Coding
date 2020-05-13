@@ -494,18 +494,41 @@ Public Class Form1
         If UserControl12.CheckBox8.Checked = True Then   'NB checked
             For a = 1 To 16                 ' 將即將要被拿來畫圖的EQ_chart和 dB_Chart在之後沒用到的頻段(意即沒有值的頻段)全部補滿，follow最後一個有值的頻段, ex: 4000 or 8000...etc
                 If EQ_end_freq_in_Decimal(a - 1) <> 0 Then
-                    'EQ_chart(a) = EQ_end_freq_in_Decimal(a - 1) ' EQ_chart(1) follow EQ_end_freq_in_Decimal(0); 因為EQ_Chart(0)已經強制設定為1，因為Log-X axis的需求
-                    EQ_chart(EQ_step) = EQ_chart(EQ_step - 1) + 1
-                    EQ_step += 1                        ' EQ_step is stepping by +1
-                    EQ_chart(EQ_step) = EQ_end_freq_in_Decimal(a - 1)
-                    EQ_step += 1                        ' EQ_step is stepping by +1
-                    'dB_chart(a) = dB_array(a - 1)
-                    dB_chart(dB_step) = dB_array(a - 1)
-                    dB_step += 1
-                    dB_chart(dB_step) = dB_chart(dB_step - 1)
-                    dB_step += 1
+                    If EQ_end_freq_in_Decimal(a - 1) > 4000 Then    '判斷如果在Panel上填的頻帶範圍超過NB，就會把餵給Chart的array裡的頻帶最大值降成4000Hz
+                        If EQ_chart(EQ_step - 1) = 4000 Then            ' 如果前一個EQ_Chart內的頻段已經到達該頻寬的最大值，則當下頻段的start freq就繼承前一頻段的end freq
+                            EQ_chart(EQ_step) = EQ_chart(EQ_step - 1)
+                            EQ_step += 1
+                            EQ_chart(EQ_step) = EQ_chart(EQ_step - 1)
+                            EQ_step += 1
+
+                            dB_chart(dB_step) = dB_chart(dB_step - 1)   ' 如果前一個EQ_Chart內的頻段已經到達該頻寬的最大值，則當下頻段的db就繼承前一頻段的db
+                            dB_step += 1                                ' dB_step is stepping by +1
+                            dB_chart(dB_step) = dB_chart(dB_step - 1)   ' 
+                            dB_step += 1
+                        Else
+                            EQ_chart(EQ_step) = EQ_chart(EQ_step - 1) + 1   ' 把當下頻段的start frequency設定成前一段還未超過4000頻段的 end frequency加1
+                            EQ_step += 1                                ' EQ_step is stepping by +1
+                            EQ_chart(EQ_step) = 4000                        ' 把當下的end frequency設定成4000
+                            EQ_step += 1                                ' EQ_step is stepping by +1
+                            dB_chart(dB_step) = dB_array(a - 1)   ' 
+                            dB_step += 1                                ' dB_step is stepping by +1
+                            dB_chart(dB_step) = dB_chart(dB_step - 1)   ' 
+                            dB_step += 1
+                        End If ' dB_step is stepping by +1
+                    Else
+                        'EQ_chart(a) = EQ_end_freq_in_Decimal(a - 1) ' EQ_chart(1) follow EQ_end_freq_in_Decimal(0); 因為EQ_Chart(0)已經強制設定為1，因為Log-X axis的需求
+                        EQ_chart(EQ_step) = EQ_chart(EQ_step - 1) + 1
+                        EQ_step += 1                        ' EQ_step is stepping by +1
+                        EQ_chart(EQ_step) = EQ_end_freq_in_Decimal(a - 1)
+                        EQ_step += 1                        ' EQ_step is stepping by +1
+                        'dB_chart(a) = dB_array(a - 1)
+                        dB_chart(dB_step) = dB_array(a - 1)
+                        dB_step += 1
+                        dB_chart(dB_step) = dB_chart(dB_step - 1)
+                        dB_step += 1
+                    End If
                 Else                        ' 把之後沒用到的頻段補上前一個頻段的end frequency hz; 把之後沒用到的頻段補上前一個頻段的dB 
-                    If EQ_chart(EQ_step - 1) < 4000 Then        ''若在EQ band 0~14中沒有填上NB的最大頻帶 4000的話，自動補上4000hz
+                    If EQ_chart(EQ_step - 1) < 4000 Then        ''若在EQ band 0~14中沒有填上NB的最大頻帶 4000，自動補上4000hz
                         EQ_chart(EQ_step) = EQ_chart(EQ_step - 1) + 1   ' 
                         EQ_step += 1                                ' EQ_step is stepping by +1
                         EQ_chart(EQ_step) = 4000   ' 
@@ -550,17 +573,41 @@ Public Class Form1
 
         ElseIf UserControl12.CheckBox9.Checked = True Then      'WB checked
             For a = 1 To 16                 ' 將即將要被拿來畫圖的EQ_chart和 dB_Chart在之後沒用到的頻段(意即沒有值的頻段)全部補滿，follow最後一個有值的頻段, ex: 4000 or 8000...etc
+
                 If EQ_end_freq_in_Decimal(a - 1) <> 0 Then
-                    'EQ_chart(a) = EQ_end_freq_in_Decimal(a - 1) ' EQ_chart(1) follow EQ_end_freq_in_Decimal(0); 因為EQ_Chart(0)已經強制設定為1，因為Log-X axis的需求
-                    EQ_chart(EQ_step) = EQ_chart(EQ_step - 1) + 1
-                    EQ_step += 1                        ' EQ_step is stepping by +1
-                    EQ_chart(EQ_step) = EQ_end_freq_in_Decimal(a - 1)
-                    EQ_step += 1                        ' EQ_step is stepping by +1
-                    'dB_chart(a) = dB_array(a - 1)
-                    dB_chart(dB_step) = dB_array(a - 1)
-                    dB_step += 1
-                    dB_chart(dB_step) = dB_chart(dB_step - 1)
-                    dB_step += 1
+                    If EQ_end_freq_in_Decimal(a - 1) > 8000 Then    '判斷如果在Panel上填的頻帶範圍超過WB，就會把餵給Chart的array裡的頻帶最大值降成8000Hz
+                        If EQ_chart(EQ_step - 1) = 8000 Then            ' 如果前一個EQ_Chart內的頻段已經到達該頻寬的最大值，則當下頻段的start freq就繼承前一頻段的end freq
+                            EQ_chart(EQ_step) = EQ_chart(EQ_step - 1)
+                            EQ_step += 1
+                            EQ_chart(EQ_step) = EQ_chart(EQ_step - 1)
+                            EQ_step += 1
+
+                            dB_chart(dB_step) = dB_chart(dB_step - 1)   ' 如果前一個EQ_Chart內的頻段已經到達該頻寬的最大值，則當下頻段的db就繼承前一頻段的db
+                            dB_step += 1                                ' dB_step is stepping by +1
+                            dB_chart(dB_step) = dB_chart(dB_step - 1)   ' 
+                            dB_step += 1
+                        Else
+                            EQ_chart(EQ_step) = EQ_chart(EQ_step - 1) + 1   ' 把當下頻段的start frequency設定成前一段還未超過8000頻段的 end frequency加1
+                            EQ_step += 1                                ' EQ_step is stepping by +1
+                            EQ_chart(EQ_step) = 8000                        ' 把當下的end frequency設定成8000
+                            EQ_step += 1                                ' EQ_step is stepping by +1
+                            dB_chart(dB_step) = dB_array(a - 1)   ' 
+                            dB_step += 1                                ' dB_step is stepping by +1
+                            dB_chart(dB_step) = dB_chart(dB_step - 1)   ' 
+                            dB_step += 1                                ' dB_step is stepping by +1
+                        End If
+                    Else
+                        'EQ_chart(a) = EQ_end_freq_in_Decimal(a - 1) ' EQ_chart(1) follow EQ_end_freq_in_Decimal(0); 因為EQ_Chart(0)已經強制設定為1，因為Log-X axis的需求
+                        EQ_chart(EQ_step) = EQ_chart(EQ_step - 1) + 1
+                        EQ_step += 1                        ' EQ_step is stepping by +1
+                        EQ_chart(EQ_step) = EQ_end_freq_in_Decimal(a - 1)
+                        EQ_step += 1                        ' EQ_step is stepping by +1
+                        'dB_chart(a) = dB_array(a - 1)
+                        dB_chart(dB_step) = dB_array(a - 1)
+                        dB_step += 1
+                        dB_chart(dB_step) = dB_chart(dB_step - 1)
+                        dB_step += 1
+                    End If
                 Else                        ' 把之後沒用到的頻段補上前一個頻段的end frequency hz; 把之後沒用到的頻段補上前一個頻段的dB 
                     If EQ_chart(EQ_step - 1) < 8000 Then   '若在EQ band 0~14中沒有填上WB的最大頻帶 8000的話，自動補上8000hz
                         EQ_chart(EQ_step) = EQ_chart(EQ_step - 1) + 1   ' 
@@ -612,17 +659,40 @@ Public Class Form1
         ElseIf UserControl12.CheckBox10.Checked = True Then     'SWB
             For a = 1 To 16                 ' 將即將要被拿來畫圖的EQ_chart和 dB_Chart在之後沒用到的頻段(意即沒有值的頻段)全部補滿，follow最後一個有值的頻段, ex: 4000 or 8000...etc
                 If EQ_end_freq_in_Decimal(a - 1) <> 0 Then
-                    'EQ_chart(a) = EQ_end_freq_in_Decimal(a - 1) ' EQ_chart(1) follow EQ_end_freq_in_Decimal(0); 因為EQ_Chart(0)已經強制設定為1，因為Log-X axis的需求
-                    EQ_chart(EQ_step) = EQ_chart(EQ_step - 1) + 1
-                    EQ_step += 1                        ' EQ_step is stepping by +1
-                    EQ_chart(EQ_step) = EQ_end_freq_in_Decimal(a - 1)
-                    EQ_step += 1                        ' EQ_step is stepping by +1
+                    If EQ_end_freq_in_Decimal(a - 1) > 16000 Then    '判斷如果在Panel上填的頻帶範圍超過SWB，就會把餵給Chart的array裡的頻帶最大值降成16000Hz
+                        If EQ_chart(EQ_step - 1) = 16000 Then            ' 如果前一個EQ_Chart內的頻段已經到達該頻寬的最大值，則當下頻段的start freq就繼承前一頻段的end freq
+                            EQ_chart(EQ_step) = EQ_chart(EQ_step - 1)
+                            EQ_step += 1
+                            EQ_chart(EQ_step) = EQ_chart(EQ_step - 1)
+                            EQ_step += 1
 
-                    'dB_chart(a) = dB_array(a - 1)
-                    dB_chart(dB_step) = dB_array(a - 1)
-                    dB_step += 1
-                    dB_chart(dB_step) = dB_chart(dB_step - 1)
-                    dB_step += 1
+                            dB_chart(dB_step) = dB_chart(dB_step - 1)   ' 如果前一個EQ_Chart內的頻段已經到達該頻寬的最大值，則當下頻段的db就繼承前一頻段的db
+                            dB_step += 1                                ' dB_step is stepping by +1
+                            dB_chart(dB_step) = dB_chart(dB_step - 1)   ' 
+                            dB_step += 1
+                        Else
+                            EQ_chart(EQ_step) = EQ_chart(EQ_step - 1) + 1   ' 把當下頻段的start frequency設定成前一段還未超過16000頻段的 end frequency加1
+                            EQ_step += 1                                ' EQ_step is stepping by +1
+                            EQ_chart(EQ_step) = 16000                        ' 把當下的end frequency設定成16000
+                            EQ_step += 1                                ' EQ_step is stepping by +1
+                            dB_chart(dB_step) = dB_array(a - 1)   ' 
+                            dB_step += 1                                ' dB_step is stepping by +1
+                            dB_chart(dB_step) = dB_chart(dB_step - 1)   ' 
+                            dB_step += 1                                ' dB_step is stepping by +1
+                        End If
+                    Else
+                        'EQ_chart(a) = EQ_end_freq_in_Decimal(a - 1) ' EQ_chart(1) follow EQ_end_freq_in_Decimal(0); 因為EQ_Chart(0)已經強制設定為1，因為Log-X axis的需求
+                        EQ_chart(EQ_step) = EQ_chart(EQ_step - 1) + 1
+                        EQ_step += 1                        ' EQ_step is stepping by +1
+                        EQ_chart(EQ_step) = EQ_end_freq_in_Decimal(a - 1)
+                        EQ_step += 1                        ' EQ_step is stepping by +1
+
+                        'dB_chart(a) = dB_array(a - 1)
+                        dB_chart(dB_step) = dB_array(a - 1)
+                        dB_step += 1
+                        dB_chart(dB_step) = dB_chart(dB_step - 1)
+                        dB_step += 1
+                    End If
                 Else                        ' 把之後沒用到的頻段補上前一個頻段的end frequency hz; 把之後沒用到的頻段補上前一個頻段的dB 
                     If EQ_chart(EQ_step - 1) < 16000 Then
 
@@ -678,16 +748,39 @@ Public Class Form1
         ElseIf UserControl12.CheckBox11.Checked = True Then     'FB
             For a = 1 To 16                 ' 將即將要被拿來畫圖的EQ_chart和 dB_Chart在之後沒用到的頻段(意即沒有值的頻段)全部補滿，follow最後一個有值的頻段, ex: 4000 or 8000...etc
                 If EQ_end_freq_in_Decimal(a - 1) <> 0 Then
-                    'EQ_chart(a) = EQ_end_freq_in_Decimal(a - 1) ' EQ_chart(1) follow EQ_end_freq_in_Decimal(0); 因為EQ_Chart(0)已經強制設定為1，因為Log-X axis的需求
-                    EQ_chart(EQ_step) = EQ_chart(EQ_step - 1) + 1
-                    EQ_step += 1                        ' EQ_step is stepping by +1
-                    EQ_chart(EQ_step) = EQ_end_freq_in_Decimal(a - 1)
-                    EQ_step += 1                        ' EQ_step is stepping by +1
-                    'dB_chart(a) = dB_array(a - 1)
-                    dB_chart(dB_step) = dB_array(a - 1)
-                    dB_step += 1
-                    dB_chart(dB_step) = dB_chart(dB_step - 1)
-                    dB_step += 1
+                    If EQ_end_freq_in_Decimal(a - 1) > 24000 Then    '判斷如果在Panel上填的頻帶範圍超過FB，就會把餵給Chart的array裡的頻帶最大值降成24000Hz
+                        If EQ_chart(EQ_step - 1) = 24000 Then            ' 如果前一個EQ_Chart內的頻段已經到達該頻寬的最大值，則當下頻段的start freq就繼承前一頻段的end freq
+                            EQ_chart(EQ_step) = EQ_chart(EQ_step - 1)
+                            EQ_step += 1
+                            EQ_chart(EQ_step) = EQ_chart(EQ_step - 1)
+                            EQ_step += 1
+
+                            dB_chart(dB_step) = dB_chart(dB_step - 1)   ' 如果前一個EQ_Chart內的頻段已經到達該頻寬的最大值，則當下頻段的db就繼承前一頻段的db
+                            dB_step += 1                                ' dB_step is stepping by +1
+                            dB_chart(dB_step) = dB_chart(dB_step - 1)   ' 
+                            dB_step += 1
+                        Else
+                            EQ_chart(EQ_step) = EQ_chart(EQ_step - 1) + 1   ' 把當下頻段的start frequency設定成前一段還未超過24000頻段的 end frequency加1
+                            EQ_step += 1                                ' EQ_step is stepping by +1
+                            EQ_chart(EQ_step) = 24000                        ' 把當下的end frequency設定成24000
+                            EQ_step += 1                                ' EQ_step is stepping by +1
+                            dB_chart(dB_step) = dB_array(a - 1)   ' 
+                            dB_step += 1                                ' dB_step is stepping by +1
+                            dB_chart(dB_step) = dB_chart(dB_step - 1)   ' 
+                            dB_step += 1                                ' dB_step is stepping by +1
+                        End If
+                    Else
+                        'EQ_chart(a) = EQ_end_freq_in_Decimal(a - 1) ' EQ_chart(1) follow EQ_end_freq_in_Decimal(0); 因為EQ_Chart(0)已經強制設定為1，因為Log-X axis的需求
+                        EQ_chart(EQ_step) = EQ_chart(EQ_step - 1) + 1
+                        EQ_step += 1                        ' EQ_step is stepping by +1
+                        EQ_chart(EQ_step) = EQ_end_freq_in_Decimal(a - 1)
+                        EQ_step += 1                        ' EQ_step is stepping by +1
+                        'dB_chart(a) = dB_array(a - 1)
+                        dB_chart(dB_step) = dB_array(a - 1)
+                        dB_step += 1
+                        dB_chart(dB_step) = dB_chart(dB_step - 1)
+                        dB_step += 1
+                    End If
                 Else                        ' 把之後沒用到的頻段補上前一個頻段的end frequency hz; 把之後沒用到的頻段補上前一個頻段的dB 
                     If EQ_chart(EQ_step - 1) < 24000 Then
                         EQ_chart(EQ_step) = EQ_chart(EQ_step - 1) + 1   ' 
