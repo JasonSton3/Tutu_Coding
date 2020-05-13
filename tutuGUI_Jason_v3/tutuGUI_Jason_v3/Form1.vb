@@ -11,6 +11,7 @@ Public Class Form1
     Public tutu_onoff_bin As String
     Public tutu_sys00_bin_filled(15) As Integer
     Public tutu_sys01_bin_filled(15) As Integer
+    Public EQ_End_1stmax_search As Integer
     Public Sub DRC_paste()
         If Convert.ToInt32(array_from_clipboard_2D(1, 91), 16) > 60000 Then
             UserControl22.NumericUpDown1.Text = Convert.ToString(Convert.ToInt32(array_from_clipboard_2D(1, 91), 16) - 65536)    'Expander Point 0
@@ -130,7 +131,112 @@ Public Class Form1
         'tutu_sys01_bin_filled(14)    ;DAQ    
         'tutu_sys01_bin_filled(15)    ;SPKID
     End Sub
+    Public Sub check_and_correct_eq_over_bandwidth()
+        If UserControl12.CheckBox8.Checked = True Then                      'NB
+            For check_1st_max As Integer = 0 To EQ_end_freq_in_Decimal.Length - 1
+                If EQ_end_freq_in_Decimal(check_1st_max) = 4000 Then
+                    For EQ_End_1stmax_search = check_1st_max + 1 To EQ_end_freq_in_Decimal.Length - 1
+                        EQ_end_freq_in_Decimal(EQ_End_1stmax_search) = 0
+                        dB_array(EQ_End_1stmax_search) = 0
+                    Next
+                    Exit For
+                ElseIf EQ_end_freq_in_Decimal(check_1st_max) > 4000 Then
+                    EQ_end_freq_in_Decimal(check_1st_max) = 4000
+                    For EQ_End_1stmax_search = check_1st_max + 1 To EQ_end_freq_in_Decimal.Length - 1
+                        EQ_end_freq_in_Decimal(EQ_End_1stmax_search) = 0
+                        dB_array(EQ_End_1stmax_search) = 0
+                    Next
+                End If
+            Next
+            'If EQ_end_freq_in_Decimal.Max > 4000 Then                       'NB
+            '    EQ_decimal_max_match_index = Array.IndexOf(EQ_end_freq_in_Decimal, EQ_end_freq_in_Decimal.Max)
+            '    EQ_end_freq_in_Decimal(EQ_decimal_max_match_index) = 4000
+            '    For check_max_i As Integer = EQ_decimal_max_match_index + 1 To EQ_end_freq_in_Decimal.Length - 1
+            '        EQ_end_freq_in_Decimal(check_max_i) = 0
+            '    Next
+            'ElseIf EQ_end_freq_in_Decimal.Max = 4000 Then
+            '    EQ_decimal_max_match_index = Array.IndexOf(EQ_end_freq_in_Decimal, EQ_end_freq_in_Decimal.Max)
+            '    For check_max_i As Integer = EQ_decimal_max_match_index + 1 To EQ_end_freq_in_Decimal.Length - 1
+            '        EQ_end_freq_in_Decimal(check_max_i) = 0
+            '    Next
+            'End If
+        ElseIf UserControl12.CheckBox9.Checked = True Then                      'WB
+            For check_1st_max As Integer = 0 To EQ_end_freq_in_Decimal.Length - 1
+                If EQ_end_freq_in_Decimal(check_1st_max) = 8000 Then
+                    For EQ_End_1stmax_search = check_1st_max + 1 To EQ_end_freq_in_Decimal.Length - 1
+                        EQ_end_freq_in_Decimal(EQ_End_1stmax_search) = 0
+                        dB_array(EQ_End_1stmax_search) = 0
+                    Next
+                    Exit For
+                ElseIf EQ_end_freq_in_Decimal(check_1st_max) > 8000 Then
+                    EQ_end_freq_in_Decimal(check_1st_max) = 8000
+                    For EQ_End_1stmax_search = check_1st_max + 1 To EQ_end_freq_in_Decimal.Length - 1
+                        EQ_end_freq_in_Decimal(EQ_End_1stmax_search) = 0
+                        dB_array(EQ_End_1stmax_search) = 0
+                    Next
+                End If
+            Next
 
+        ElseIf UserControl12.CheckBox10.Checked = True Then                      'SWB
+            For check_1st_max As Integer = 0 To EQ_end_freq_in_Decimal.Length - 1
+                If EQ_end_freq_in_Decimal(check_1st_max) = 16000 Then
+                    For EQ_End_1stmax_search = check_1st_max + 1 To EQ_end_freq_in_Decimal.Length - 1
+                        EQ_end_freq_in_Decimal(EQ_End_1stmax_search) = 0
+                        dB_array(EQ_End_1stmax_search) = 0
+                    Next
+                    Exit For
+                ElseIf EQ_end_freq_in_Decimal(check_1st_max) > 16000 Then
+                    EQ_end_freq_in_Decimal(check_1st_max) = 16000
+                    For EQ_End_1stmax_search = check_1st_max + 1 To EQ_end_freq_in_Decimal.Length - 1
+                        EQ_end_freq_in_Decimal(EQ_End_1stmax_search) = 0
+                        dB_array(EQ_End_1stmax_search) = 0
+                    Next
+                End If
+            Next
+
+        ElseIf UserControl12.CheckBox11.Checked = True Then                      'FB
+            For check_1st_max As Integer = 0 To EQ_end_freq_in_Decimal.Length - 1
+                If EQ_end_freq_in_Decimal(check_1st_max) = 24000 Then
+                    For EQ_End_1stmax_search = check_1st_max + 1 To EQ_end_freq_in_Decimal.Length - 1
+                        EQ_end_freq_in_Decimal(EQ_End_1stmax_search) = 0
+                        dB_array(EQ_End_1stmax_search) = 0
+                    Next
+                    Exit For
+                ElseIf EQ_end_freq_in_Decimal(check_1st_max) > 24000 Then
+                    EQ_end_freq_in_Decimal(check_1st_max) = 24000
+                    For EQ_End_1stmax_search = check_1st_max + 1 To EQ_end_freq_in_Decimal.Length - 1
+                        EQ_end_freq_in_Decimal(EQ_End_1stmax_search) = 0
+                        dB_array(EQ_End_1stmax_search) = 0
+                    Next
+                End If
+            Next
+            'ElseIf UserControl12.CheckBox9.Checked = True Then
+            '    If EQ_end_freq_in_Decimal.Max > 8000 Then                       'WB
+            '        EQ_decimal_max_match_index = Array.IndexOf(EQ_end_freq_in_Decimal, EQ_end_freq_in_Decimal.Max)
+            '        EQ_end_freq_in_Decimal(EQ_decimal_max_match_index) = 8000
+            '        For check_max_i As Integer = EQ_decimal_max_match_index + 1 To EQ_end_freq_in_Decimal.Length - 1
+            '            EQ_end_freq_in_Decimal(check_max_i) = 0
+            '        Next
+            '    End If
+            'ElseIf UserControl12.CheckBox10.Checked = True Then                 'SWB
+            '    If EQ_end_freq_in_Decimal.Max > 16000 Then
+            '        EQ_decimal_max_match_index = Array.IndexOf(EQ_end_freq_in_Decimal, EQ_end_freq_in_Decimal.Max)
+            '        EQ_end_freq_in_Decimal(EQ_decimal_max_match_index) = 16000
+            '        For check_max_i As Integer = EQ_decimal_max_match_index + 1 To EQ_end_freq_in_Decimal.Length - 1
+            '            EQ_end_freq_in_Decimal(check_max_i) = 0
+            '        Next
+            '    End If
+            'ElseIf UserControl12.CheckBox11.Checked = True Then                 'FB
+            '    If EQ_end_freq_in_Decimal.Max > 24000 Then
+            '        EQ_decimal_max_match_index = Array.IndexOf(EQ_end_freq_in_Decimal, EQ_end_freq_in_Decimal.Max)
+            '        EQ_end_freq_in_Decimal(EQ_decimal_max_match_index) = 24000
+            '        For check_max_i As Integer = EQ_decimal_max_match_index + 1 To EQ_end_freq_in_Decimal.Length - 1
+            '            EQ_end_freq_in_Decimal(check_max_i) = 0
+            '        Next
+            '    End If
+            'End If
+        End If
+    End Sub
     Public Sub debug_into_form1()
         Dim debug_form1 As Integer
         debug_form1 = 0
@@ -1597,5 +1703,3 @@ Public Class Form1
 
 
 End Class
-
-

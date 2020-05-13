@@ -403,6 +403,11 @@
         Dim end_add As Integer = 8000
         Dim debug_1(3) As Integer
         Dim input_value_as_array(2) As Integer
+        '---------------------------check if all EQ Bands are fully filled or not
+        If Label35.Text <> 0 Then
+            MessageBox.Show("All EQ bands are full, please delete one of them!")
+            Exit Sub
+        End If
         '---------------------------check if one of input-start or input-end is empty or not
         If TextBox1.Text = "" Then
             MessageBox.Show("Please enter your value completely!")
@@ -1801,7 +1806,14 @@
             CheckBox11.Checked = False
             CheckBox12.Checked = False
         End If
+        Form1.check_and_correct_eq_over_bandwidth()
+
+        Start_EQ_Refresh_By_Last_End_EQ()
+        Form1.EQ_end_label_refresh()
+        Form1.EQ_start_label_refresh()
+        Form1.dB_label_refresh()
         Form1.Button3.PerformClick()
+
 
 
     End Sub
@@ -1813,6 +1825,12 @@
             CheckBox11.Checked = False
             CheckBox12.Checked = False
         End If
+        Form1.check_and_correct_eq_over_bandwidth()
+
+        Start_EQ_Refresh_By_Last_End_EQ()
+        Form1.EQ_end_label_refresh()
+        Form1.EQ_start_label_refresh()
+        Form1.dB_label_refresh()
         Form1.Button3.PerformClick()
     End Sub
 
@@ -1824,6 +1842,12 @@
             CheckBox11.Checked = False
             CheckBox12.Checked = False
         End If
+        Form1.check_and_correct_eq_over_bandwidth()
+
+        Start_EQ_Refresh_By_Last_End_EQ()
+        Form1.EQ_end_label_refresh()
+        Form1.EQ_start_label_refresh()
+        Form1.dB_label_refresh()
         Form1.Button3.PerformClick()
 
     End Sub
@@ -1836,6 +1860,12 @@
             CheckBox10.Checked = False
             CheckBox12.Checked = False
         End If
+        Form1.check_and_correct_eq_over_bandwidth()
+
+        Start_EQ_Refresh_By_Last_End_EQ()
+        Form1.EQ_end_label_refresh()
+        Form1.EQ_start_label_refresh()
+        Form1.dB_label_refresh()
         Form1.Button3.PerformClick()
     End Sub
 
@@ -1879,5 +1909,12 @@
 
     Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
 
+    End Sub
+
+    Private Sub TextBox2_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox2.KeyPress
+        If e.KeyChar = Microsoft.VisualBasic.ChrW(Keys.Return) Then
+            Button1.PerformClick()
+
+        End If
     End Sub
 End Class
