@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="tutuGUI_v1.exe" size="313312">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="tutuGUI_v1.exe" size="311264">
       <assemblyIdentity name="tutuGUI_v1" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>LRRYdRZFm1cUHy1bgBDGO8zxMnv7cnGDM61kuupxhgA=</dsig:DigestValue>
+        <dsig:DigestValue>i5/OeSsoX+8BYNF2EI7vgTepnhBIqwlHOo8TceDScOo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

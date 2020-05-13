@@ -240,8 +240,9 @@ Public Class Form1
         '---------------------------------------開始確認參數是否為對應的頻寬
         If EQ_end_freq_in_Decimal.Max <= 4000 Then
             UserControl12.CheckBox8.Checked = True
-            'UserControl12.Chart1.BackImage = ""
-            UserControl12.Chart1.BackImage = "D:\Works\Codings\SWB_FB_right_grid_with_no_data_plus_major_grid_no_x_db_lable_no_transparent.bmp"
+            'UserControl12.Chart1.BackImage = ""       
+            '------------註解掉下方的load back image，是因為避免在不同使用者的電腦上執行時因為沒有在相同的位置有相同的圖片檔案，而導致執行後 錯誤
+            'UserControl12.Chart1.BackImage = "D:\Works\Codings\SWB_FB_right_grid_with_no_data_plus_major_grid_no_x_db_lable_no_transparent.bmp"
             UserControl12.Chart1.ChartAreas(0).AxisX.Maximum = 25000 ' 設定Axis-X 的最大值
             SWB_FB_label_backimage_load()
             Exit Sub
@@ -249,7 +250,7 @@ Public Class Form1
         ElseIf EQ_end_freq_in_Decimal.Max <= 8000 Then
             UserControl12.CheckBox9.Checked = True
             'UserControl12.Chart1.BackImage = ""
-            UserControl12.Chart1.BackImage = "D:\Works\Codings\SWB_FB_right_grid_with_no_data_plus_major_grid_no_x_db_lable_no_transparent.bmp"
+            'UserControl12.Chart1.BackImage = "D:\Works\Codings\SWB_FB_right_grid_with_no_data_plus_major_grid_no_x_db_lable_no_transparent.bmp"
             UserControl12.Chart1.ChartAreas(0).AxisX.Maximum = 25000 ' 設定Axis-X 的最大值
             SWB_FB_label_backimage_load()
             Exit Sub
@@ -257,7 +258,7 @@ Public Class Form1
         ElseIf EQ_end_freq_in_Decimal.Max <= 16000 Then
             UserControl12.CheckBox10.Checked = True
             'UserControl12.Chart1.BackImage = ""
-            UserControl12.Chart1.BackImage = "D:\Works\Codings\SWB_FB_right_grid_with_no_data_plus_major_grid_no_x_db_lable_no_transparent.bmp"
+            'UserControl12.Chart1.BackImage = "D:\Works\Codings\SWB_FB_right_grid_with_no_data_plus_major_grid_no_x_db_lable_no_transparent.bmp"
             UserControl12.Chart1.ChartAreas(0).AxisX.Maximum = 25000 ' 設定Axis-X 的最大值
             SWB_FB_label_backimage_load()
             Exit Sub
@@ -265,7 +266,7 @@ Public Class Form1
         ElseIf EQ_end_freq_in_Decimal.Max <= 24000 Then
             UserControl12.CheckBox11.Checked = True
             'UserControl12.Chart1.BackImage = ""
-            UserControl12.Chart1.BackImage = "D:\Works\Codings\SWB_FB_right_grid_with_no_data_plus_major_grid_no_x_db_lable_no_transparent.bmp"
+            'UserControl12.Chart1.BackImage = "D:\Works\Codings\SWB_FB_right_grid_with_no_data_plus_major_grid_no_x_db_lable_no_transparent.bmp"
             UserControl12.Chart1.ChartAreas(0).AxisX.Maximum = 25000 ' 設定Axis-X 的最大值
             SWB_FB_label_backimage_load()
             Exit Sub
@@ -286,7 +287,8 @@ Public Class Form1
         '---------------------------------------開始確認參數是否為對應的頻寬
         If UserControl12.CheckBox8.Checked = True Then              'NB
             'UserControl12.Chart1.BackImage = ""
-            UserControl12.Chart1.BackImage = "D:\Works\Codings\SWB_FB_right_grid_with_no_data_plus_major_grid_no_x_db_lable_no_transparent.bmp"
+            '-----------------註解掉下方的load back image，是因為避免在不同使用者的電腦上執行時因為沒有在相同的位置有相同的圖片檔案，而導致執行後 錯誤
+            'UserControl12.Chart1.BackImage = "D:\Works\Codings\SWB_FB_right_grid_with_no_data_plus_major_grid_no_x_db_lable_no_transparent.bmp"
             UserControl12.Chart1.ChartAreas(0).AxisX.Maximum = 25000 ' 設定Axis-X 的最大值
             SWB_FB_label_backimage_load()
 
@@ -296,24 +298,24 @@ Public Class Form1
         ElseIf UserControl12.CheckBox9.Checked = True Then      'WB
             UserControl12.Chart1.BackImage = ""
             'UserControl12.Chart1.BackImage = "D:\Works\Codings\xAxis_9k_V6_confirmed_1k_v3.bmp"
-            UserControl12.Chart1.BackImage = "D:\Works\Codings\SWB_FB_right_grid_with_no_data_plus_major_grid_no_x_db_lable_no_transparent.bmp"
+            'UserControl12.Chart1.BackImage = "D:\Works\Codings\SWB_FB_right_grid_with_no_data_plus_major_grid_no_x_db_lable_no_transparent.bmp"
             UserControl12.Chart1.ChartAreas(0).AxisX.Maximum = 25000 ' 設定Axis-X 的最大值
             SWB_FB_label_backimage_load()
 
         ElseIf UserControl12.CheckBox10.Checked = True Then     'SWB
             'UserControl12.Chart1.BackImage = ""
-            UserControl12.Chart1.BackImage = "D:\Works\Codings\SWB_FB_right_grid_with_no_data_plus_major_grid_no_x_db_lable_no_transparent.bmp"
+            'UserControl12.Chart1.BackImage = "D:\Works\Codings\SWB_FB_right_grid_with_no_data_plus_major_grid_no_x_db_lable_no_transparent.bmp"
             UserControl12.Chart1.ChartAreas(0).AxisX.Maximum = 25000 ' 設定Axis-X 的最大值
             SWB_FB_label_backimage_load()
 
         ElseIf UserControl12.CheckBox11.Checked = True Then     'FB
             'UserControl12.Chart1.BackImage = ""
-            UserControl12.Chart1.BackImage = "D:\Works\Codings\SWB_FB_right_grid_with_no_data_plus_major_grid_no_x_db_lable_no_transparent.bmp"
+            'UserControl12.Chart1.BackImage = "D:\Works\Codings\SWB_FB_right_grid_with_no_data_plus_major_grid_no_x_db_lable_no_transparent.bmp"
             UserControl12.Chart1.ChartAreas(0).AxisX.Maximum = 25000 ' 設定Axis-X 的最大值
             SWB_FB_label_backimage_load()
         Else
             UserControl12.CheckBox12.Checked = True             'Others
-            UserControl12.Chart1.BackImage = "D:\Works\Codings\SWB_FB_right_grid_with_no_data_plus_major_grid_no_x_db_lable_no_transparent.bmp"
+            'UserControl12.Chart1.BackImage = "D:\Works\Codings\SWB_FB_right_grid_with_no_data_plus_major_grid_no_x_db_lable_no_transparent.bmp"
             UserControl12.Chart1.ChartAreas(0).AxisX.Maximum = 25000 ' 設定Axis-X 的最大值
             SWB_FB_label_backimage_load()
         End If
@@ -386,7 +388,7 @@ Public Class Form1
         '----------以下是plot chart codes
         Dim newSeries = New DataVisualization.Charting.Series()
         UserControl12.Chart1.Titles.Clear()
-        UserControl12.Chart1.Titles.Add("Tutu Equalizer Line")
+        'UserControl12.Chart1.Titles.Add("Tutu Equalizer Line")
 
         'UserControl12.Chart1.ChartAreas(0).AxisY.Title = "Hz"
         'UserControl12.Chart1.ChartAreas(0).AxisX.MajorGrid.LineColor = Color.Black
@@ -405,6 +407,15 @@ Public Class Form1
         'Set Chart Properties
         UserControl12.Chart1.ChartAreas(0).AxisX.IsLogarithmic = True
         UserControl12.Chart1.ChartAreas(0).AxisX.LogarithmBase = 10
+        UserControl12.Chart1.ChartAreas(0).AxisX.IntervalOffset = 0
+        UserControl12.Chart1.ChartAreas(0).AxisX.MajorGrid.Interval = 1    '可以在x軸上的100, 1000, 10000 劃出major grid; 因為現在X軸被宣告成Logaithmic軸，所以這邊的1格表示"每取完log對數後的值為1"來做間距
+        UserControl12.Chart1.ChartAreas(0).AxisX.MajorGrid.LineWidth = 2
+        UserControl12.Chart1.ChartAreas(0).AxisX.MajorGrid.Enabled = True
+        UserControl12.Chart1.ChartAreas(0).AxisX.MajorGrid.LineColor = Color.LightGray
+        UserControl12.Chart1.ChartAreas(0).AxisX.MinorGrid.Interval = 1 '目前還不確定這邊的1實質上的意義是什麼，可以確定的是設定成1畫出來的圖是我們想要的
+        UserControl12.Chart1.ChartAreas(0).AxisX.MinorGrid.Enabled = True
+        UserControl12.Chart1.ChartAreas(0).AxisX.MinorGrid.LineColor = Color.Gainsboro
+        UserControl12.Chart1.ChartAreas(0).AxisX.Minimum = 100
         'UserControl12.Chart1.ChartAreas(0).AxisX.MajorGrid.Interval = 1000
         'UserControl12.Chart1.ChartAreas(0).AxisX.MajorGrid.LineColor = Color.Red
 
@@ -414,8 +425,16 @@ Public Class Form1
         '---------------------------------- Setting Axis-X range and Axis-Y range
         UserControl12.Chart1.ChartAreas(0).AxisY.Minimum = -15
         UserControl12.Chart1.ChartAreas(0).AxisY.Maximum = 15
+        UserControl12.Chart1.ChartAreas(0).AxisY.IntervalOffset = 0
+        UserControl12.Chart1.ChartAreas(0).AxisY.Interval = 3               '多少格標一次label
+        UserControl12.Chart1.ChartAreas(0).AxisY.MajorGrid.Interval = 3     '多少格畫一次 Major Grid
+        UserControl12.Chart1.ChartAreas(0).AxisY.MajorGrid.Enabled = True
+        UserControl12.Chart1.ChartAreas(0).AxisY.MajorGrid.LineColor = Color.LightGray
+        UserControl12.Chart1.ChartAreas(0).AxisY.MajorGrid.LineWidth = 2
+        UserControl12.Chart1.ChartAreas(0).AxisY.MinorGrid.Interval = 1     '多少格畫一次 Minor Grid
+        UserControl12.Chart1.ChartAreas(0).AxisY.MinorGrid.Enabled = True
+        UserControl12.Chart1.ChartAreas(0).AxisY.MinorGrid.LineColor = Color.Gainsboro
 
-        UserControl12.Chart1.ChartAreas(0).AxisX.Minimum = 100
         'UserControl12.Chart1.ChartAreas(0).AxisX.Maximum = 8000     '已經在paste裡的bandwidth_refresh_sub中確認好了
 
 

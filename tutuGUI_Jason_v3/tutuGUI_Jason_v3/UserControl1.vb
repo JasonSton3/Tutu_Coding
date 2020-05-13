@@ -260,13 +260,7 @@
             Label68.Show() '(Hz)
             '----------------------Chart 的 y 座標labels
             Label69.Show()
-            Label70.Show()
-            Label71.Show()
-            Label72.Show()
-            Label73.Show()
-            Label74.Show()
-            Label75.Show()
-            Label76.Show()
+
         Else
             Panel4.Enabled = False      'disable
             Chart1.Visible = False
@@ -290,14 +284,8 @@
             Label68.Hide() '(Hz)
             '----------------------Chart 的 y 座標labels
             Label69.Hide()
-            Label70.Hide()
-            Label71.Hide()
-            Label72.Hide()
-            Label73.Hide()
-            Label74.Hide()
-            Label75.Hide()
-            Label76.Hide()
         End If
+
     End Sub
 
     Private Sub CheckBox2_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox2.CheckedChanged
@@ -1865,7 +1853,7 @@
 
     End Sub
 
-    Private Sub Label76_Click(sender As Object, e As EventArgs) Handles Label76.Click
+    Private Sub Label76_Click(sender As Object, e As EventArgs)
 
     End Sub
 
