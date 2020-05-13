@@ -150,7 +150,6 @@ Partial Class UserControl1
         Me.Label59 = New System.Windows.Forms.Label()
         Me.Label53 = New System.Windows.Forms.Label()
         Me.Panel5 = New System.Windows.Forms.Panel()
-        Me.Label71 = New System.Windows.Forms.Label()
         Me.Button34 = New System.Windows.Forms.Button()
         Me.Button35 = New System.Windows.Forms.Button()
         Me.Button36 = New System.Windows.Forms.Button()
@@ -182,7 +181,6 @@ Partial Class UserControl1
         Me.Panel4 = New System.Windows.Forms.Panel()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
-        Me.Panel5.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel4.SuspendLayout()
         Me.SuspendLayout()
@@ -1566,22 +1564,10 @@ Partial Class UserControl1
         'Panel5
         '
         Me.Panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel5.Controls.Add(Me.Label71)
         Me.Panel5.Location = New System.Drawing.Point(362, 13)
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(815, 591)
         Me.Panel5.TabIndex = 157
-        '
-        'Label71
-        '
-        Me.Label71.AutoSize = True
-        Me.Label71.BackColor = System.Drawing.Color.White
-        Me.Label71.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label71.Location = New System.Drawing.Point(49, 56)
-        Me.Label71.Name = "Label71"
-        Me.Label71.Size = New System.Drawing.Size(29, 19)
-        Me.Label71.TabIndex = 136
-        Me.Label71.Text = " 15"
         '
         'Button34
         '
@@ -2038,8 +2024,6 @@ Partial Class UserControl1
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        Me.Panel5.ResumeLayout(False)
-        Me.Panel5.PerformLayout()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
         Me.Panel4.ResumeLayout(False)
@@ -2183,7 +2167,6 @@ Partial Class UserControl1
     Friend WithEvents Label53 As Label
     Friend WithEvents Label68 As Label
     Friend WithEvents Label69 As Label
-    Friend WithEvents Label71 As Label
     Friend WithEvents Label90 As Label
     Friend WithEvents Label89 As Label
     Friend WithEvents Label88 As Label
