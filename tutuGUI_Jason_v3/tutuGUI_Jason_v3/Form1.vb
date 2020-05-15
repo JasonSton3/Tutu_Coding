@@ -969,6 +969,7 @@ Public Class Form1
         Dim array_splitvbCrLf_from_clipboard() As String
         Dim array_splitvbCrLf_from_clipboard_moved(208) As String
         Dim array_splitvbTab_from_clipboard_moved() As String
+        Dim check_CR_LF_counter As Integer = 0
         'Dim array_from_clipboard_2D(1, 208) As String
         'Dim quotearray_2D(1, 208) As String
 
@@ -1016,13 +1017,13 @@ Public Class Form1
 
         '-----------------------If string from clipboard is Tutu parameter or not
         If Clipboard.ContainsText Then
-            If array_in_clipboard.Length < 48 Then
+            If array_in_clipboard.Length < 8000 Then    'copy from skype:8076;   copy from tutu module:8275
                 MessageBox.Show("Not Tutu Parameter From Clipboard!  Please Copy Again!")
                 Exit Sub
 
-            ElseIf array_in_clipboard.Chars(33) & array_in_clipboard.Chars(34) & array_in_clipboard.Chars(35) & array_in_clipboard.Chars(36) <> "TUTU" Then
-                MessageBox.Show("Not Tutu Parameter From Clipboard!  Please Copy Again!")
-                Exit Sub
+                'ElseIf array_in_clipboard.Chars(33) & array_in_clipboard.Chars(34) & array_in_clipboard.Chars(35) & array_in_clipboard.Chars(36) <> "TUTU" Then
+                'MessageBox.Show("Not Tutu Parameter From Clipboard!  Please Copy Again!")
+                'Exit Sub
 
             End If
         Else
@@ -1037,19 +1038,41 @@ Public Class Form1
 
         array_splitvbCrLf_from_clipboard = array_in_clipboard.Split(ControlChars.CrLf.ToCharArray)
         array_splitvbCrLf_from_clipboard_moved(0) = array_splitvbCrLf_from_clipboard(0)
+        '-----------------------如果是從tutu module和 Jason's excel tool Copy下來，就會需要執行下面區塊(因為字串中有vbCR和 vbLF，會導致splt CrLF後每行tutu參數之間會有空一行)
+        If array_splitvbCrLf_from_clipboard(1) = "" Then
+            For quotearray_j = 0 To 416
+                If array_splitvbCrLf_from_clipboard(quotearray_j) = "" Then
+                    array_splitvbCrLf_from_clipboard_moved(counter) = array_splitvbCrLf_from_clipboard(quotearray_j + 1)
+                    counter += 1
+                End If
+            Next
+        Else
+            array_splitvbCrLf_from_clipboard_moved = array_splitvbCrLf_from_clipboard
+        End If
 
-        For quotearray_j = 0 To 416
 
-            If array_splitvbCrLf_from_clipboard(quotearray_j) = "" Then
-                array_splitvbCrLf_from_clipboard_moved(counter) = array_splitvbCrLf_from_clipboard(quotearray_j + 1)
-                counter += 1
-            End If
+        'For quotearray_j = 0 To 416
 
-            'If quotearray_j = 416 Then   利用某個counter的值來設定中斷點，讓debug可以指定在第幾個迴圈時再進入中斷點
-            'counter = counter
-            'End If
+        '    If array_splitvbCrLf_from_clipboard(quotearray_j) = "" Then
+        '        array_splitvbCrLf_from_clipboard_moved(counter) = array_splitvbCrLf_from_clipboard(quotearray_j + 1)
+        '        counter += 1
+        '    Else
+        '        check_CR_LF_counter = 1     '如果是從word or txt, or skype上面copy參數下來，只會有vbLF，在split CrLF後就不會有斷行，所以不是用本區塊code來做，並且用一個特製的counter + 1，讓下面的code來引用這counter。
+        '        Exit For
+        '    End If
 
-        Next
+        '    'If quotearray_j = 416 Then   利用某個counter的值來設定中斷點，讓debug可以指定在第幾個迴圈時再進入中斷點
+        '    'counter = counter
+        '    'End If
+
+        'Next
+
+        '-----------------------如果是從word or txt, or skype上面copy參數下來，還沒有move前的array_splitvbCrLf_from_clipboard就可以拿來用了
+        'If check_CR_LF_counter = 1 Then
+        '    array_splitvbCrLf_from_clipboard_moved = array_splitvbCrLf_from_clipboard
+        'End If
+
+
 
 
         '------------------------------ 以下是建立出tutu 參數 2D Array ;array_from_clipboard_2D

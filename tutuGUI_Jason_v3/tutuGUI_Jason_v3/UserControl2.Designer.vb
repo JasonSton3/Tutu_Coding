@@ -568,6 +568,7 @@ Partial Class UserControl2
 		Me.NumericUpDown12.DecimalPlaces = 4
 		Me.NumericUpDown12.Location = New System.Drawing.Point(200, 409)
 		Me.NumericUpDown12.Maximum = New Decimal(New Integer() {320004, 0, 0, 262144})
+		Me.NumericUpDown12.Minimum = New Decimal(New Integer() {320004, 0, 0, -2147221504})
 		Me.NumericUpDown12.Name = "NumericUpDown12"
 		Me.NumericUpDown12.Size = New System.Drawing.Size(76, 27)
 		Me.NumericUpDown12.TabIndex = 67
