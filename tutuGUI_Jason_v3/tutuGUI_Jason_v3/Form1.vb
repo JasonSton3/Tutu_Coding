@@ -1017,7 +1017,7 @@ Public Class Form1
 
         '-----------------------If string from clipboard is Tutu parameter or not
         If Clipboard.ContainsText Then
-            If array_in_clipboard.Length < 8000 Then    'copy from skype:8076;   copy from tutu module:8275
+            If array_in_clipboard.Length < 8000 Or array_in_clipboard.Length > 8400 Then    'copy from skype:8076;   copy from tutu module:8275
                 MessageBox.Show("Not Tutu Parameter From Clipboard!  Please Copy Again!")
                 Exit Sub
 
