@@ -1,0 +1,2 @@
+1. Double click setup.exe
+2. Go to start menu, and find "tutuGUI_v1", then press it to execute application.

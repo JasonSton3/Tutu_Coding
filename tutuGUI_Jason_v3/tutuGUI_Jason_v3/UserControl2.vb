@@ -745,5 +745,7 @@
         End If
     End Sub
 
-
+    Private Sub NumericUpDown3_click(sender As Object, e As EventArgs) Handles NumericUpDown3.Click
+        DRC_Plot()
+    End Sub
 End Class
