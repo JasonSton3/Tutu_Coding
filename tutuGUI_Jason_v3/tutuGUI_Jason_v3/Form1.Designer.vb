@@ -35,11 +35,11 @@ Partial Class Form1
 		Me.Panel2 = New System.Windows.Forms.Panel()
 		Me.Button7 = New System.Windows.Forms.Button()
 		Me.Button8 = New System.Windows.Forms.Button()
+		Me.Panel3 = New System.Windows.Forms.Panel()
+		Me.Label2 = New System.Windows.Forms.Label()
 		Me.UserControl31 = New tutuGUI_Jason_v3.UserControl3()
 		Me.UserControl22 = New tutuGUI_Jason_v3.UserControl2()
 		Me.UserControl12 = New tutuGUI_Jason_v3.UserControl1()
-		Me.Panel3 = New System.Windows.Forms.Panel()
-		Me.Label2 = New System.Windows.Forms.Label()
 		Me.Panel1.SuspendLayout()
 		Me.SuspendLayout()
 		'
@@ -158,6 +158,23 @@ Partial Class Form1
 		Me.Button8.Text = "Developer"
 		Me.Button8.UseVisualStyleBackColor = True
 		'
+		'Panel3
+		'
+		Me.Panel3.Location = New System.Drawing.Point(972, 17)
+		Me.Panel3.Name = "Panel3"
+		Me.Panel3.Size = New System.Drawing.Size(112, 30)
+		Me.Panel3.TabIndex = 26
+		'
+		'Label2
+		'
+		Me.Label2.AutoSize = True
+		Me.Label2.Font = New System.Drawing.Font("Calibri", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.Label2.Location = New System.Drawing.Point(1233, 762)
+		Me.Label2.Name = "Label2"
+		Me.Label2.Size = New System.Drawing.Size(197, 15)
+		Me.Label2.TabIndex = 27
+		Me.Label2.Text = "Tutu Spectimbre Version Aplha_1.40"
+		'
 		'UserControl31
 		'
 		Me.UserControl31.Location = New System.Drawing.Point(52, 91)
@@ -181,23 +198,6 @@ Partial Class Form1
 		Me.UserControl12.Name = "UserControl12"
 		Me.UserControl12.Size = New System.Drawing.Size(1385, 683)
 		Me.UserControl12.TabIndex = 16
-		'
-		'Panel3
-		'
-		Me.Panel3.Location = New System.Drawing.Point(972, 17)
-		Me.Panel3.Name = "Panel3"
-		Me.Panel3.Size = New System.Drawing.Size(112, 30)
-		Me.Panel3.TabIndex = 26
-		'
-		'Label2
-		'
-		Me.Label2.AutoSize = True
-		Me.Label2.Font = New System.Drawing.Font("Calibri", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label2.Location = New System.Drawing.Point(1233, 762)
-		Me.Label2.Name = "Label2"
-		Me.Label2.Size = New System.Drawing.Size(197, 15)
-		Me.Label2.TabIndex = 27
-		Me.Label2.Text = "Tutu Spectimbre Version Aplha_1.00"
 		'
 		'Form1
 		'

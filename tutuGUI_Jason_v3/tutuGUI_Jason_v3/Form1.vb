@@ -511,6 +511,7 @@ Public Class Form1
         'UserControl12.Chart1.Series("plot1").ChartType = DataVisualization.Charting.SeriesChartType.Line
 
         'Set Chart Properties
+        '---------------------------------- Setting Axis-X range
         UserControl12.Chart1.ChartAreas(0).AxisX.IsLogarithmic = True
         UserControl12.Chart1.ChartAreas(0).AxisX.LogarithmBase = 10
         UserControl12.Chart1.ChartAreas(0).AxisX.IntervalOffset = 0
@@ -528,7 +529,7 @@ Public Class Form1
         'UserControl12.Chart1.ChartAreas(0).AxisX.Interval = 10     'Tune this value to change X-minor-grid resolution
         'UserControl12.Chart1.ChartAreas(0).AxisX2.Interval = 1     'Tune this value to change X-minor-grid resolution
 
-        '---------------------------------- Setting Axis-X range and Axis-Y range
+        '---------------------------------- Setting Axis-Y range
         UserControl12.Chart1.ChartAreas(0).AxisY.Minimum = -15
         UserControl12.Chart1.ChartAreas(0).AxisY.Maximum = 15
         UserControl12.Chart1.ChartAreas(0).AxisY.IntervalOffset = 0
