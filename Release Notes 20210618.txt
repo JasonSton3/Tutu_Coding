@@ -1,0 +1,123 @@
+Tutu Spectimbre Version 1.1:
+1. Fix Mute function
+	The last version hasn't really referred mute checkbox to adjust output-parameter DRC 14-> 0x0000.
+
+2. Fix knee points numbers:
+	The last version hasn't really referred knee points numbers indicator to correct output knee points value in Tutu DRC parameter section.
+
+3. HPF check
+	This version fixes HPF-check parameter and works correctly.
+
+Tutu Spectimbre Version 1.2:
+1. fix Tab-Order when you press Tab-Key in EQ-add-start-freq-textbox, and it will bring you into  EQ-add-end-freq-textbox correctly.
+
+Tutu Spectimbre Version 1.3:
+Change application window's ICON to tutu-ICON.
+
+Tutu Spectimbre Version 1.4:
+1. add developer mode.
+2. correct app title with "tutuGUI v1.4" in windows-application-menu and windows-desktop. 
+
+Tutu Spectimbre Version 1.4(C):
+1. Transfer to customer version, something disable and hide
+
+
+Tutu Spectimbre Version 1.5(C):
+1. Disable tabpages and Tutu On/Off section before paste parameter
+
+Tutu Spectimbre Version 1.6(C):
+1. Clone an output array, and insert '\r' before each '\n' for QACT-Paste usage
+
+Tutu Spectimbre Version 1.7(C):
+1. Fix 違規存取 issue after globalfree(hg) in the very end of Copy click. please go checking "D:\Works\Codings\Tutu_Coding_C_PlusPlus\tutuGUICPlusJason _have_new_tabpages\20200616_180825.mp4" for details
+2. fix EQ chart and DRC chart X,Y labels
+
+Tutu Spectimbre Version 1.8(C):
+1. Disallow user to fill dB value by keyboard-typing in EQ panel
+2. Close mouse-wheel-control to adjust dB value in EQ panel
+
+Tutu Spectimbre Version 1.9(C):
+1. Allow user to fill dB value by keyboard-typing in EQ panel
+2. Allow user to fill dB value by keyboard-typing in DRC panel
+3. Close mouse-wheel-control to adjust dB value in DRC panel
+4. Disallow user to fill dB value before adding freq-band in EQ panel
+5. Fix DRC plot program (expander-points and knee-points were not crossing each other)
+
+Tutu Spectimbre Version 1.10(C):
+1. Add "Save" button under Copy/Save switch section which stands for "Save As TXT File"
+
+Tutu Spectimbre Version 1.11(C):
+1. refine Copy/Paste/Load/Save button position and give some ICONs on the buttons.
+
+Tutu Spectimbre Version 1.12(C):
+1. fix entry point at project-property pages->Linker->Advanced->Entry Point, set it as "main", and go fixing the word from "Main" to main in MyForm.cpp. 
+   Allow non-C++-installed computer/user to use this app normally.
+2. change paste-icon icon and copy-icon for more natural feeling
+
+Tutu Spectimbre Version 1.13(C):
+1. Add scrollbar to let user to scroll-view the app.
+
+Tutu Spectimbre Version 1.13(R):
+1. Based on 1.13(C), add NS section for tutu_rd_mode.
+
+Tutu Spectimbre Version 1.14(R):
+1. Based on 1.13(R), fix last output character from \n to \0, to make sure no more extra "enter: means jump to next line" at the end of output data. 
+
+Tutu Spectimbre Version 1.15(R):
+1. Add SYS parameter and fix SYS&AEC page
+2. fix EQ input textbox orders for start_textBox and end_textBox, now you can press tab key from start_textBox to end_textBox. 
+
+Tutu Spectimbre Version 1.16(C):
+1. Fix issue :EQ 1st band's dB can't set value under 0
+2. Disallow user to set value in EQ[17]  
+
+Tutu Spectimbre Version 1.16(R):
+1. Same as 1.16 (C) version
+
+Tutu Spectimbre Version 1.17(C):
+1. Add AVB pages
+2. paste/load function worls correctly with parameter eq[17]
+3. The last EQ band will automatically filled with highest frequency-value which refer to selected index from Bandwidth listBox while the second-last-EQBand has value but not filled with the highest frequency value.
+4. Suggestion: Please do not fill value to latest EQ band in EQ page and AVB page
+
+Tutu Spectimbre Version 1.18(R/C):
+1. Add auto detection of "TUTU_PARAM_ENABLE.Reserved	0x0001" and save/paste by using source-format.
+(meaning that if source has "TUTU_PARAM_ENABLE.Reserved	0x0001", then output will have "TUTU_PARAM_ENABLE.Reserved	0x0001"); vice versa.
+
+Tutu Spectimbre Version 2.0(R/C):
+1. Support no-reserve-param/reserve-param/no-seq-skprid/has-seq/has-seq-spkrid matrix type of tutu parameters by one-stop solution
+
+Tutu Spectimbre Version 2.1(R/C):
+1. Fix mic2/3 parameter bugs
+
+Tutu Spectimbre Version 2.1.1(R/C):
+1. based on v2.1 backup and solved "last dB band can't shows correctly on plot, last dB control can't change the plot correctly"
+
+changed function, and neet to add into v2.2 later:
+check_and_correct_EQ_over_bandwidth
+AVB_check_and_correct_EQ_over_bandwidth
+EQ_dB_chart_generate
+AVB_EQ_dB_chart_generate
+
+Tutu Spectimbre Version 2.2 programming status 20210423:
+"skipped to v3.0"
+
+
+Tutu Spectimbre Version v3.0(R/C) 20210504:
+1. Add all parameter-calibration pages
+2. Add all differencing parameter function for one-paste-usage; that means if you wan't to do another parameter pasting next time, please restart the application to avoid problems of differencing function(updating).
+3. Thinkging about add each differencing call function in each textbox; to avoid differencing problems after second-paste action; and also, for further usage, such as left-paste button enabling.
+
+Tutu Spectimbre Version v3.1(R/C) 20210508:
+1. Re-pasting behavior without any wrong differencing-effects in textBoxes.
+2. Has bugs: SEQ avb_tutu page has no function....confirmed 2021/6/9
+
+
+///////////////////Please skip version after 2.1 to 3.1/////////////////////////////////
+
+Tutu Spectimbre Version v2.2(R/C) 20210618:
+(using tutuGUICPlusJason _have_new_tabpages - V2.1_backup - 複製 (2))
+1. Fix "last dB value can't show correctly" issue after one-clicking paste button
+* known-issue:
+	(a) last dB value changed cannot respond to frequency plot correctly; the value is right but just connection issue between plot and dB[15] value.
+
